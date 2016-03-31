@@ -9,7 +9,6 @@ $userTable = "CREATE TABLE users(
   last_name VARCHAR(40) NOT NULL,
   email VARCHAR(40) NOT NULL,
   user_pass VARCHAR(40) NOT NULL,
-  user_id SMALLINT NOT NULL,
   PRIMARY KEY(id)
 );";
 
@@ -21,16 +20,11 @@ $itemsTable = "CREATE TABLE items (
   category SMALLINT NOT NULL,
   description TEXT NOT NULL,
   image VARCHAR(255),
-  user_id SMALLINT(5) UNSIGNED NOT NULL,
-  PRIMARY KEY(id)        
+  user_id INT(5) UNSIGNED NOT NULL,
+  PRIMARY KEY(id),
+  FOREIGN KEY (user_id) REFERENCES users(id)
 );";
 
-$foreignKey = ("ALTER TABLE items
-ADD CONSTRAINT FK_items
-FOREIGN KEY (user_id) REFERENCES users(id)
-ON UPDATE CASCADE
-ON DELETE CASCADE
-);";
 
 ?>
 
