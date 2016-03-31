@@ -10,6 +10,8 @@
         <title>Skatelister</title>
     </head>
     <body>
+        <?php require_once __DIR__ .'/../views/partials/navbar.php'; ?>
+        <?php require_once __DIR__ . '/../views/partials/footer.php'; ?>
         <script src="/js/jquery-1.12.0.js"></script>
         <script src="/js/main.js"></script>
     </body>
