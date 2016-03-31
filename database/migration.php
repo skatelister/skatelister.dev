@@ -1,16 +1,16 @@
 <?php
-require_once __DIR__ . '/skateConfig.php';
-require_once __DIR__ . '/db_connect.php';
-
+require_once __DIR__ . '/../skateConfig.php';
+require_once 'db_connect.php';
 
 $userTable = "CREATE TABLE users(
   id INT UNSIGNED NOT NULL AUTO_INCREMENT,
   first_name  VARCHAR(40) NOT NULL ,
   last_name VARCHAR(40) NOT NULL,
-  email VARCHAR(40) NOT NULL,
+  email VARCHAR(40) NOT NULL UNIQUE,
   user_pass VARCHAR(40) NOT NULL,
   PRIMARY KEY(id)
 );";
+$dbc->exec($userTable);
 
 $itemsTable = "CREATE TABLE items (
   id INT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -24,7 +24,6 @@ $itemsTable = "CREATE TABLE items (
   PRIMARY KEY(id),
   FOREIGN KEY (user_id) REFERENCES users(id)
 );";
-
+ $dbc->exec($itemsTable);
 
 ?>
-
