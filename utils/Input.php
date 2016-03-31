@@ -10,7 +10,7 @@ class Input
         }
     }
 
-    public static function get($key, $default = null)
+    public static function get($key, $default = '')
     {
         if (self::has($key)) {
             return $_REQUEST[$key];
