@@ -14,9 +14,7 @@
        <li class="active"><a href="#">Main</a></li>
        <li><a href="#about">Hot</a></li>
        <li><a href="#contact">New</a></li>
-     </ul>
-     <ul class="nav navbar-nav">
-         <li>tost</li>
+       <li><a href="#contac">Sign in</a></li>
      </ul>
    </div><!-- /.nav-collapse -->
  </div><!-- /.container -->
