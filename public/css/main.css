@@ -1,3 +1,12 @@
 body{
-    background-color: grey;
+    background-color: slategrey;
+}
+
+footer {
+	width: 100%;
+	height: 200px;
+	display: block;
+	background-color: lightgreen;
+	position: absolute;
+	bottom: 0;
 }
