@@ -1,8 +1,23 @@
 <?php 
 
+
+
 // for testing only. will remove once we have layout setup correctly
 require_once  '../skateConfig.php';
-// var_dump($_FILES); 
+require_once '../models/Ad.php';
+
+$ad = new Ad();
+
+var_dump($ad->find(2));
+
+// var_dump($_FILES);
+// var_dump($_POST); 
+// $test = new Ad();
+// $fileName = '/img/user_images/' . $_FILES['image']['name'];
+// $test->image = $fileName;
+// echo $fileName . PHP_EOL;
+
+
 
 $message = null;
 $valid = true;
@@ -37,7 +52,7 @@ if(!empty($_FILES))
 		}
 	}
 }
-echo $message;
+// echo $message;
 
 // if(isset($_POST)) {
 // 	$dateAsOfPost = $_POST['date_created'];
@@ -49,8 +64,13 @@ echo $message;
 	<label for="title">Title: </label>
 	<input type="text" name="title" id="title">
 
-	<label for="category"></label>
-	<select name="" id=""></select>	
+	<label for="category">Category of Item</label>
+	<select name="category" id="category">
+		<option value="skateboard">Skateboard</option>
+		<option value="wheels">Wheels</option>
+		<option value="accessories">Accessories</option>
+		<option value="other">Other: </option>
+	</select>	
 
 	<label for="description">Description of Item: </label>
 	<textarea name="description" id="description" cols="30" rows="10"></textarea>
