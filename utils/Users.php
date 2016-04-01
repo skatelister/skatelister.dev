@@ -48,6 +48,7 @@ class User extends Model
     public static function find($email)
     {
         // Get connection to the database
+    
         self::dbConnect();
         $statement = self::$dbc->prepare('SELECT * FROM users WHERE email = :email');
         $statement->bindValue(':email', $email, PDO::PARAM_STR);
