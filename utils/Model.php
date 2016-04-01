@@ -1,5 +1,9 @@
 <?php
 
+// $user = new User();
+// $user->username = 'john';
+// echo $user->picture;
+// echo $user->username;
 abstract class Model
 {
     /** @var array Column names of the table associated with model */
