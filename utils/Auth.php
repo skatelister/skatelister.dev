@@ -1,9 +1,23 @@
 <?php
-require_once 'Log.php';
+
+require_once '../skateConfig.php';
 
 class Auth
 {
-    public static $password;
+    protected static $password;
+    protected static $dbc;
+
+    protected static function dbConnect()
+    {
+        if (!self::$dbc) {
+            self::$dbc = new PDO('mysql:host=' . DB_host . ';dbname=' . DB_name,
+            DB_user,DB_password,[
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+                PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
+            ]);
+        }
+    }
 
     public static function attempt($username,$password){
         self::getPassword();
@@ -27,9 +41,15 @@ class Auth
         session_unset();
         session_regenerate_id(true);
     }
-    public static function getPassword(){
-        $savedPassword = file_get_contents('password.txt');
-        self::$password = trim($savedPassword);
+    public static function getEmail($email){
+    self::dbConnect();
+    $usersInfo = "SELECT * FROM users WHERE email = :email";
+    $statement = self::$dbc->prepare($usersInfo);
+    $statment->bindValue(':email', $email, PDO::PARAM_STR);
+    $statement->execute();
+    $result = $statment->fetch();
+    
+
     }
     public static function setPassword($username,$password){
         $filename = 'password.txt';

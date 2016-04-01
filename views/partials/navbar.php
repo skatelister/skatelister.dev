@@ -14,7 +14,7 @@
        <li class="active"><a href="#">Main</a></li>
        <li><a href="#about">Hot</a></li>
        <li><a href="#contact">New</a></li>
-       <li><a href="#contac">Sign in</a></li>
+       <li><a href="/signin.php">Sign in</a></li>
      </ul>
    </div><!-- /.nav-collapse -->
  </div><!-- /.container -->

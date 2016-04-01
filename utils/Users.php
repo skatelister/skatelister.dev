@@ -23,7 +23,7 @@ class User extends Model
 
 
             $statement->execute();
-        
+
         $this->attributes['id'] = self::$dbc->lastInsertId();
     }
     /** Update existing entry in the database */
@@ -45,12 +45,12 @@ class User extends Model
      *
      * @return User An instance of the User class with attributes array set to values from the database
      */
-    public static function find($id)
+    public static function find($email)
     {
         // Get connection to the database
         self::dbConnect();
-        $statement = self::$dbc->prepare('SELECT * FROM users WHERE id = :id');
-        $statement->bindValue(':id', $id, PDO::PARAM_INT);
+        $statement = self::$dbc->prepare('SELECT * FROM users WHERE email = :email');
+        $statement->bindValue(':email', $email, PDO::PARAM_STR);
         $statement->execute();
         $result = $statement->fetch();
         // The following code will set the attributes on the calling object based on the result variable's contents

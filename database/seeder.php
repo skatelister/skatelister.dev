@@ -1,6 +1,6 @@
 <?php
 require_once 'db_connect.php';
-require_once __DIR__ . '/../skateConfig.php';
+require_once '../skateConfig.php';
 
 $stmt = $dbc->prepare('INSERT INTO user(first_name,last_name,email,password)
 VALUES (:first_name,:last_name,:email,:password)');
