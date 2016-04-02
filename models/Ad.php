@@ -1,7 +1,7 @@
 <?php
 
-require_once '../utils/Model.php';
-require_once '../utils/Users.php';
+require_once '../models/Model.php';
+require_once '../models/Users.php';
 
 class Ad extends Model {
 	
@@ -17,12 +17,7 @@ class Ad extends Model {
 		'image',
 		'user_id'
 	];
-	protected function update(){
-
-	}
-
-	protected function insert () 
-	{
+	protected function insert () {
 		$insert = "INSERT INTO items (title, available, date_posted, category, description, image, user_id)
 					      VALUES (:title, :available, :date_posted, :category, :description, :image, :user_id)";
 		$statement->prepare($insert);
@@ -34,8 +29,19 @@ class Ad extends Model {
 		$statement->execute();
 	}
 
+	protected function update(){
+		$update = "UPDATE items SET title = :title, category = :category, 
+									description = :description, image = :image";
+		$statement = self::$dbc->prepare($update);
+		foreach( $this->attribute as $key => $value) {
+			$statement->bindParam(":$key", $value, PDO::PARAM_STR);
+		}
+		$statement->execute();
+	}
+
+
 	public static function find($id) {
-		self::dbConnect();
+		// self::dbConnect();
 		$statement = self::$dbc->prepare(
 			"SELECT title, date_posted, category, description, image
 			 FROM items AS i
@@ -57,22 +63,17 @@ class Ad extends Model {
 	}
 
 	public static function all() {
-		self::dbConnect();
-		$statemet = self::$dbc
+		// self::dbConnect();
+		$statement = self::$dbc->prepare('SELECT * FROM items');
+		$statement->execute();
+		$results  = $statement->fetchAll();
+		$ads = [];
+		foreach($results as $row) {
+			$ads[] = new Ad($row);
+		}
+		return $ads;
 	}
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
