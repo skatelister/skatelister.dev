@@ -1,6 +1,6 @@
 <?php
 require_once '../skateConfig.php';
-require_once '../utils/Users.php';
+require_once '../models/Users.php';
 require_once '../utils/Input.php';
 $errors = [];
 
@@ -48,7 +48,7 @@ if (Input::has('first_name')
             $password = strip_tags(trim(Input::get('password')));
         }else{
             throw new Exception("Password's did not match.");
-            var_dump($errors);
+
         }
     } catch (Exception $e) {
         $errors['wrongpass'] = $e->getMessage();
@@ -67,12 +67,11 @@ if (Input::has('first_name')
       try {
         $newUserProfile->save();
       } catch (PDOException $e) {
-          var_dump($e->getMessage());
         $errors['emailUsed'] = "The email was already used.";
       }
 
     }
-    var_dump($errors);
+
     if (Input::has('submit_form')
      && empty($errors)) {
       header('Location: signin.php');

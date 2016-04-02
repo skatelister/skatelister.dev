@@ -1,5 +1,5 @@
 <?php
-require_once '../utils/Users.php';
+require_once '../models/Users.php';
 session_start();
 if (isset($_SESSION['usersInfo'])) {
     var_dump($_SESSION['usersInfo']->email);
