@@ -40,20 +40,25 @@ class Ad extends Model {
 			"SELECT title, date_posted, category, description, image
 			 FROM items AS i
 			   JOIN users AS u
-			 ON i.user_id = u.id
+			 ON user_id = u.id
 			 WHERE user_id = :id;");
 
 		$statement->bindValue(':id', $id, PDO::PARAM_STR);
         $statement->execute();
-        $result = $statement->fetchAll();
-        
-        // The following code will set the attributes on the calling object based on the result variable's contents
+        $result = $statement->fetch();
+
+        // Why do we need this check??
         $instance = null;
         if ($result) {
             $instance = new Ad($result);
         }
 
         return $instance;
+	}
+
+	public static function all() {
+		self::dbConnect();
+		$statemet = self::$dbc
 	}
 }
 
