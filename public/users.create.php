@@ -1,6 +1,6 @@
 <?php
 require_once '../skateConfig.php';
-require_once '../utils/Users.php';
+require_once '../models/Users.php';
 require_once '../utils/Input.php';
 $errors = [];
 
@@ -48,7 +48,7 @@ if (Input::has('first_name')
             $password = strip_tags(trim(Input::get('password')));
         }else{
             throw new Exception("Password's did not match.");
-            var_dump($errors);
+
         }
     } catch (Exception $e) {
         $errors['wrongpass'] = $e->getMessage();
@@ -67,12 +67,11 @@ if (Input::has('first_name')
       try {
         $newUserProfile->save();
       } catch (PDOException $e) {
-          var_dump($e->getMessage());
         $errors['emailUsed'] = "The email was already used.";
       }
 
     }
-    var_dump($errors);
+
     if (Input::has('submit_form')
      && empty($errors)) {
       header('Location: signin.php');
@@ -102,7 +101,7 @@ if (Input::has('first_name')
                         <input id="first_name" type="text" name="first_name" value="<?=  Input::get('first_name'); ?>">
 
                         <?php if (isset($errors['first_name'])): ?>
-                                <p> <?= $errors['first_name'] ?></p>
+                                <span> <?= $errors['first_name'] ?></span>
                         <?php endif; ?>
 
                     </div>
@@ -119,7 +118,10 @@ if (Input::has('first_name')
                         <input id="email" type="text" name="email" value="<?=  Input::get('email'); ?>">
 
                         <?php if (isset($errors['email'])): ?>
-                                <p> <?= $errors['email'] ?></p>
+                                <span> <?= $errors['email'] ?></span>
+
+                        <?php elseif(isset($errors['emailUsed'])): ?>
+                                <span> <?= $errors['emailUsed'] ?></span>
                         <?php endif; ?>
 
                     </div>
@@ -127,7 +129,7 @@ if (Input::has('first_name')
                         <label for="password">Password:</label>
                         <input id="password" type="text" name="password">
                         <?php if (isset($errors['password'])): ?>
-                                <p> <?= $errors['password'] ?></p>
+                                <span> <?= $errors['password'] ?></span>
                         <?php endif; ?>
                     </div>
 
@@ -135,13 +137,10 @@ if (Input::has('first_name')
                         <label for="verPassword">Verify Password:</label>
                         <input id="verPassword" type="text" name="ver_password">
                         <?php if (isset($errors['ver_password'])): ?>
-                                <p> <?= $errors['ver_password'] ?></p>
+                                <span> <?= $errors['ver_password'] ?></span>
                         <?php endif; ?>
                         <?php if (isset($errors['wrongpass'])): ?>
-                                <p> <?= $errors['wrongpass'] ?></p>
-
-                            <?php elseif(isset($errors['emailUsed'])): ?>
-                                <p> <?= $errors['emailUsed'] ?></p>
+                                <span> <?= $errors['wrongpass'] ?></span>
 
                         <?php endif; ?>
                     </div>

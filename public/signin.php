@@ -1,6 +1,6 @@
 <?php
 require_once '../skateConfig.php';
-require_once '../utils/Users.php';
+require_once '../models/Users.php';
 require_once '../utils/Input.php';
 require_once '../utils/Auth.php';
 
@@ -19,7 +19,7 @@ if (Input::has('email')
           if (password_verify($password,$findUsersInfo->user_pass)) {
               session_start();
               $_SESSION['usersInfo'] = $findUsersInfo;
-              var_dump($_SESSION['usersInfo']->email);
+
 
              header("Location: index.php");
              die();

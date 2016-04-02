@@ -14,6 +14,10 @@
        <li class="active"><a href="#">Main</a></li>
        <li><a href="#about">Hot</a></li>
        <li><a href="#contact">New</a></li>
+
+
+           <li><a href="#"> <?= $_SESSION['usersInfo']->first_name; ?> </a></li>
+
        <li><a href="/reloadPage.php">Sign out</a></li>
      </ul>
    </div><!-- /.nav-collapse -->
