@@ -1,9 +1,9 @@
 <?php
 require_once '../skateConfig.php';
-require_once '../utils/Users.php';
+require_once '../models/Users.php';
 require_once '../utils/Input.php';
 require_once '../utils/Auth.php';
-$usersInfo =[];
+
 if (Input::has('sign_up')) {
   header('Location: users.create.php');
 }
@@ -12,11 +12,28 @@ if (Input::has('email')
 &&  Input::has('password')) {
   $email = Input::get('email');
   $password = Input::get('password');
-  $findUsersInfo = new User();
-var_dump($findUsersInfo->find($password));
-var_dump($email);
+  try {
+      $findUsersInfo =  User::find($email);
+
+      if (! is_null($findUsersInfo)) {
+          if (password_verify($password,$findUsersInfo->user_pass)) {
+              session_start();
+              $_SESSION['usersInfo'] = $findUsersInfo;
+
+
+             header("Location: index.php");
+             die();
+          }
+      }
+
+
+  } catch (PDOException $e) {
+
+  }
 
 }
+
+
 
 
 ?>
