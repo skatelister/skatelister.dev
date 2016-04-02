@@ -19,7 +19,7 @@ if (Input::has('email')
           if (password_verify($password,$findUsersInfo->user_pass)) {
               session_start();
               $_SESSION['usersInfo'] = $findUsersInfo;
-              var_dump($_SESSION['usersInfo']->email);
+            
 
              header("Location: index.php");
              die();
