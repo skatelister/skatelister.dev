@@ -22,7 +22,7 @@ if (Input::get('last_name') != '') {
   $data_saved['last_name'] = 'Last name has been saved.';
 }
 
-if (Input::get('password') != '') {
+if (Input::get('password') != '' || Input::get('ver_password') != '') {
   if (Input::get('password') == Input::get('ver_password')) {
     $password = password_hash(Input::get('password'),PASSWORD_DEFAULT);
     $data_saved['password'] = 'Password name has been saved.';
