@@ -1,5 +1,10 @@
 <?php
+require_once '../models/Users.php';
+session_start();
+if (isset($_SESSION['usersInfo'])) {
 
+	$id = $_SESSION['usersInfo']->id;
+}
 // for testing only. will remove once we have layout setup correctly
 require_once '../skateConfig.php';
 require_once '../models/Ad.php';
@@ -39,7 +44,7 @@ if (!empty($_FILES)) {
 		$date_posted = gmdate("Y-m-d H:i:s", $date_posted);
 
 		// hard coded user_id to get the insert to work
-		$user_id = 3;
+		$user_id = $id;
 		$category = Input::get('category');
 
 		$image = $fileName;
@@ -51,7 +56,7 @@ if (!empty($_FILES)) {
 		$testAd->category = $category;
 		$testAd->image = isset($image) ? $image : null;
 		$testAd->user_id = $user_id;
-		var_dump($testAd->attributes);
+
 		$testAd->save();
 }
 // if(isset($_POST)) {

@@ -1,18 +1,14 @@
 <?php
 
-echo date('Y-m-d H:i:s');
-echo 'uploadFile.php require_once works';
-// $fileName = '/img/user_images/' . $_FILES['image']['name'];
-
 
 $message = null;
 if(!empty($_FILES))
 {
 $valid = true;
-	if($_FILES['image']['name']) 
+	if($_FILES['image']['name'])
 	{
 		if(!$_FILES['image']['error'])
-		{	
+		{
 			$tempFile = $_FILES['image']['tmp_name'];
 			$extension = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
 
@@ -38,4 +34,3 @@ $valid = true;
 		}
 	}
 }
-echo $message;

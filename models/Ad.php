@@ -34,7 +34,7 @@ class Ad extends Model {
 			// 	continue;
 			// }
 			$statement->bindValue(":$key", $value, PDO::PARAM_STR);
-			var_dump($statement);
+
 		}
 		$statement->execute();
 		$this->attributes['id'] = self::$dbc->lastInsertId();
@@ -76,7 +76,8 @@ class Ad extends Model {
 
 		$statement->bindValue(':id', $id, PDO::PARAM_STR);
         $statement->execute();
-        $result = $statement->fetchAll();
+        $result = $statement->fetchALL();
+		return $result;
 
         // Why do we need this check??
         $instance = null;
