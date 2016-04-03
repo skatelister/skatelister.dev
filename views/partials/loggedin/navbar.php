@@ -11,12 +11,12 @@
    </div>
    <div id="navbar" class="collapse navbar-collapse">
      <ul class="nav navbar-nav">
-       <li class="active"><a href="#">Main</a></li>
-       <li><a href="#about">Hot</a></li>
-       <li><a href="#contact">New</a></li>
+       <li class="active"><a href="index.php">Main</a></li>
+       <li><a href="/hot.ads.php">Hot</a></li>
+       <li><a href="/newest.ads.php">New</a></li>
 
 
-           <li><a href="#"> <?= $_SESSION['usersInfo']->first_name; ?> </a></li>
+           <li><a href="/users.profile.php">Profile</a></li>
 
        <li><a href="/reloadPage.php">Sign out</a></li>
      </ul>

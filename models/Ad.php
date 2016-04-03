@@ -1,10 +1,10 @@
 <?php
 
-require_once '../utils/Model.php';
-require_once '../utils/Users.php';
+require_once '../models/Model.php';
+require_once '../models/Users.php';
 
 class Ad extends Model {
-	
+
 	protected static $table = 'items';
 
 	protected $columns = [
@@ -21,7 +21,7 @@ class Ad extends Model {
 
 	}
 
-	protected function insert () 
+	protected function insert ()
 	{
 		$insert = "INSERT INTO items (title, available, date_posted, category, description, image, user_id)
 					      VALUES (:title, :available, :date_posted, :category, :description, :image, :user_id)";
@@ -46,7 +46,7 @@ class Ad extends Model {
 		$statement->bindValue(':id', $id, PDO::PARAM_STR);
         $statement->execute();
         $result = $statement->fetchAll();
-        
+
         // The following code will set the attributes on the calling object based on the result variable's contents
         $instance = null;
         if ($result) {
@@ -56,18 +56,3 @@ class Ad extends Model {
         return $instance;
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
