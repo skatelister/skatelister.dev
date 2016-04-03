@@ -2,7 +2,7 @@
 require_once '../models/Users.php';
 session_start();
 if (isset($_SESSION['usersInfo'])) {
-    var_dump($_SESSION['usersInfo']->email);
+    var_dump($_SESSION['usersInfo']);
 
 }else {
     # code...
@@ -25,8 +25,6 @@ if (isset($_SESSION['usersInfo'])) {
         <?php else: ?>
             <?php require_once __DIR__ .'/../views/partials/navbar.php';  ?>
         <?php endif; ?>
-
-
 
         <?php require_once __DIR__ . '/../views/partials/footer.php'; ?>
 
