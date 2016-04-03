@@ -40,14 +40,14 @@ class Ad extends Model {
 	}
 
 	protected function takeDown() {
-		$query = "UPDATE items SET availale = :available";
+		$query = "UPDATE items SET availale = :available WHERE id = :id";
 		$statement = self::$dbc->prepare($query);
 		$statement->bindParam(':available', 0, PDO::PARAM_INT);
 		$statement->execute();
 	}
 
-	protected function reShow() {
-		$query = "UPDATE items SET available = :available";
+	protected function reshow() {
+		$query = "UPDATE items SET available = :available WHERE id = :id";
 		$statement = self::$dbc->prepare($query);
 		$statememt->bindParam(':available', 1, PDO::PARAM_INT);
 		$statement->execute();

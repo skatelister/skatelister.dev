@@ -6,7 +6,7 @@ require_once '../models/Ad.php';
 
 
 $ad = new Ad();
-var_dump($ad->all());
+$ad->insert('testINSERT', 1, '2015', 'wheels', 'testINSERTDESCRIPTION', 'image/test', 3);
 
 // var_dump($_FILES);
 // var_dump($_POST); 
