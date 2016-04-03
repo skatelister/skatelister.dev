@@ -18,6 +18,7 @@ class Ad extends Model {
 		'user_id'
 	];
 
+
 	public function insert () {
 		
 		$insert = "INSERT INTO items (title, available, date_posted, category, description, image, user_id)
@@ -25,7 +26,13 @@ class Ad extends Model {
 		$statement = self::$dbc->prepare($insert);
 		// attribute['id'] is set from Model class __construct() !!
 		unset($this->attributes['id']);
+
 		foreach($this->attributes as $key => $value) {
+			// if($this->attributes['date_posted']) {
+			// 	$statement->bindValue(":$key", "NOW()", PDO::PARAM_STR);
+			// 	echo 'hello';
+			// 	continue;
+			// }
 			$statement->bindValue(":$key", $value, PDO::PARAM_STR);
 			var_dump($statement);
 		}
