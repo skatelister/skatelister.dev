@@ -10,19 +10,56 @@ var_dump($_FILES);
 if (!empty($_FILES)) {
 	$fileName = '/img/user_images/' . $_FILES['image']['name'] ? ('/img/user_images/' . $_FILES['image']['name']) : null;
 }
+$errors = [];
 
-if (!empty($_FILES) && isset($_POST)) {
-	$testAd = new Ad();
+if (!empty($_FILES) && isset($_POST)) 
+	{
+		if (Input::get('title', '') != ''
+			&& Input::get('available', '') != ''
+			&& Input::get('description', '') != ''
+			&& Input::get('date_posted', '') != ''
+			&& Input::get('image', '') != ''
+			&& Input::get('user_id', '') != ''
+		   )
+		
+		try {
+			$title = Input::get('title');
+		} catch (PDOException $e) {
+			$errors[] = $e->getMessage();
+		}
 
-	$title = Input::get('title');
-	$available = Input::get('available');
-	$description = Input::get('description');
-	$date_posted = Input::get('date_posted');
-	echo $date_posted;
-	$date_posted = date('Y-m-d H:i:s', strtotime(str_replace('-', '/', $date_posted)));
-	echo $date_posted;
-	$category = Input::get('category');
-	$image = $fileName;
+		try {
+			$available = Input::get('available');
+		} catch (PDOException $e) {
+			$errors[] = $e->getMessage();
+		}
+		
+		try {
+			$date_posted = date('Y-m-d H:i:s', strtotime(str_replace('-', '/', $date_posted)));
+			$date_posted = Input::get('date_posted');
+		} catch (PDOException $e) {
+			$errors[] = $e->getMessage();
+		}
+
+		try {
+			$category = Input::get('category');
+		} catch (PDOException $e) {
+			$errors[] = $e->getMessage();
+		}
+
+		try {
+			$image = $fileName;
+		} catch (PDOException $e) {
+			$errors[] = $e->getMessage();
+		}
+
+
+	
+	
+	
+
+	
+	
 	$user_id = 3;
 
 	$testAd->title = $title;
