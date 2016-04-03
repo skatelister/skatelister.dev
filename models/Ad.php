@@ -68,7 +68,7 @@ class Ad extends Model {
 	public static function find($id) {
 		// self::dbConnect();
 		$statement = self::$dbc->prepare(
-			"SELECT title, date_posted, category, description, image
+			"SELECT title, date_posted, category, description, image, available
 			 FROM items AS i
 			   JOIN users AS u
 			 ON user_id = u.id
