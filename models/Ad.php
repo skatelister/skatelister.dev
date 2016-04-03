@@ -4,7 +4,7 @@ require_once '../models/Model.php';
 require_once '../models/Users.php';
 
 class Ad extends Model {
-	
+
 	protected static $table = 'items';
 
 	protected $columns = [
@@ -20,7 +20,7 @@ class Ad extends Model {
 
 
 	public function insert () {
-		
+
 		$insert = "INSERT INTO items (title, available, date_posted, category, description, image, user_id)
 					      VALUES (:title, :available, :date_posted, :category, :description, :image, :user_id)";
 		$statement = self::$dbc->prepare($insert);
@@ -41,7 +41,7 @@ class Ad extends Model {
 	}
 
 	protected function update(){
-		$update = "UPDATE items SET title = :title, category = :category, 
+		$update = "UPDATE items SET title = :title, category = :category,
 									description = :description, image = :image";
 		$statement = self::$dbc->prepare($update);
 		foreach( $this->attribute as $key => $value) {
@@ -76,7 +76,7 @@ class Ad extends Model {
 
 		$statement->bindValue(':id', $id, PDO::PARAM_STR);
         $statement->execute();
-        $result = $statement->fetch();
+        $result = $statement->fetchAll();
 
         // Why do we need this check??
         $instance = null;
@@ -100,5 +100,3 @@ class Ad extends Model {
 	}
 
 }
-
-
