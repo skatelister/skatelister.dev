@@ -15,7 +15,7 @@ $userTable = "CREATE TABLE users(
   first_name  VARCHAR(40) NOT NULL ,
   last_name VARCHAR(40) NOT NULL,
   email VARCHAR(40) NOT NULL UNIQUE,
-  user_pass VARCHAR(120) NOT NULL,
+  password VARCHAR(120) NOT NULL,
   PRIMARY KEY(id)
 )";
 $dbc->exec($userTable);
