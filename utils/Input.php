@@ -10,6 +10,7 @@ class Input
         }
     }
 
+
     public static function get($key, $default = '')
     {
         if (self::has($key)) {
@@ -17,6 +18,10 @@ class Input
         }else {
             return $default;
         }
+    }
+
+    public static function escape($key) {
+        return htmlspecialchars(strip_tags($key));
     }
 
     public static function input_not_empty($require)
@@ -52,7 +57,7 @@ class Input
     public static function get_string($key)
     {
         $value = self::get($key);
-        if(is_array($value) ||
+        if(is_array($value)   ||
          is_numeric($value)   ||
          is_bool($value)      ||
          is_object($value)    ||
