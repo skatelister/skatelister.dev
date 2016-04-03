@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 // for testing only. will remove once we have layout setup correctly
 require_once '../skateConfig.php';
@@ -6,15 +6,11 @@ require_once '../models/Ad.php';
 require_once '../utils/Input.php';
 require_once 'uploadFile.php';
 
-session_start();
-
-var_dump($user_id);
-
 // var_dump($_POST);
 // // Declare an empty errors array to push message into.
 // $errors = [];
 
-// if (!empty($_FILES) && isset($_POST)) 
+// if (!empty($_FILES) && isset($_POST))
 // {
 	// if (Input::get('title', '') != ''
 	//  && Input::get('available', '') != ''
@@ -23,7 +19,7 @@ var_dump($user_id);
 	//  && Input::get('image', '') != ''
 	//  && Input::get('user_id', '') != '' ) // ending of if
 	// {
-		
+
 var_dump($_POST);
 var_dump($_FILES);
 if (!empty($_FILES)) {
@@ -32,7 +28,7 @@ if (!empty($_FILES)) {
 	if (!empty($_FILES) && isset($_POST)) {
 		// create a new Ad instance to prepare inserting data
 		$testAd = new Ad();
-		
+
 		$title = Input::get('title');
 		$available = Input::get('available');
 		$description = Input::get('description');
@@ -43,18 +39,16 @@ if (!empty($_FILES)) {
 		$date_posted = gmdate("Y-m-d H:i:s", $date_posted);
 
 		// hard coded user_id to get the insert to work
-
+		$user_id = 3;
 		$category = Input::get('category');
-		// this is the filename from the uploadFile.php
+
 		$image = $fileName;
 
-		// this is the current user's id
-		$user_id = $_SESSION['usersInfo']->id;
 		$testAd->title = $title;
 		$testAd->available = $available;
 		$testAd->description = $description;
 		$testAd->date_posted = $date_posted;
-		$testAd->category = $category;		
+		$testAd->category = $category;
 		$testAd->image = isset($image) ? $image : null;
 		$testAd->user_id = $user_id;
 		var_dump($testAd->attributes);
@@ -76,7 +70,7 @@ if (!empty($_FILES)) {
 		<option value="wheels">Wheels</option>
 		<option value="accessories">Accessories</option>
 		<option value="other">Other: </option>
-	</select>	
+	</select>
 
 	<label for="description">Description of Item: </label>
 	<textarea name="description" id="description" cols="30" rows="10"></textarea>
@@ -85,7 +79,7 @@ if (!empty($_FILES)) {
 	<input type="file" name="image" id="image">
 
 	<input type="hidden" name="date_created" id="date_created" value="<?= date('Y-m-d H:i:s');?>">
-	
+
 	<input type="hidden" name="available" id="available" value="1">
 
 
