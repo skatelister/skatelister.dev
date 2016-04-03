@@ -6,18 +6,6 @@ require_once '../models/Ad.php';
 require_once '../utils/Input.php';
 require_once 'uploadFile.php';
 
-session_start();
-<<<<<<< HEAD
-var_dump($_SESSION);
-$id = $_SESSION['usersInfo']->id;
-$test = new Ad();
-var_dump($test->find(3));
-
-=======
-
-var_dump($user_id);
->>>>>>> 07374ff41253e3d1f07ca3478660c49a4e2b7f6f
-
 // var_dump($_POST);
 // // Declare an empty errors array to push message into.
 // $errors = [];
@@ -51,13 +39,11 @@ if (!empty($_FILES)) {
 		$date_posted = gmdate("Y-m-d H:i:s", $date_posted);
 
 		// hard coded user_id to get the insert to work
-
+		$user_id = 3;
 		$category = Input::get('category');
-		// this is the filename from the uploadFile.php
+
 		$image = $fileName;
 
-		// this is the current user's id
-		$user_id = $_SESSION['usersInfo']->id;
 		$testAd->title = $title;
 		$testAd->available = $available;
 		$testAd->description = $description;
