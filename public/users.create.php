@@ -64,11 +64,11 @@ if (Input::has('first_name')
       $newUserProfile->last_name = $last_name;
       $newUserProfile->email = $email;
       $newUserProfile->user_pass = $password;
-      try {
         $newUserProfile->save();
-      } catch (PDOException $e) {
-        $errors['emailUsed'] = "The email was already used.";
-      }
+      // try {
+      // } catch (PDOException $e) {
+      //   $errors['emailUsed'] = "The email was already used.";
+      // }
 
     }
 

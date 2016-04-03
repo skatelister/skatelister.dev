@@ -68,7 +68,7 @@ class Ad extends Model {
 	public static function find($id) {
 		// self::dbConnect();
 		$statement = self::$dbc->prepare(
-			"SELECT title, date_posted, category, description, image
+			"SELECT title, date_posted, category, description, image, available
 			 FROM items AS i
 			   JOIN users AS u
 			 ON user_id = u.id
@@ -76,7 +76,7 @@ class Ad extends Model {
 
 		$statement->bindValue(':id', $id, PDO::PARAM_STR);
         $statement->execute();
-        $result = $statement->fetch();
+        $result = $statement->fetchAll();
 
         // Why do we need this check??
         $instance = null;
