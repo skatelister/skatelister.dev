@@ -11,7 +11,7 @@ abstract class Model
     /** @var PDO|null Connection to the database */
     protected static $dbc;
     /** @var array Database values for a single record. Array keys should be column names in the DB */
-    protected $attributes;
+    protected $attributes = [];
     /**
      * Constructor
      *

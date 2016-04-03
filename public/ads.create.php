@@ -1,56 +1,45 @@
 <?php 
 
 // for testing only. will remove once we have layout setup correctly
-require_once  '../skateConfig.php';
+require_once '../skateConfig.php';
 require_once '../models/Ad.php';
+require_once '../utils/Input.php';
+require_once 'uploadFile.php';
+
+var_dump($_FILES);
+if (!empty($_FILES)) {
+	$fileName = '/img/user_images/' . $_FILES['image']['name'] ? ('/img/user_images/' . $_FILES['image']['name']) : null;
+}
+
+if (!empty($_FILES) && isset($_POST)) {
+	$testAd = new Ad();
+
+	$title = Input::get('title');
+	$available = Input::get('available');
+	$description = Input::get('description');
+	$date_posted = Input::get('date_posted');
+	echo $date_posted;
+	$date_posted = date('Y-m-d H:i:s', strtotime(str_replace('-', '/', $date_posted)));
+	echo $date_posted;
+	$category = Input::get('category');
+	$image = $fileName;
+	$user_id = 3;
+
+	$testAd->title = $title;
+	$testAd->available = $available;
+	$testAd->description = $description;
+	$testAd->date_posted = $date_posted;
+	$testAd->category = $category;		
+	$testAd->image = isset($image) ? $image : null;
+	$testAd->user_id = $user_id;
+var_dump($testAd->attributes);
+
+$testAd->save();
+}
 
 
-$ad = new Ad();
-$ad->insert('testINSERT', 1, '2015', 'wheels', 'testINSERTDESCRIPTION', 'image/test', 3);
-
-// var_dump($_FILES);
-// var_dump($_POST); 
-// $test = new Ad();
-// $fileName = '/img/user_images/' . $_FILES['image']['name'];
-// $test->image = $fileName;
-// echo $fileName . PHP_EOL;
 
 
-
-// $message = null;
-// $valid = true;
-// if(!empty($_FILES))
-// {
-// 	if($_FILES['image']['name']) 
-// 	{
-// 		if(!$_FILES['image']['error'])
-// 		{	
-// 			$tempFile = $_FILES['image']['tmp_name'];
-// 			$extension = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
-
-// 			// Validate Size and Extension
-// 			if( $_FILES['image']['size'] > (1024000000))
-// 			{
-// 				$valid = false;
-// 				$message = 'Image size too large. Please resize or choose new image';
-// 			}
-// 			if( $extension != 'jpg' && $extension != 'jpeg' && $extension != 'png' && $extension != 'gif')
-// 			{
-// 				$valid  = false;
-// 				$message = 'Invalid extension type';
-// 			}
-// 			// If Image file makes it to this point, send file to this directory
-// 			if($valid)
-// 			{
-// 				move_uploaded_file($tempFile, __DIR__ .'/img/user_images/' . $_FILES['image']['name']);
-// 				$message = 'Your image was successfully uploaded!';
-// 			} else {
-// 				$message = 'Error on image upload.';
-// 			}
-// 		}
-// 	}
-// }
-// echo $message;
 
 // if(isset($_POST)) {
 // 	$dateAsOfPost = $_POST['date_created'];
