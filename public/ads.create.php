@@ -8,7 +8,10 @@ require_once 'uploadFile.php';
 
 session_start();
 
-var_dump($user_id);
+var_dump($_SESSION);
+$id = $_SESSION['usersInfo']->id;
+$test = new Ad();
+var_dump($test-find(3));
 
 // var_dump($_POST);
 // // Declare an empty errors array to push message into.
