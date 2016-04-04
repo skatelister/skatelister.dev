@@ -10,7 +10,7 @@ $id =  $_SESSION['usersInfo']->id;
 $first_name = $_SESSION['usersInfo']->first_name;
 $last_name = $_SESSION['usersInfo']->last_name;
 $email = $_SESSION['usersInfo']->email;
-$password = $_SESSION['usersInfo']->user_pass;
+$password = $_SESSION['usersInfo']->password;
 
 if (input::get('first_name') != '') {
   $first_name = Input::get('first_name');
@@ -46,7 +46,7 @@ $newUserInfo->id =$id;
 $newUserInfo->first_name = $first_name;
 $newUserInfo->last_name = $last_name;
 $newUserInfo->email = $email;
-$newUserInfo->user_pass = $password;
+$newUserInfo->password = $password;
 $newUserInfo->save();
 $_SESSION['usersInfo'] = $newUserInfo;
 var_dump($_SESSION['usersInfo']);

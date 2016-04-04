@@ -11,7 +11,7 @@ VALUES (:first_name,:last_name,:email,:password)');
 
 $users = [
 
-	['Tomas', 'Leffew', 'tleffew@gmail.com', 'password'],
+	['Tomas', 'Leffew', 'tleffew1994@gmail.com', 'password'],
 
 	['CJ', 'Sampson', 'cjsampson@gmail.com', 'password'],
 
@@ -24,11 +24,11 @@ $users = [
 ];
 
 foreach ($users as $user) {
-
+    $password = password_hash($user[3],PASSWORD_DEFAULT);
     $statement->bindValue(':first_name', $user[0], PDO::PARAM_STR);
     $statement->bindValue(':last_name', $user[1], PDO::PARAM_STR);
     $statement->bindValue(':email', $user[2], PDO::PARAM_STR);
-    $statement->bindValue(':password', $user[3], PDO::PARAM_STR);
+    $statement->bindValue(':password',$password, PDO::PARAM_STR);
 
     $statement->execute();
 }
@@ -83,7 +83,7 @@ foreach($items as $item) {
 		$testAd->save();
 
 
-	
+
 }
 
 ?>
