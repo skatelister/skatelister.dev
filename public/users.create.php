@@ -1,7 +1,5 @@
 <?php
-require_once '../skateConfig.php';
-require_once '../models/Users.php';
-require_once '../utils/Input.php';
+require_once '../prime.php';
 $errors = [];
 
 

@@ -1,7 +1,5 @@
 <?php
-require '../skateConfig.php';
-require_once '../models/Users.php';
-require_once '../utils/Input.php';
+require_once '../prime.php';
 session_start();
 if (! isset($_SESSION['usersInfo'])) {
     header('Location: index.php');
