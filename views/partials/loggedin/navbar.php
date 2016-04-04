@@ -1,25 +1,11 @@
-<nav class="navbar navbar-fixed-top navbar-inverse">
- <div class="container">
-   <div class="navbar-header">
-     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-       <span class="sr-only">Toggle navigation</span>
-       <span class="icon-bar"></span>
-       <span class="icon-bar"></span>
-       <span class="icon-bar"></span>
-     </button>
-     <a class="navbar-brand" href="#">Skate Lister</a>
-   </div>
-   <div id="navbar" class="collapse navbar-collapse">
-     <ul class="nav navbar-nav">
-       <li class="active"><a href="index.php">Main</a></li>
-       <li><a href="/hot.ads.php">Hot</a></li>
-       <li><a href="/newest.ads.php">New</a></li>
 
-
-           <li><a href="/users.profile.php">Profile</a></li>
-
-       <li><a href="/reloadPage.php">Sign out</a></li>
-     </ul>
-   </div><!-- /.nav-collapse -->
- </div><!-- /.container -->
-</nav><!-- /.navbar -->
+<nav class="nav navbar-default" role="navigation">
+  <span id="websiteName">SkateLister</span>
+  <ul id="mainNavigation">
+    <li><a href="index.php">Home</a></li>
+    <li><a href="whatshot.php">Hot</a></li>
+    <li><a href="closeBy.php">Close By</a></li>
+  </ul>
+    <button><a href="/signup.php">Sign Up</a></button>
+</nav>
+ 

@@ -26,6 +26,6 @@
     <li><a href="index.php">Home</a></li>
     <li><a href="whatshot.php">Hot</a></li>
     <li><a href="closeBy.php">Close By</a></li>
-    <li><a href="/signin.php" class="signin">Sign in</a></li>
   </ul>
+  <button><a href="/signup.php"></a></button>
 </nav>

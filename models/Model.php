@@ -47,6 +47,7 @@ abstract class Model
      *
      * @return mixed|null value from the attributes array or null if it is undefined
      */
+
     public function __get($name)
     {
         return isset($this->attributes[$name]) ? $this->attributes[$name] : null;

@@ -2,15 +2,9 @@
 	padding-right: 35px;
 	padding-top: 40px;
 	font-size: 2em;
+	float: right;
 }
 
-
-#logoimage {
-	display: inline-block;
-	width: 100px;
-	height: 100px;
-	float: left;
-}
 
 #logoh2 {
 	position: relative;
@@ -31,12 +25,12 @@ nav {
 	height: 140px;
 	box-sizing: border-box;
 }
-#mainNavigation > li{
-	font-size: 20px;
+#mainNavigation > li {
+	font-size: 2em;
 	list-style-type: none;
 	display: inline-block;
-	padding-top: 100px;
-	padding-right: 20px;
+	padding-right: 30px;
+	padding-top: 45px;
 }
 
 body{
@@ -94,12 +88,14 @@ footer {
 .address {
 	font-family: 'Muli', sans-serif;
 }
+
 .address {
 	border-top: 3px solid black;
 	font-size: 1.5em;
 	padding-top: 45px;
 	padding-bottom: 45px;
 }
+
 #sitename {
 	padding-right: 25px;
 }
