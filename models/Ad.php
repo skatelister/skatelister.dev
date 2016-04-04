@@ -80,12 +80,12 @@ class Ad extends Model {
 		return $result;
 
         // Why do we need this check??
-        $instance = null;
-        if ($result) {
-            $instance = new Ad($result);
-        }
-
-        return $instance;
+        // $instance = null;
+        // if ($result) {
+        //     $instance = new Ad($result);
+        // }
+		//
+        // return $instance;
 	}
 
 	public static function all() {

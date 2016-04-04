@@ -40,9 +40,11 @@ if (!empty($_FILES)) {
 
 		// Ask about the date format and the MySQL format timezone
 		$date_posted = Input::get('date_posted');
-		$date_posted = strtotime('now');
-		$date_posted = gmdate("Y-m-d H:i:s", $date_posted);
 
+		$date_posted = strtotime('now');
+		var_dump($date_posted);
+		$date_posted = gmdate("Y-m-d H:i:s", $date_posted);
+var_dump($date_posted);
 		// hard coded user_id to get the insert to work
 		$user_id = $id;
 		$category = Input::get('category');
