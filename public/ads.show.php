@@ -16,7 +16,7 @@ if (isset($_SESSION['usersInfo'])) {
     $all_user_ads = new Ad();
     $user_items = $all_user_ads->find(1);
 
-var_dump($user_items);
+    var_dump($user_items);
 
 
 }
@@ -38,6 +38,12 @@ var_dump($user_items);
                  <img src="<?= $item['image'];?>" alt="" />
                  <p>
                      <?= $item['title'];?>
+                 </p>
+                 <p>
+                     <?= $item['description'];?>
+                 </p>
+                 <p>
+                     <?= $item['category'];?>
                  </p>
 
              </div>
