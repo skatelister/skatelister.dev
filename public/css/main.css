@@ -1,38 +1,20 @@
-
-
-#logoimage {
-	display: inline-block;
-	width: 100px;
-	height: 100px;
-	float: left;
-}
-
-#logoh2 {
-	position: relative;
-	bottom: 71px;
-	left: 60px;
-	color: black;
-}
-
-#logodiv {
-	height: auto;
-	width: 200px;
-	display:inline-block;
-	background-color: #a7dbdb;
+#websiteName {
+	padding-right: 35px;
+	padding-top: 40px;
+	font-size: 2em;
 	float: right;
-	font-family: 'Muli', sans-serif;
-	font-size: 3em;
-	margin-right: 50px;
-	padding-top: 15px;
 }
 
 nav {
-	height: 125px;
+	height: 140px;
 	box-sizing: border-box;
 }
-#mainNavigation {
+#mainNavigation > li{
+	font-size: 20px;
 	list-style-type: none;
-	display: block;
+	display: inline-block;
+	padding-top: 100px;
+	padding-right: 20px;
 }
 
 body{
@@ -45,7 +27,7 @@ footer {
 	height: auto;
 	display: block;
 	background-color: #00ccd6;
-	position: absolute;
+	position: relative;
 	bottom: 0;
 }
 
@@ -82,7 +64,7 @@ footer {
 
 /* Hover Image Invert States */
 .hoverInvert:hover {
-	filter: invert(100%);
+	-webkit-filter: invert(100%);
 }
 
 

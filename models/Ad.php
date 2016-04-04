@@ -19,7 +19,7 @@ class Ad extends Model {
 	];
 
 
-	public function insert () {
+	protected function insert () {
 
 		$insert = "INSERT INTO items (title, available, date_posted, category, description, image, user_id)
 					      VALUES (:title, :available, :date_posted, :category, :description, :image, :user_id)";
@@ -143,8 +143,7 @@ class Ad extends Model {
 
 	public static function find_current_ad($id)
     {
-        // Get connection to the database
-
+    	//
         self::dbConnect();
         $statement = self::$dbc->prepare('SELECT * FROM items WHERE id = :id');
         $statement->bindValue(':id', $id, PDO::PARAM_STR);
@@ -159,7 +158,7 @@ class Ad extends Model {
     }
 
 	public static function all() {
-		// self::dbConnect();
+		self::dbConnect();
 		$statement = self::$dbc->prepare('SELECT * FROM items');
 		$statement->execute();
 		$results  = $statement->fetchAll();
@@ -169,5 +168,15 @@ class Ad extends Model {
 		}
 		return $ads;
 	}
+
+	public static function showNewest() {
+		self::dbConnect();
+		$limit = 12;
+		$statement = self::$dbc->prepare("SELECT * FROM items ORDER BY date_posted DESC LIMIT :limit");
+		$statement->bindValue(":limit", $limit, PDO::PARAM_INT);
+		$statement->execute();
+
+		return $statement->fetchAll();
+	}  
 
 }

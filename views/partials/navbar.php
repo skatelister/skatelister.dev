@@ -21,10 +21,7 @@
 <!-- </div>/.container -->
 
 <nav class="nav navbar-default" role="navigation">
-  <div id="logodiv">
-    <img src="/img/site_imgs/logo.png" alt="skatelisterlog" id="logoimage">
-    <h2 id="logoh2">kateLister</h2>
-  </div>
+  <span id="websiteName">SkateLister</span>
   <ul id="mainNavigation">
     <li><a href="index.php">Home</a></li>
     <li><a href="whatshot.php">Hot</a></li>
