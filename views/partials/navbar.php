@@ -18,16 +18,17 @@
      </ul> -->
    <!-- </div> --><!-- /.nav-collapse -->
   <!-- </nav> --><!-- /.navbar -->
-<!-- </div>/.container --> 
+<!-- </div>/.container -->
 
 <nav class="nav navbar-default" role="navigation">
   <div id="logodiv">
     <img src="/img/site_imgs/logo.png" alt="skatelisterlog" id="logoimage">
-    <h2 id="logoh2">kateLister</h2>   
+    <h2 id="logoh2">kateLister</h2>
   </div>
   <ul id="mainNavigation">
     <li><a href="index.php">Home</a></li>
     <li><a href="whatshot.php">Hot</a></li>
     <li><a href="closeBy.php">Close By</a></li>
+    <li><a href="/signin.php" class="signin">Sign in</a></li>
   </ul>
 </nav>
