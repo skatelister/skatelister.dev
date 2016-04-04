@@ -34,7 +34,13 @@ if (isset($_SESSION['usersInfo'])) {
 
 
          <?php foreach ($user_items as $item): ?>
-             <img src="<?= $item['image'];?>" alt="" />
+             <div class="">
+                 <img src="<?= $item['image'];?>" alt="" />
+                 <p>
+                     <?= $item['title'];?>
+                 </p>
+
+             </div>
 
          <?php endforeach; ?>
          <p>
