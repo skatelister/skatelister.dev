@@ -3,6 +3,10 @@ require '../skateConfig.php';
 require_once '../models/Users.php';
 require_once '../utils/Input.php';
 session_start();
+if (! isset($_SESSION['usersInfo'])) {
+    header('Location: index.php');
+    die();
+}
 $errors = [];
 $data_saved = [];
 var_dump($_SESSION);
