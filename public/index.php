@@ -16,6 +16,7 @@ if (isset($_SESSION['usersInfo'])) {
     <head>
         <link rel="stylesheet" href="/css/Bootstrap/bootstrap.css">
         <link rel="stylesheet" href="/css/main.css">
+        <link href='https://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
         <meta charset="utf-8">
         <title>Skatelister</title>
     </head>

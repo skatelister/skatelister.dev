@@ -1,12 +1,107 @@
+
+
+#logoimage {
+	display: inline-block;
+	width: 100px;
+	height: 100px;
+	float: left;
+}
+
+#logoh2 {
+	position: relative;
+	bottom: 71px;
+	left: 60px;
+	color: black;
+}
+
+#logodiv {
+	height: auto;
+	width: 200px;
+	display:inline-block;
+	background-color: #a7dbdb;
+	float: right;
+	font-family: 'Muli', sans-serif;
+	font-size: 3em;
+	margin-right: 50px;
+	padding-top: 15px;
+}
+
+nav {
+	height: 125px;
+	box-sizing: border-box;
+}
+#mainNavigation {
+	list-style-type: none;
+	display: block;
+}
+
 body{
     background-color: slategrey;
 }
 
 footer {
+	text-align: center;
 	width: 100%;
-	height: 200px;
+	height: auto;
 	display: block;
-	background-color: lightgreen;
+	background-color: #00ccd6;
 	position: absolute;
 	bottom: 0;
+}
+
+.ourInfoDiv {
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+.cjFooter {
+	border-right: 3px solid black;
+	font-family: 'Muli', sans-serif;
+	font-size: 1.5em;
+	width: 35%;
+	display: inline-block;
+}
+
+
+.tomasFooter {
+	font-family: 'Muli', sans-serif;
+	font-size: 1.5em;
+	display: inline-block;
+	width: 35%;
+}
+
+.cjFooter > a > img {
+	height: 50px;
+	width: 50px;
+}
+
+.tomasFooter > a > img {	
+	height: 50px;
+	width: 50px;
+}
+
+/* Hover Image Invert States */
+.hoverInvert:hover {
+	filter: invert(100%);
+}
+
+
+/* Address Div */
+.address {
+	font-family: 'Muli', sans-serif;
+}
+.address {
+	border-top: 3px solid black;
+	font-size: 1.5em;
+	padding-top: 45px;
+	padding-bottom: 45px;
+}
+#sitename {
+	padding-right: 25px;
+}
+#codeupname {
+
+}
+#codeupnumber {
+	padding-left: 25px;
 }
