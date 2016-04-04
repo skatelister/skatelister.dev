@@ -1,35 +1,32 @@
 <?php
-require_once '../models/Users.php';
-session_start();
-if (isset($_SESSION['usersInfo'])) {
-    var_dump($_SESSION['usersInfo']);
 
-}else {
-    # code...
+require_once '../skateConfig.php';
+require_once '../database/db_connect.php';
+require_once '../models/Ad.php';
+require_once '../utils/Input.php';
+require_once 'uploadFile.php';
+require_once '../models/Users.php';
+require_once '../models/Ad.php';
+
+session_start();
+if (isset($_SESSION['usersInfo'])) { 
+    var_dump($_SESSION['usersInfo']); 
 }
 
 
-
 ?>
-<!DOCTYPE html>
-<html>
-    <head>
-        <link rel="stylesheet" href="/css/Bootstrap/bootstrap.css">
-        <link rel="stylesheet" href="/css/main.css">
-        <link href='https://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
-        <meta charset="utf-8">
-        <title>Skatelister</title>
-    </head>
-    <body>
-        <?php if (isset($_SESSION['usersInfo'])): ?>
-            <?php require_once __DIR__ .'/../views/partials/loggedin/navbar.php';  ?>
-        <?php else: ?>
-            <?php require_once __DIR__ .'/../views/partials/navbar.php';  ?>
-        <?php endif; ?>
 
-        <?php require_once __DIR__ . '/../views/partials/footer.php'; ?>
+<?php require_once '../views/partials/header.php'; ?>
 
-        <script src="/js/jquery-1.12.0.js"></script>
-        <script src="/js/main.js"></script>
-    </body>
-</html>
+<?php
+    
+$newestAds = Ad::showNewest();
+
+var_dump($newestAds);
+?>
+
+
+
+<?php require_once '../views/partials/footer.php'; ?>
+
+        

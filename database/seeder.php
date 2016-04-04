@@ -69,35 +69,35 @@ $items = [
 
 	['Helmet and pads for $35.00', 1, '2016-04-04 02:41:34', 'accessories', "I have a used set of pads and a perfectly good helmet for cheap!", '/img/user_images/accessories2.jpg', 3],
 
-	['Skull Door Hanger',1 , '2016-04-04 22:11:34', 'accessories', "I make these little door hangars.  Cool little skull on them!  Only $10.99. Call me, 850-440-2343", '/img/user_images/accessories3.jpg', 2],
+	['Skull Door Hanger',1 , '2016-03-15 22:11:34', 'accessories', "I make these little door hangars.  Cool little skull on them!  Only $10.99. Call me, 850-440-2343", '/img/user_images/accessories3.jpg', 2],
 
-	['Saling my purple trucks. $55', 1, '2016-03-03 10:11:55', 'accessories', "I have some easy to install trucks that I'm trying to sale!  Text me at 894-444-4235", '/img/user_images/accessories4.jpg', 1],
+	['Saling my purple trucks. $55', 1, '2016-03-30 10:11:55', 'accessories', "I have some easy to install trucks that I'm trying to sale!  Text me at 894-444-4235", '/img/user_images/accessories4.jpg', 1],
 
-	['Americana skateboard deck.', 1, '2016-04-05 07:11:34', 'skateboard', "I have this awesome American deck skateboard that I would like to sale.  Kind of hard for me to sale but I don't use anymore.  Email me at theBettieWhite@didyouseethis.com!", '/img/user_images/skateboard3.jpg', 4],
+	['Americana skateboard deck.', 1, '2016-03-05 07:11:34', 'skateboard', "I have this awesome American deck skateboard that I would like to sale.  Kind of hard for me to sale but I don't use anymore.  Email me at theBettieWhite@didyouseethis.com!", '/img/user_images/skateboard3.jpg', 4],
 
-	['Custom skateboard!', 1, '2016-04-06 11:23:44', 'skateboard', "I have this custom skateboard that I'm trying to get rid of.  Call me up at 678-413-2222 if you're interested", '/img/user_images/skateboard4.jpg', 1],
+	['Custom skateboard!', 1, '2016-04-07 11:23:44', 'skateboard', "I have this custom skateboard that I'm trying to get rid of.  Call me up at 678-413-2222 if you're interested", '/img/user_images/skateboard4.jpg', 1],
 
-	['Custom skateboard!', 1, '2016-04-06 11:23:44', 'skateboard', "I have this custom skateboard that I'm trying to get rid of.  Call me up at 678-413-2222 if you're interested", '/img/user_images/skateboard4.jpg', 1],
+	['Like new Black and Teal Trucks FOR SALE!', 1, '2016-03-29 11:23:44', 'accessories', "I am trying to get rid of these trucks that I never use. I'm willing to part ways with them for around $80/OBO!  Please contact me at 850-938-5443", '/img/user_images/accessories5.jpg', 2],
 
-	['Custom skateboard!', 1, '2016-04-06 11:23:44', 'skateboard', "I have this custom skateboard that I'm trying to get rid of.  Call me up at 678-413-2222 if you're interested", '/img/user_images/skateboard4.jpg', 1],
+	['Weird art design skateboard trucks for sale.', 1, '2016-04-06 12:30:44', 'accessories', "I have some really cool trucks that I would like to sale to anyone that appreciates good artwork.  I found these at a flea market one day and I never use them.  Willing to part ways with them for $55", '/img/user_images/accessories6.jpg', 2],
 
-	['Custom skateboard!', 1, '2016-04-06 11:23:44', 'skateboard', "I have this custom skateboard that I'm trying to get rid of.  Call me up at 678-413-2222 if you're interested", '/img/user_images/skateboard4.jpg', 1],
+	['Very FAST Multi-colored skateboard FOR SALE!', 1, '2016-04-06 11:11:11', 'skateboard',"I have a sweet skateboard that is like new.  I never use it so I would like someone else to get more use out of it that myself.  $75 | OBO.", '/img/user_images/skateboard5.jpg', 4],
 
-	['Custom skateboard!', 1, '2016-04-06 11:23:44', 'skateboard', "I have this custom skateboard that I'm trying to get rid of.  Call me up at 678-413-2222 if you're interested", '/img/user_images/skateboard4.jpg', 1],
+	['Custom skateboard!', 1, '2016-04-06 11:23:44', 'skateboard', "I have this custom skateboard that I'm trying to get rid of.  Call me up at 678-413-2222 if you're interested", '/img/user_images/accessories7.jpg', 4],
 
-	['Custom skateboard!', 1, '2016-04-06 11:23:44', 'skateboard', "I have this custom skateboard that I'm trying to get rid of.  Call me up at 678-413-2222 if you're interested", '/img/user_images/skateboard4.jpg', 1],
+	['Custom skateboard!', 1, '2016-04-06 11:23:44', 'skateboard', "I have this custom skateboard that I'm trying to get rid of.  Call me up at 678-413-2222 if you're interested", '/img/user_images/accessories8.jpg', 4],
 
-	['Custom skateboard!', 1, '2016-04-06 11:23:44', 'skateboard', "I have this custom skateboard that I'm trying to get rid of.  Call me up at 678-413-2222 if you're interested", '/img/user_images/skateboard4.jpg', 1],
+	['Custom skateboard!', 1, '2016-04-06 11:23:44', 'skateboard', "I have this custom skateboard that I'm trying to get rid of.  Call me up at 678-413-2222 if you're interested", '/img/user_images/skateboard6.jpg', 1],
 
-	['Custom skateboard!', 1, '2016-04-06 11:23:44', 'skateboard', "I have this custom skateboard that I'm trying to get rid of.  Call me up at 678-413-2222 if you're interested", '/img/user_images/skateboard4.jpg', 1],
+	['Custom skateboard!', 1, '2016-04-06 11:23:44', 'skateboard', "I have this custom skateboard that I'm trying to get rid of.  Call me up at 678-413-2222 if you're interested", '/img/user_images/skateboard7.jpg', 1],
 
-	['Custom skateboard!', 1, '2016-04-06 11:23:44', 'skateboard', "I have this custom skateboard that I'm trying to get rid of.  Call me up at 678-413-2222 if you're interested", '/img/user_images/skateboard4.jpg', 1],
+	['Custom skateboard!', 1, '2016-04-06 11:23:44', 'skateboard', "I have this custom skateboard that I'm trying to get rid of.  Call me up at 678-413-2222 if you're interested", '/img/user_images/wheels5.jpg', 2],
 
-	['Custom skateboard!', 1, '2016-04-06 11:23:44', 'skateboard', "I have this custom skateboard that I'm trying to get rid of.  Call me up at 678-413-2222 if you're interested", '/img/user_images/skateboard4.jpg', 1],
+	['Custom skateboard!', 1, '2016-04-06 11:23:44', 'skateboard', "I have this custom skateboard that I'm trying to get rid of.  Call me up at 678-413-2222 if you're interested", '/img/user_images/wheels6.jpg', 2],
 
-	['Custom skateboard!', 1, '2016-04-06 11:23:44', 'skateboard', "I have this custom skateboard that I'm trying to get rid of.  Call me up at 678-413-2222 if you're interested", '/img/user_images/skateboard4.jpg', 1],
+	['Custom skateboard!', 1, '2016-04-06 11:23:44', 'skateboard', "I have this custom skateboard that I'm trying to get rid of.  Call me up at 678-413-2222 if you're interested", '/img/user_images/skateboard4.jpg', 3],
 
-	['Custom skateboard!', 1, '2016-04-06 11:23:44', 'skateboard', "I have this custom skateboard that I'm trying to get rid of.  Call me up at 678-413-2222 if you're interested", '/img/user_images/skateboard4.jpg', 1],
+	['Custom skateboard!', 1, '2016-04-06 11:23:44', 'skateboard', "I have this custom skateboard that I'm trying to get rid of.  Call me up at 678-413-2222 if you're interested", '/img/user_images/skateboard4.jpg', 5],
 ];
 
 foreach($items as $item) {
