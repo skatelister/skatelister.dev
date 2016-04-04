@@ -1,9 +1,5 @@
 <?php
-require_once '../skateConfig.php';
-require_once '../database/db_connect.php';
-require_once '../models/Ad.php';
-require_once '../utils/Input.php';
-require_once 'uploadFile.php';
+require_once '../prime.php';
 
 
 if(Input::has('item_id')) {

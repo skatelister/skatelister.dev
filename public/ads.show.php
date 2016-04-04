@@ -1,11 +1,7 @@
 <?php
 
 // for testing only. will remove once we have layout setup correctly
-require_once '../skateConfig.php';
-require_once '../database/db_connect.php';
-require_once '../models/Ad.php';
-require_once '../utils/Input.php';
-require_once 'uploadFile.php';
+require_once '../prime.php';
 
 session_start();
 if (isset($_SESSION['usersInfo'])) {
