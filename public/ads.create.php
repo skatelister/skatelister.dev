@@ -2,8 +2,10 @@
 require_once '../models/Users.php';
 session_start();
 if (isset($_SESSION['usersInfo'])) {
-
 	$id = $_SESSION['usersInfo']->id;
+}else if (!isset($_SESSION['usersInfo'])) {
+    header('Location: index.php');
+    die();
 }
 // for testing only. will remove once we have layout setup correctly
 require_once '../skateConfig.php';
@@ -63,20 +65,23 @@ if (!empty($_FILES)) {
 ?>
 
 <form action="" method="post" enctype="multipart/form-data">
-
-	<label for="title">Title: </label>
-	<input type="text" name="title" id="title">
-
-	<label for="category">Category of Item</label>
-	<select name="category" id="category">
-		<option value="skateboard">Skateboard</option>
-		<option value="wheels">Wheels</option>
-		<option value="accessories">Accessories</option>
-		<option value="other">Other: </option>
-	</select>
-
+	<div class="">
+		<label for="title">Title: </label>
+		<input type="text" name="title" id="title">
+	</div>
+	<div class="">
+		<label for="category">Category of Item</label>
+		<select name="category" id="category">
+			<option value="skateboard">Skateboard</option>
+			<option value="wheels">Wheels</option>
+			<option value="accessories">Accessories</option>
+			<option value="other">Other: </option>
+		</select>
+	</div>
+<div class="">
 	<label for="description">Description of Item: </label>
 	<textarea name="description" id="description" cols="30" rows="10"></textarea>
+</div>
 
 	<label for="image">Upload an Image</label>
 	<input type="file" name="image" id="image">

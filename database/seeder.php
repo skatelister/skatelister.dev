@@ -43,6 +43,18 @@ $statement = $dbc->prepare("INSERT INTO items(title, available, date_posted, cat
 $items = [
 	["Selling my favorite skateboard $100", 1, "2016-04-03 12:00:53", "skateboard", "I don't want to sale her but I have to get some quick cash.  Will go fast!", "/img/user_images/skateboard1.jpg", 1],
 
+	["Selling my favorite skateboard $100", 1, "2016-04-03 12:00:53", "skateboard", "I don't want to sale her but I have to get some quick cash.  Will go fast!", "/img/user_images/skateboard1.jpg", 1],
+
+	["Selling my favorite skateboard $100", 1, "2016-04-03 12:00:53", "skateboard", "I don't want to sale her but I have to get some quick cash.  Will go fast!", "/img/user_images/skateboard1.jpg", 1],
+
+	["Selling my favorite skateboard $100", 1, "2016-04-03 12:00:53", "skateboard", "I don't want to sale her but I have to get some quick cash.  Will go fast!", "/img/user_images/skateboard1.jpg", 1],
+
+	["Selling my favorite skateboard $100", 1, "2016-04-03 12:00:53", "skateboard", "I don't want to sale her but I have to get some quick cash.  Will go fast!", "/img/user_images/skateboard1.jpg", 1],
+
+	["Selling my favorite skateboard $100", 1, "2016-04-03 12:00:53", "skateboard", "I don't want to sale her but I have to get some quick cash.  Will go fast!", "/img/user_images/skateboard1.jpg", 1],
+
+	["Selling my favorite skateboard $100", 1, "2016-04-03 12:00:53", "skateboard", "I don't want to sale her but I have to get some quick cash.  Will go fast!", "/img/user_images/skateboard1.jpg", 1],
+
 	['I have some wheels that I am trying to get rid of $50', 1, '2016-04-06 07:55:23', 'wheels', "I don't want to sale her but I have to get some quick cash.  Will go fast!", '/img/user_images/wheels1.jpg', 2],
 
 	['Selling my favorite skateboard $100', 1, '2016-04-04 09:11:34', 'skateboard', "I got this skateboard from one of my friends and I don't use it!", '/img/user_images/skateboard2.jpg', 2],
