@@ -1,5 +1,5 @@
 <?php
-require_once '../models/Users.php';
+require_once '../prime.php';
 session_start();
 if (isset($_SESSION['usersInfo'])) {
     var_dump($_SESSION['usersInfo']->email);

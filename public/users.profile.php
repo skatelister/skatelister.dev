@@ -1,4 +1,5 @@
 <?php
+require_once '../prime.php';
 session_start();
 var_dump($_SESSION['usersInfo']);
 

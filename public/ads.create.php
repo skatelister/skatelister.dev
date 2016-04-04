@@ -1,5 +1,5 @@
 <?php
-require_once '../models/Users.php';
+require_once '../prime.php';
 session_start();
 if (isset($_SESSION['usersInfo'])) {
 	$id = $_SESSION['usersInfo']->id;
@@ -8,10 +8,6 @@ if (isset($_SESSION['usersInfo'])) {
     die();
 }
 // for testing only. will remove once we have layout setup correctly
-require_once '../skateConfig.php';
-require_once '../models/Ad.php';
-require_once '../utils/Input.php';
-require_once 'uploadFile.php';
 
 // var_dump($_POST);
 // // Declare an empty errors array to push message into.
@@ -42,7 +38,7 @@ if (!empty($_FILES)) {
 		// Ask about the date format and the MySQL format timezone
 		$date_posted = (new DateTime('now'))->format("Y-m-d H:i:s");
 		var_dump($date_posted);
-		
+
 		// hard coded user_id to get the insert to work
 		$user_id = $id;
 		$category = Input::get('category');
