@@ -1,5 +1,5 @@
 <?php
-require_once '../prime.php';
+require_once __DIR__ . '/../../prime.php';
 session_start();
 if (! isset($_SESSION['usersInfo'])) {
     header('Location: index.php');
@@ -62,7 +62,7 @@ $_SESSION['usersInfo'] = $newUserInfo;
   </head>
   <body>
 
-  <?php require_once __DIR__ .'/../views/partials/loggedin/navbar.php';  ?>
+  <?php require_once __DIR__ .'/../../views/partials/loggedin/navbar.php';  ?>
   <main>
 
       <div class="row">

@@ -1,7 +1,7 @@
 <?php
 
-require_once '../models/Model.php';
-require_once '../models/Users.php';
+// require_once '../models/Model.php';
+// require_once '../models/Users.php';
 
 class Ad extends Model {
 
@@ -170,6 +170,6 @@ class Ad extends Model {
 		$statement->execute();
 
 		return $statement->fetchAll();
-	}  
+	}
 
 }

@@ -23,9 +23,8 @@
 <nav class="nav navbar-default" role="navigation">
   <span id="websiteName">SkateLister</span>
   <ul id="mainNavigation">
-    <li><a href="index.php">Home</a></li>
-    <li><a href="whatshot.php">Hot</a></li>
-    <li><a href="closeBy.php">Close By</a></li>
+    <li><a href="/">Home</a></li>
+    <li><a href="/ads/hot">Hot</a></li>
   </ul>
-  <button><a href="/signin"></a></button>
+  <a href="/signin" class="btn btn-primary">Sign In</a>
 </nav>

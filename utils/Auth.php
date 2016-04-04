@@ -1,6 +1,6 @@
 <?php
 
-require_once '../skateConfig.php';
+// require_once '../skateConfig.php';
 
 class Auth
 {
@@ -48,7 +48,7 @@ class Auth
     $statment->bindValue(':email', $email, PDO::PARAM_STR);
     $statement->execute();
     $result = $statment->fetch();
-    
+
 
     }
     public static function setPassword($username,$password){

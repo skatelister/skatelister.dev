@@ -1,7 +1,7 @@
 <?php
 
 // for testing only. will remove once we have layout setup correctly
-require_once '../prime.php';
+require_once __DIR__ . '/../../prime.php';
 
 session_start();
 if (isset($_SESSION['usersInfo'])) {
