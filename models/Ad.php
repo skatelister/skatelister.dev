@@ -66,7 +66,7 @@ class Ad extends Model {
 
 
 	public static function find($id) {
-		// self::dbConnect();
+		self::dbConnect();
 		$statement = self::$dbc->prepare(
 			"SELECT title, date_posted, category, description, image, available
 			 FROM items AS i
@@ -77,8 +77,11 @@ class Ad extends Model {
 		$statement->bindValue(':id', $id, PDO::PARAM_STR);
         $statement->execute();
         $result = $statement->fetchALL();
-		return $result;
-
+		$items = [];
+		foreach ($result as $item) {
+	 		$items[] = new Ad($item);
+		}
+		return $items;
         // Why do we need this check??
         // $instance = null;
         // if ($result) {
@@ -87,6 +90,73 @@ class Ad extends Model {
 		//
         // return $instance;
 	}
+
+	public static function find_total_posts($id) {
+		self::dbConnect();
+		$statement = self::$dbc->prepare(
+			"SELECT count(*)
+			 FROM items AS i
+			   JOIN users AS u
+			 ON user_id = u.id
+			 WHERE user_id = :id;");
+
+		$statement->bindValue(':id', $id, PDO::PARAM_STR);
+        $statement->execute();
+        $result = $statement->fetchColumn();
+		return $result;
+        // Why do we need this check??
+        // $instance = null;
+        // if ($result) {
+        //     $instance = new Ad($result);
+        // }
+		//
+        // return $instance;
+	}
+
+	public static function paginate($id, $limit, $offset) {
+		self::dbConnect();
+		$statement = self::$dbc->prepare(
+			"SELECT i.id as item_id, title, date_posted, category, description, image, available
+			 FROM items AS i
+			   JOIN users AS u
+			 ON user_id = u.id
+			 WHERE user_id = :id  LIMIT :LIMIT OFFSET :OFFSET;");
+
+		$statement->bindValue(':id', $id, PDO::PARAM_STR);
+		$statement->bindValue(':LIMIT', $limit, PDO::PARAM_INT);
+		$statement->bindValue(':OFFSET', $offset, PDO::PARAM_INT);
+        $statement->execute();
+        $result = $statement->fetchAll();
+		$items = [];
+		foreach ($result as $item) {
+	 		$items[] = new Ad($item);
+		}
+		return $items;
+        // Why do we need this check??
+        // $instance = null;
+        // if ($result) {
+        //     $instance = new Ad($result);
+        // }
+		//
+        // return $instance;
+	}
+
+	public static function find_current_ad($id)
+    {
+        // Get connection to the database
+
+        self::dbConnect();
+        $statement = self::$dbc->prepare('SELECT * FROM items WHERE id = :id');
+        $statement->bindValue(':id', $id, PDO::PARAM_STR);
+        $statement->execute();
+        $result = $statement->fetch();
+        // The following code will set the attributes on the calling object based on the result variable's contents
+        $instance = null;
+        if ($result) {
+            $instance = new Ad($result);
+        }
+        return $instance;
+    }
 
 	public static function all() {
 		// self::dbConnect();
