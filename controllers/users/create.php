@@ -1,5 +1,5 @@
 <?php
-require_once '../prime.php';
+require_once '../../prime.php';
 $errors = [];
 
 
@@ -72,7 +72,7 @@ if (Input::has('first_name')
 
     if (Input::has('submit_form')
      && empty($errors)) {
-      header('Location: signin.php');
+      header('Location: /signin');
       die();
 
     }
