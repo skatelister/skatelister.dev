@@ -14,9 +14,9 @@ if (isset($_SESSION['usersInfo'])) {
 
 
     $all_user_ads = new Ad();
-    $user_items = $all_user_ads->find($id);
+    $user_items = $all_user_ads->find(1);
 
-
+var_dump($user_items);
 
 
 }

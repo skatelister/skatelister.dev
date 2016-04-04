@@ -23,7 +23,7 @@ if (Input::has('email')
       $findUsersInfo =  User::find($email);
 
       if (! is_null($findUsersInfo)) {
-          if (password_verify($password,$findUsersInfo->user_pass)) {
+          if (password_verify($password,$findUsersInfo->password)) {
               session_start();
               $_SESSION['usersInfo'] = $findUsersInfo;
 
@@ -95,7 +95,7 @@ if (Input::has('email')
     </form>
 
 
-    
+
 
   </body>
 </html>

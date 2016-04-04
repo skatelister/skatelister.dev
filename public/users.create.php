@@ -63,7 +63,7 @@ if (Input::has('first_name')
       $newUserProfile->first_name = $first_name;
       $newUserProfile->last_name = $last_name;
       $newUserProfile->email = $email;
-      $newUserProfile->user_pass = $password;
+      $newUserProfile->password = $password;
         $newUserProfile->save();
       // try {
       // } catch (PDOException $e) {

@@ -8,13 +8,13 @@ class User extends Model
         'first_name',
         'last_name',
         'email',
-        'user_pass',
+        'password',
     ];
     /** Insert a new entry into the database */
     protected function insert()
     {
-        $insert = 'INSERT INTO users (first_name, last_name, email, user_pass)
-                   VALUES (:first_name, :last_name, :email, :user_pass)';
+        $insert = 'INSERT INTO users (first_name, last_name, email, password)
+                   VALUES (:first_name, :last_name, :email, :password)';
         $statement = self::$dbc->prepare($insert);
         unset($this->attributes['id']);
         foreach ($this->attributes as $key => $value) {
@@ -30,7 +30,7 @@ class User extends Model
     protected function update()
     {
         $update = 'UPDATE users SET first_name = :first_name, last_name = :last_name,
-                   email = :email, user_pass = :user_pass WHERE id = :id';
+                   email = :email, password = :password WHERE id = :id';
         $statement = self::$dbc->prepare($update);
         foreach ($this->attributes as $key => $value) {
             $statement->bindValue(":$key", $value, PDO::PARAM_STR);
@@ -48,7 +48,7 @@ class User extends Model
     public static function find($email)
     {
         // Get connection to the database
-    
+
         self::dbConnect();
         $statement = self::$dbc->prepare('SELECT * FROM users WHERE email = :email');
         $statement->bindValue(':email', $email, PDO::PARAM_STR);
