@@ -20,7 +20,6 @@ require_once 'uploadFile.php';
 	// if (Input::get('title', '') != ''
 	//  && Input::get('available', '') != ''
 	//  && Input::get('description', '') != ''
-	//  && Input::get('date_posted', '') != ''
 	//  && Input::get('image', '') != ''
 	//  && Input::get('user_id', '') != '' ) // ending of if
 	// {
@@ -39,12 +38,9 @@ if (!empty($_FILES)) {
 		$description = Input::get('description');
 
 		// Ask about the date format and the MySQL format timezone
-		$date_posted = Input::get('date_posted');
-
-		$date_posted = strtotime('now');
+		$date_posted = (new DateTime('now'))->format("Y-m-d H:i:s");
 		var_dump($date_posted);
-		$date_posted = gmdate("Y-m-d H:i:s", $date_posted);
-var_dump($date_posted);
+		
 		// hard coded user_id to get the insert to work
 		$user_id = $id;
 		$category = Input::get('category');
@@ -84,8 +80,6 @@ var_dump($date_posted);
 
 	<label for="image">Upload an Image</label>
 	<input type="file" name="image" id="image">
-
-	<input type="hidden" name="date_created" id="date_created" value="<?= date('Y-m-d H:i:s');?>">
 
 	<input type="hidden" name="available" id="available" value="1">
 

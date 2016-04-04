@@ -64,23 +64,57 @@ $items = [
 	['Americana skateboard deck.', 1, '2016-04-05 07:11:34', 'skateboard', "I have this awesome American deck skateboard that I would like to sale.  Kind of hard for me to sale but I don't use anymore.  Email me at theBettieWhite@didyouseethis.com!", '/img/user_images/skateboard3.jpg', 4],
 
 	['Custom skateboard!', 1, '2016-04-06 11:23:44', 'skateboard', "I have this custom skateboard that I'm trying to get rid of.  Call me up at 678-413-2222 if you're interested", '/img/user_images/skateboard4.jpg', 1],
+
+	['Custom skateboard!', 1, '2016-04-06 11:23:44', 'skateboard', "I have this custom skateboard that I'm trying to get rid of.  Call me up at 678-413-2222 if you're interested", '/img/user_images/skateboard4.jpg', 1],
+
+	['Custom skateboard!', 1, '2016-04-06 11:23:44', 'skateboard', "I have this custom skateboard that I'm trying to get rid of.  Call me up at 678-413-2222 if you're interested", '/img/user_images/skateboard4.jpg', 1],
+
+	['Custom skateboard!', 1, '2016-04-06 11:23:44', 'skateboard', "I have this custom skateboard that I'm trying to get rid of.  Call me up at 678-413-2222 if you're interested", '/img/user_images/skateboard4.jpg', 1],
+
+	['Custom skateboard!', 1, '2016-04-06 11:23:44', 'skateboard', "I have this custom skateboard that I'm trying to get rid of.  Call me up at 678-413-2222 if you're interested", '/img/user_images/skateboard4.jpg', 1],
+
+	['Custom skateboard!', 1, '2016-04-06 11:23:44', 'skateboard', "I have this custom skateboard that I'm trying to get rid of.  Call me up at 678-413-2222 if you're interested", '/img/user_images/skateboard4.jpg', 1],
+
+	['Custom skateboard!', 1, '2016-04-06 11:23:44', 'skateboard', "I have this custom skateboard that I'm trying to get rid of.  Call me up at 678-413-2222 if you're interested", '/img/user_images/skateboard4.jpg', 1],
+
+	['Custom skateboard!', 1, '2016-04-06 11:23:44', 'skateboard', "I have this custom skateboard that I'm trying to get rid of.  Call me up at 678-413-2222 if you're interested", '/img/user_images/skateboard4.jpg', 1],
+
+	['Custom skateboard!', 1, '2016-04-06 11:23:44', 'skateboard', "I have this custom skateboard that I'm trying to get rid of.  Call me up at 678-413-2222 if you're interested", '/img/user_images/skateboard4.jpg', 1],
+
+	['Custom skateboard!', 1, '2016-04-06 11:23:44', 'skateboard', "I have this custom skateboard that I'm trying to get rid of.  Call me up at 678-413-2222 if you're interested", '/img/user_images/skateboard4.jpg', 1],
+
+	['Custom skateboard!', 1, '2016-04-06 11:23:44', 'skateboard', "I have this custom skateboard that I'm trying to get rid of.  Call me up at 678-413-2222 if you're interested", '/img/user_images/skateboard4.jpg', 1],
+
+	['Custom skateboard!', 1, '2016-04-06 11:23:44', 'skateboard', "I have this custom skateboard that I'm trying to get rid of.  Call me up at 678-413-2222 if you're interested", '/img/user_images/skateboard4.jpg', 1],
 ];
 
 foreach($items as $item) {
-	// $date = date("Y-m-d H:i:s",strtotime(str_replace('/','-',$item[2])));
-	$date_posted = strtotime('now');
-	$date_posted = gmdate("Y-m-d H:i:s",$date_posted);
 
-		$testAd = new Ad();
-		$testAd->title = $item[0];
-		$testAd->available = $item[1];
-		$testAd->date_posted = $date_posted;
-		$testAd->category = $item[3];
-		$testAd->description = $item[4];
-		$testAd->image = $item[5];
-		$testAd->user_id = $item[6];
 
-		$testAd->save();
+	$statement->bindValue(':title', $item[0], PDO::PARAM_STR);
+    $statement->bindValue(':available', $item[1], PDO::PARAM_INT);
+    $statement->bindValue(':date_posted', $item[2], PDO::PARAM_STR);
+    $statement->bindValue(':category', $item[3], PDO::PARAM_STR);
+    $statement->bindValue(':description', $item[4], PDO::PARAM_STR);
+    $statement->bindValue(':image', $item[5], PDO::PARAM_STR);
+    $statement->bindValue(':user_id',$item[6], PDO::PARAM_INT);
+	
+    $statement->execute();
+
+	// // $date = date("Y-m-d H:i:s",strtotime(str_replace('/','-',$item[2])));
+	// $date_posted = strtotime('now');
+	// $date_posted = gmdate("Y-m-d H:i:s",$date_posted);
+
+	// 	$testAd = new Ad();
+	// 	$testAd->title = $item[0];
+	// 	$testAd->available = $item[1];
+	// 	$testAd->date_posted = $date_posted;
+	// 	$testAd->category = $item[3];
+	// 	$testAd->description = $item[4];
+	// 	$testAd->image = $item[5];
+	// 	$testAd->user_id = $item[6];
+
+	// 	$testAd->save();
 
 
 

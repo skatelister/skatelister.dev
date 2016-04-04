@@ -78,6 +78,7 @@ class User extends Model
         }
         return $users;
     }
+    
     public static function delete($id)
     {
         // Get connection to the database
