@@ -2,6 +2,28 @@
 	padding-right: 35px;
 	padding-top: 40px;
 	font-size: 2em;
+}
+
+
+#logoimage {
+	display: inline-block;
+	width: 100px;
+	height: 100px;
+	float: left;
+}
+
+#logoh2 {
+	position: relative;
+	bottom: 71px;
+	left: 60px;
+	color: black;
+}
+
+#logodiv {
+	height: auto;
+	width: 200px;
+	display:inline-block;
+	background-color: #a7dbdb;
 	float: right;
 }
 
@@ -57,7 +79,7 @@ footer {
 	width: 50px;
 }
 
-.tomasFooter > a > img {	
+.tomasFooter > a > img {
 	height: 50px;
 	width: 50px;
 }
