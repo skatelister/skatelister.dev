@@ -3,7 +3,8 @@ require_once '../prime.php';
 $errors = [];
 
 if (Input::has('sign_up')) {
-  header('Location: users.create.php');
+  header('Location: user/create');
+  die();
 }
 
 if (Input::has('email')
@@ -25,7 +26,7 @@ if (Input::has('email')
               $_SESSION['usersInfo'] = $findUsersInfo;
 
 
-             header("Location: index.php");
+             header("Location: /");
              die();
           }else if ($email != '' && $password != '') {
             $errors['wrong_info'] = "Email or Password was incorrect.";

@@ -1,28 +1,27 @@
 <?php
-
 switch($_SERVER['REQUEST_URI']) {
 
 	case '/' :
-		require 'home.php';
+		require '../controllers/home.php';
 	break;
 
 	case '/signin' :
-		require 'signin.php';
+		require '../controllers/signin.php';
 	break;
 
-	case '/signin' :
-		require 'signin.php';
+	case '/user/create' :
+		require '../controllers/users/create.php';
 	break;
 
-	case '/signin' :
-		require 'signin.php';
+	case '/user/edit' :
+		require '/controllers/users/edit.php';
 	break;
 
-	case '/signin' :
-		require 'signin.php';
+	case '/user/profile' :
+		require '/controllers/users/edit.php';
 	break;
 
-	default '/':
-		require 'home.php';
+	default :
+		require '../controllers/home.php';
 
 }
