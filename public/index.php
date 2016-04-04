@@ -1,17 +1,28 @@
 <?php
-require_once '../prime.php';
 
-session_start();
-if (isset($_SESSION['usersInfo'])) {
-    var_dump($_SESSION['usersInfo']);
+switch($_SERVER['REQUEST_URI']) {
+
+	case '/' :
+		require 'home.php';
+	break;
+
+	case '/signin' :
+		require 'signin.php';
+	break;
+
+	case '/signin' :
+		require 'signin.php';
+	break;
+
+	case '/signin' :
+		require 'signin.php';
+	break;
+
+	case '/signin' :
+		require 'signin.php';
+	break;
+
+	default '/':
+		require 'home.php';
+
 }
-
-$newestAds = Ad::showNewest();
-var_dump($newestAds);
-
-?>
-
-<?php require_once '../views/partials/header.php'; ?>
-
-
-<?php require_once '../views/partials/footer.php'; ?>
