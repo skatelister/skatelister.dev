@@ -27,5 +27,5 @@
     <li><a href="whatshot.php">Hot</a></li>
     <li><a href="closeBy.php">Close By</a></li>
   </ul>
-  <button><a href="/signup.php"></a></button>
+  <button><a href="/signin"></a></button>
 </nav>

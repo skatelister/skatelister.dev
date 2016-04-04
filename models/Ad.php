@@ -24,17 +24,9 @@ class Ad extends Model {
 		$insert = "INSERT INTO items (title, available, date_posted, category, description, image, user_id)
 					      VALUES (:title, :available, :date_posted, :category, :description, :image, :user_id)";
 		$statement = self::$dbc->prepare($insert);
-		// attribute['id'] is set from Model class __construct() !!
 		unset($this->attributes['id']);
-
 		foreach($this->attributes as $key => $value) {
-			// if($this->attributes['date_posted']) {
-			// 	$statement->bindValue(":$key", "NOW()", PDO::PARAM_STR);
-			// 	echo 'hello';
-			// 	continue;
-			// }
 			$statement->bindValue(":$key", $value, PDO::PARAM_STR);
-
 		}
 		$statement->execute();
 		$this->attributes['id'] = self::$dbc->lastInsertId();
@@ -50,19 +42,20 @@ class Ad extends Model {
 		$statement->execute();
 	}
 
-	// protected function takeDown() {
-	// 	$query = "UPDATE items SET availale = :available WHERE id = :id";
-	// 	$statement = self::$dbc->prepare($query);
-	// 	$statement->bindParam(':available', 0, PDO::PARAM_INT);
-	// 	$statement->execute();
-	// }
+	protected function takeDown($id) {
+		$query = "UPDATE items SET availale = :available WHERE id = :id";
+		$statement = self::$dbc->prepare($query);
+		$statement->bindParam(':available', 0, PDO::PARAM_INT);
+		$statement->bindParam(':id', $id, PDO::PARAM_INT);
+		$statement->execute();
+	}
 
-	// protected function reshow() {
-	// 	$query = "UPDATE items SET available = :available WHERE id = :id";
-	// 	$statement = self::$dbc->prepare($query);
-	// 	$statememt->bindParam(':available', 1, PDO::PARAM_INT);
-	// 	$statement->execute();
-	// }
+	protected function reshow() {
+		$query = "UPDATE items SET available = :available WHERE id = :id";
+		$statement = self::$dbc->prepare($query);
+		$statememt->bindParam(':available', 1, PDO::PARAM_INT);
+		$statement->execute();
+	}
 
 
 	public static function find($id) {

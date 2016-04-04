@@ -6,6 +6,6 @@
     <li><a href="whatshot.php">Hot</a></li>
     <li><a href="closeBy.php">Close By</a></li>
   </ul>
-    <button><a href="/signup.php">Sign Up</a></button>
+    <button><a href="/signin">Sign In</a></button>
 </nav>
  
