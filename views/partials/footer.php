@@ -28,6 +28,8 @@
 	</footer>
 
 <script src="/js/jquery-1.12.0.js"></script>
+<script src="/js/bootstrap.min.js"></script>
 <script src="/js/main.js"></script>
+<script src="/js/login_ajax.js"></script>
 </body>
 </html>
