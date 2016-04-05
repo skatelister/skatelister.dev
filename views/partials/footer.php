@@ -6,7 +6,7 @@
 				<a target="_blank" href="https://https://twitter.com/CJSampsonite"><img src="/img/site_imgs/twittersocial.png" alt="twitter" class="hoverInvert"></a>
 				<a target="_blank" href="https://github.com/cjsampson"><img src="/img/site_imgs/githubsocial.png" alt="facebook" class="hoverInvert"></a>
 				<a target="_blank" href="https://www.linkedin.com/in/christopher-sampson-3891b7b7"><img src="/img/site_imgs/linkedinsocial.png" alt="facebook" class="hoverInvert"></a>
-			</div>
+			</div> <!-- .cjFooter -->
 
 
 			<div class="tomasFooter">
@@ -16,7 +16,7 @@
 				<a target="_blank" href="https://github.com/Penthious"><img src="/img/site_imgs/githubsocial.png" alt="facebook" class="hoverInvert"></a>
 				<a target="_blank" href="https://www.linkedin.com/in/tomas-leffew-431512b7"><img src="/img/site_imgs/linkedinsocial.png" alt="facebook" class="hoverInvert"></a>
 			</div>
-		</div>
+		</div> <!-- .ourInfoDiv -->
 
 		<div class="address">
 			<span id="sitename">SkateLister Inc.</span>
@@ -24,7 +24,8 @@
 			<span id="codeupname"><a target="_blank" href="http://www.codeup.com">@Codeup</a></span>
 			<span><b>|</b></span>
 			<span id="codeupnumber">210-802-7289</span>
-		</div>
+		</div> <!-- .address -->
+
 	</footer>
 
 <script src="/js/jquery-1.12.0.js"></script>
