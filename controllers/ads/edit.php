@@ -1,5 +1,5 @@
 <?php
-require_once '../prime.php';
+require_once __DIR__ . '/../../prime.php';
 
 
 if(Input::has('item_id')) {

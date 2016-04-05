@@ -1,5 +1,5 @@
 <?php
-require_once 'Model.php';
+// require_once 'Model.php';
 class User extends Model
 {
     protected static $table = 'users';
@@ -78,7 +78,7 @@ class User extends Model
         }
         return $users;
     }
-    
+
     public static function delete($id)
     {
         // Get connection to the database
