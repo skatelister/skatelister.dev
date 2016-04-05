@@ -1,5 +1,5 @@
 <?php
-switch($_SERVER['REQUEST_URI']) {
+switch(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)) {
 
 	case '/' :
 		require '../controllers/home.php';
@@ -53,7 +53,11 @@ switch($_SERVER['REQUEST_URI']) {
 		require '../controllers/ads/show.php';
 	break;
 
-	default :
-		header('Location: /');
-		die();
+	case '/check/login':
+		require '../controllers/logincheck.php';
+		break;
+
+	// default :
+	// 	header('Location: /');
+	// 	die();
 }

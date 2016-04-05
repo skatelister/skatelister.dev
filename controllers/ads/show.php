@@ -20,26 +20,18 @@ if (isset($_SESSION['usersInfo'])) {
 
 
     $allUserPosts = Ad::find_total_posts($id);
-    var_dump($allUserPosts);
+
 
     $totalPages = $allUserPosts / $limit;
 
 
 }else {
-    header('Location: index.php');
+    header('Location: /');
 }
 
  ?>
- <!DOCTYPE html>
- <html>
-     <head>
-         <link rel="stylesheet" href="/css/Bootstrap/bootstrap.css">
-         <link rel="stylesheet" href="/css/ads.show.css">
-         <meta charset="utf-8">
-         <title></title>
-     </head>
-     <body>
-
+ <?php require_once __DIR__ .'/../../views/partials/header.php';  ?>
+ <link rel="stylesheet" href="/css/ads.css">
     <!-- Page Content -->
     <div class="container">
 
@@ -47,7 +39,7 @@ if (isset($_SESSION['usersInfo'])) {
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">Welcome
-                    <small><?= $_SESSION['usersInfo']->first_name; ?></small>
+                    <?= $_SESSION['usersInfo']->first_name; ?>
                 </h1>
             </div>
         </div>
@@ -55,7 +47,7 @@ if (isset($_SESSION['usersInfo'])) {
 
 
                  <?php foreach ($user_items as $item): ?>
-                     <?php var_dump($item) ?>
+
                      <div class="row">
                          <div class="col-md-7">
                              <a href="#">
@@ -66,7 +58,7 @@ if (isset($_SESSION['usersInfo'])) {
                              <h3> <?= $item->title;?> </h3>
                              <h4><?= $item->category; ?> </h4>
                              <p> <?= $item->description;?></p>
-                             <a class="btn btn-primary" href="ads.edit.php?item_id=<?=$item->item_id ?>">Edit</a>
+                             <a class="btn btn-primary" href="/ads/edit?item_id=<?=$item->item_id ?>">Edit</a>
                              <a class="btn btn-primary" href="#">Take Down  </span></a>
                          </div>
                      </div>
@@ -86,51 +78,26 @@ if (isset($_SESSION['usersInfo'])) {
                 <ul class="pagination">
                     <?php if ($page > 1) { ?>
                         <li>
-                            <a href="ads.show.php?page=<?=$page - 1 ?>">&laquo;</a>
+                            <a href="/ads/show?page=<?=$page - 1 ?>">&laquo;</a>
                         </li>
                    <?php } ?>
 
                     <?php for ($i=1; $i <= ceil($totalPages)  ; $i++) { ?>
                         <li>
-                            <a href="ads.show.php?page=<?=$i ?> "> <?= $i ?> </a>
+                            <a href="/ads/show?page=<?=$i ?> "> <?= $i ?> </a>
                         </li>
                     <?php }?>
 
                     <?php if ($page<= $totalPages) { ?>
                         <li>
-                             <a href="ads.show.php?page=<?=$page + 1 ?>">&raquo;</a>
+                             <a href="/ads/show?page=<?=$page + 1 ?>">&raquo;</a>
                         </li>
                     <?php } ?>
 
                 </ul>
             </div>
         </div>
-
-
-
-
-        <!-- /.row -->
-
-        <hr>
-
-        <!-- Footer -->
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2014</p>
-                </div>
-            </div>
-            <!-- /.row -->
-        </footer>
-
     </div>
-    <!-- /.container -->
 
-    <!-- jQuery -->
-<script src="/js/jquery-1.12.0.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-</body>
-</html>
+<?php require_once __DIR__ .'/../../views/partials/footer.php';  ?>
