@@ -40,22 +40,11 @@ if (Input::has('email')
   }
 
 }
-
-
-
-
 ?>
 
 <!DOCTYPE html>
-<html>
-  <head>
-    <link rel="stylesheet" href="/css/Bootstrap/bootstrap.css">
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-
-
+<?php require_once __DIR__ .'/../views/partials/header.php';  ?>
+<main>
     <form method="post">
       <div class="">
         <label for="email">Email:</label>
@@ -89,11 +78,6 @@ if (Input::has('email')
       <div class="">
         <button type="submit" name="sign_up"> Sign up</button>
       </div>
-
     </form>
-
-
-
-
-  </body>
-</html>
+</main>
+<?php require_once __DIR__ .'/../views/partials/footer.php';  ?>
