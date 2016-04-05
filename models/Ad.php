@@ -34,10 +34,13 @@ class Ad extends Model {
 
 	protected function update(){
 		$update = "UPDATE items SET title = :title, category = :category,
-									description = :description, image = :image";
+									description = :description, image = :image,
+									date_posted = :date_posted, user_id = :user_id, available = :available
+									WHERE id = :id";
 		$statement = self::$dbc->prepare($update);
-		foreach( $this->attribute as $key => $value) {
-			$statement->bindParam(":$key", $value, PDO::PARAM_STR);
+		// $statment->bindValue(':id',$id, PDO::PARAM_INT);
+		foreach( $this->attributes as $key => $value) {
+			$statement->bindValue(":$key", $value, PDO::PARAM_STR);
 		}
 		$statement->execute();
 	}
