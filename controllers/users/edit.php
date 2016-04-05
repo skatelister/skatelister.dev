@@ -52,17 +52,9 @@ $newUserInfo->save();
 $_SESSION['usersInfo'] = $newUserInfo;
 
 ?>
-<!DOCTYPE html>
-<html>
-  <head>
-    <link rel="stylesheet" href="/css/Bootstrap/bootstrap.css">
-    <link rel="stylesheet" href="/css/main.css">
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
 
-  <?php require_once __DIR__ .'/../../views/partials/loggedin/navbar.php';  ?>
+<?php require_once __DIR__ .'/../../views/partials/header.php';  ?>
+
   <main>
 
       <div class="row">
@@ -111,5 +103,4 @@ $_SESSION['usersInfo'] = $newUserInfo;
       </div>
     </div>
   </main>
-  </body>
-</html>
+<?php require_once __DIR__ .'/../../views/partials/footer.php';  ?>

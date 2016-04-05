@@ -80,74 +80,63 @@ if (Input::has('first_name')
 }
 ?>
 
-
-<!DOCTYPE html>
-<html>
-    <head>
-        <link rel="stylesheet" href="/css/">
-        <meta charset="utf-8">
-        <title></title>
-    </head>
-    <body>
+<?php require_once __DIR__ .'/../../views/partials/header.php';  ?>
 
 
+    <form class=""  method="post">
 
-                <form class=""  method="post">
+        <div class="">
+            <label for="first_name">First Name:</label>
+            <input id="first_name" type="text" name="first_name" value="<?=  Input::get('first_name'); ?>">
 
-                    <div class="">
-                        <label for="first_name">First Name:</label>
-                        <input id="first_name" type="text" name="first_name" value="<?=  Input::get('first_name'); ?>">
+            <?php if (isset($errors['first_name'])): ?>
+                    <span> <?= $errors['first_name'] ?></span>
+            <?php endif; ?>
 
-                        <?php if (isset($errors['first_name'])): ?>
-                                <span> <?= $errors['first_name'] ?></span>
-                        <?php endif; ?>
+        </div>
+        <div class="">
+            <label for="last_name">Last Name:</label>
+            <input id="last_name" type="text" name="last_name" value="<?= Input::get('last_name'); ?>">
+            <?php if (isset($errors['last_name'])): ?>
+                    <span> <?= $errors['last_name'] ?></span>
+            <?php endif; ?>
+        </div>
+        </div>
+        <div class="">
+            <label for="email">Email:</label>
+            <input id="email" type="text" name="email" value="<?=  Input::get('email'); ?>">
 
-                    </div>
-                    <div class="">
-                        <label for="last_name">Last Name:</label>
-                        <input id="last_name" type="text" name="last_name" value="<?= Input::get('last_name'); ?>">
-                        <?php if (isset($errors['last_name'])): ?>
-                                <span> <?= $errors['last_name'] ?></span>
-                        <?php endif; ?>
-                    </div>
-                    </div>
-                    <div class="">
-                        <label for="email">Email:</label>
-                        <input id="email" type="text" name="email" value="<?=  Input::get('email'); ?>">
+            <?php if (isset($errors['email'])): ?>
+                    <span> <?= $errors['email'] ?></span>
 
-                        <?php if (isset($errors['email'])): ?>
-                                <span> <?= $errors['email'] ?></span>
+            <?php elseif(isset($errors['emailUsed'])): ?>
+                    <span> <?= $errors['emailUsed'] ?></span>
+            <?php endif; ?>
 
-                        <?php elseif(isset($errors['emailUsed'])): ?>
-                                <span> <?= $errors['emailUsed'] ?></span>
-                        <?php endif; ?>
+        </div>
+        <div class="">
+            <label for="password">Password:</label>
+            <input id="password" type="text" name="password">
+            <?php if (isset($errors['password'])): ?>
+                    <span> <?= $errors['password'] ?></span>
+            <?php endif; ?>
+        </div>
 
-                    </div>
-                    <div class="">
-                        <label for="password">Password:</label>
-                        <input id="password" type="text" name="password">
-                        <?php if (isset($errors['password'])): ?>
-                                <span> <?= $errors['password'] ?></span>
-                        <?php endif; ?>
-                    </div>
+        <div class="">
+            <label for="verPassword">Verify Password:</label>
+            <input id="verPassword" type="text" name="ver_password">
+            <?php if (isset($errors['ver_password'])): ?>
+                    <span> <?= $errors['ver_password'] ?></span>
+            <?php endif; ?>
+            <?php if (isset($errors['wrongpass'])): ?>
+                    <span> <?= $errors['wrongpass'] ?></span>
 
-                    <div class="">
-                        <label for="verPassword">Verify Password:</label>
-                        <input id="verPassword" type="text" name="ver_password">
-                        <?php if (isset($errors['ver_password'])): ?>
-                                <span> <?= $errors['ver_password'] ?></span>
-                        <?php endif; ?>
-                        <?php if (isset($errors['wrongpass'])): ?>
-                                <span> <?= $errors['wrongpass'] ?></span>
-
-                        <?php endif; ?>
-                    </div>
-                        <button type="submit" name="submit_form">Submit Form</button>
-                </form>
+            <?php endif; ?>
+        </div>
+            <button type="submit" name="submit_form">Submit Form</button>
+    </form>
 
 
 
-        <script src="/js/jquery-1.12.0.js"></script>
-        <script src="/js/"></script>
-    </body>
-</html>
+
+<?php require_once __DIR__ .'/../../views/partials/footer.php';  ?>
