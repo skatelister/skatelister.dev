@@ -1,47 +1,97 @@
-#websiteName {
-	padding-right: 35px;
-	padding-top: 40px;
-	font-size: 2em;
-	float: right;
+html{
+	background-color: white;
+}
+body{
+	font-family: 'Cabin', sans-serif;
+    background-color: #25aaa0;
 }
 
-
-#logoh2 {
-	position: relative;
-	bottom: 71px;
-	left: 60px;
-	color: black;
-}
-
-#logodiv {
-	height: auto;
-	width: 200px;
-	display:inline-block;
-	background-color: #a7dbdb;
-	float: right;
-}
-
+/* SkateLister Logo Letters */
 nav {
-	height: 140px;
+	height: auto;
 	box-sizing: border-box;
 }
+.logo {
+	background-color: white;
+	height: 75px;
+	width: 100%;
+	border-bottom: 1px solid black;
+}
+#websiteName {
+	font-size: 4em;
+	height: auto;
+	width: 25%;
+	float: right;
+	font-weight: 700;
+}
+
+.nav {
+	background-color: #41d4cf;
+}
+
+
 #mainNavigation > li {
 	font-size: 2em;
 	list-style-type: none;
 	display: inline-block;
 	padding-right: 30px;
-	padding-top: 45px;
+	padding-top: 15px;
 }
 
-body{
-    background-color: slategrey;
-}
 
 /* Front Page Content CSS */
-.indexPicture {
-	height: auto;
-	max-width: 50%;
+
+
+
+/* SideBar CSS */
+
+.sidebar {
+	margin-top: 25px;
+	background-color: #27b896;
+	height: 500px;
+	border-radius: 1%;
 }
+
+
+/* Mission Statement */
+
+.missionStatement {
+	margin-top: 25px;
+	height: 500px;
+	background-color: #666666;
+	border-radius: 1%;
+}
+
+.missionStatement > p {
+	font-size: 3em;
+}
+
+
+
+
+
+
+
+#brandNewTitle {
+	text-align: center;
+	margin-bottom: 50px;
+}
+
+.newestSingle {
+	height: 300px;
+	width: 300px;
+}
+
+#imageTitle {
+	text-align: center;
+}
+
+.indexPicture {
+	margin: 0 auto;
+}
+
+
+
 
 
 /* Footer CSS */
@@ -52,8 +102,8 @@ footer {
 	height: auto;
 	display: block;
 	background-color: #00ccd6;
-	position: relative;
 	bottom: 0;
+	position: relative;
 }
 
 .ourInfoDiv {
@@ -65,7 +115,7 @@ footer {
 	border-right: 3px solid black;
 	font-family: 'Muli', sans-serif;
 	font-size: 1.5em;
-	width: 35%;
+	width: 40%;
 	display: inline-block;
 }
 
@@ -74,7 +124,7 @@ footer {
 	font-family: 'Muli', sans-serif;
 	font-size: 1.5em;
 	display: inline-block;
-	width: 35%;
+	width: 40%;
 }
 
 .cjFooter > a > img {
@@ -113,4 +163,8 @@ footer {
 }
 #codeupnumber {
 	padding-left: 25px;
+}
+
+.extra-cushion {
+	margin-bottom: 20px;
 }

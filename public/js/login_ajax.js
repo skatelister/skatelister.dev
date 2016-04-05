@@ -11,10 +11,10 @@ $('#login_button').on('click',function(e){
             'password' : $('#password').val()
         },
         'dataType': 'json',
-        'success': function(responce){
-            console.log(responce);
-            if (Object.keys(responce.errors).length > 0) {
-                $.each(responce.errors, function( index, value ) {
+        'success': function(response){
+            console.log(response);
+            if (Object.keys(response.errors).length > 0) {
+                $.each(response.errors, function( index, value ) {
                     $('#' + index ).html(value);
                 });
             } else {

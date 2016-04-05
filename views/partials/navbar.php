@@ -2,14 +2,19 @@
 <!-- Landing Page navbar (not logged in) -->
 
 <nav class="nav navbar-default" role="navigation">
-  <span id="websiteName">SkateLister</span>
-  <ul id="mainNavigation">
-      <li class="navbar_lists" data-toggle="modal" data-target="#myModal"> Sign In</li>
-    <li><a href="/">Home</a></li>
-    <li><a href="/ads/hot">Hot</a></li>
-  </ul>
-  <a href="/signin" class="btn btn-primary">Sign In</a>
-</nav>
+  <div class="logo">
+    <span id="websiteName">SkateLister</span>
+  </div> <!-- .logo -->
+
+  <div class="headerNav">
+    <ul id="mainNavigation">
+        <li class="navbar_lists" data-toggle="modal" data-target="#myModal"> Sign In</li>
+      <li><a href="/">Home</a></li>
+      <li><a href="/ads/hot">Hot</a></li>
+      <li><a href="/signin" class="btn btn-primary">Sign In</a></li>
+    </ul>
+  </div> <!-- .headerNav --> 
+</nav> <!-- .nav navbar-default -->
 
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
