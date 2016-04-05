@@ -37,6 +37,15 @@ body{
     background-color: slategrey;
 }
 
+/* Front Page Content CSS */
+.indexPicture {
+	height: auto;
+	max-width: 50%;
+}
+
+
+/* Footer CSS */
+
 footer {
 	text-align: center;
 	width: 100%;

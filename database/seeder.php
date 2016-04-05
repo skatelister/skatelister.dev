@@ -1,7 +1,6 @@
 <?php
-require_once '../skateConfig.php';
-require_once 'db_connect.php';
-require_once '../models/Ad.php';
+
+require_once '../prime.php';
 
 
 
@@ -65,7 +64,7 @@ $items = [
 
 	['Used wheels for sale.  Only $19.00', 1, '2016-04-05 03:30:30', 'wheels', "Awesome wheels for cheap! Text me at 210-992-8823", '/img/user_images/wheel3.jpg', 3],
 
-	['GLOW IN THE DARK WHEELS', 1, '2016-04-06 04:11:30', 'wheels', "Glow in the dark wheels that are easy install!  Only $45.99", '/img/user_images/wheels4.jpg', 5],
+	['GLOW IN THE DARK WHEELS', 1, '2016-04-06 04:11:30', 'wheels', "Glow in the dark wheels that are easy install!  Only $45.99", '/img/user_images/wheels4.jpeg', 5],
 
 	['Helmet and pads for $35.00', 1, '2016-04-04 02:41:34', 'accessories', "I have a used set of pads and a perfectly good helmet for cheap!", '/img/user_images/accessories2.jpg', 3],
 
@@ -85,7 +84,7 @@ $items = [
 
 	['Custom skateboard!', 1, '2016-04-06 11:23:44', 'skateboard', "I have this custom skateboard that I'm trying to get rid of.  Call me up at 678-413-2222 if you're interested", '/img/user_images/accessories7.jpg', 4],
 
-	['Custom skateboard!', 1, '2016-04-06 11:23:44', 'skateboard', "I have this custom skateboard that I'm trying to get rid of.  Call me up at 678-413-2222 if you're interested", '/img/user_images/accessories8.jpg', 4],
+	['Custom skateboard!', 1, '2016-04-06 11:23:44', 'skateboard', "I have this custom skateboard that I'm trying to get rid of.  Call me up at 678-413-2222 if you're interested", '/img/user_images/accessories8.gif', 4],
 
 	['Custom skateboard!', 1, '2016-04-06 11:23:44', 'skateboard', "I have this custom skateboard that I'm trying to get rid of.  Call me up at 678-413-2222 if you're interested", '/img/user_images/skateboard6.jpg', 1],
 
