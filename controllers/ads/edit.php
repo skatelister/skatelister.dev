@@ -15,14 +15,14 @@ if(Input::has('item_id')) {
     $ad_image = $current_ad->image;
     $ad_user = $current_ad->user_id;
 
+}else if(! isset($_SESSION['usersInfo'])){
+    header('Location: /');
+    die();
 }else {
     header('Location: /ads/show');
-}
-
-if (! isset($_SESSION['usersInfo'])) {
-    header('Location: index.php');
     die();
 }
+
 
 $errors = [];
 $data_saved = [];
