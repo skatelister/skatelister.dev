@@ -1,8 +1,8 @@
 html{
 	background-color: white;
+	font-face: Georgia, serif;
 }
 body{
-	font-family: 'Cabin', sans-serif;
     background-color: #25aaa0;
 }
 
@@ -12,6 +12,7 @@ nav {
 	box-sizing: border-box;
 }
 .logo {
+	font-family: 'Cabin', sans-serif;
 	background-color: white;
 	height: 75px;
 	width: 100%;
@@ -46,34 +47,37 @@ nav {
 /* SideBar CSS */
 
 .sidebar {
+	box-sizing: border-box;
 	margin-top: 25px;
 	background-color: #27b896;
-	height: 500px;
+	height: 600px;
 	border-radius: 1%;
+	color: white;
 }
 
 
 /* Mission Statement */
 
 .missionStatement {
+	box-sizing: border-box;
 	margin-top: 25px;
-	height: 500px;
-	background-color: #666666;
+	height: 600px;
+	background-color: #fff568;
 	border-radius: 1%;
 }
 
 .missionStatement > p {
-	font-size: 3em;
+	font-size: 2em;
+	color: black;
 }
 
 
-
-
-
-
-
 #brandNewTitle {
+	color: white;
+	font-size: 3em;	
 	text-align: center;
+	background-color: #10206b;
+	height: 250px;
 	margin-bottom: 50px;
 }
 
@@ -90,11 +94,8 @@ nav {
 	margin: 0 auto;
 }
 
-
-
-
-
-/* Footer CSS */
+/*  Footer  
+		   CSS	*/
 
 footer {
 	text-align: center;
