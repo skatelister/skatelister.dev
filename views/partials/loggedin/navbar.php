@@ -1,4 +1,6 @@
 
+<!-- Logged in NavBar -->
+
 <nav class="nav navbar-default" role="navigation">
   <span id="websiteName">SkateLister</span>
   <ul id="mainNavigation">

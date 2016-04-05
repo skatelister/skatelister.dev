@@ -53,9 +53,7 @@ switch($_SERVER['REQUEST_URI']) {
 		require '../controllers/ads/show.php';
 	break;
 
-
-
 	default :
-		require '../controllers/home.php';
-
+		header('Location: /');
+		die();
 }
