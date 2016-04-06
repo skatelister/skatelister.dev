@@ -26,24 +26,27 @@ var_dump($newAds);
 	</div> <!-- .col-md-3 -->
 		
 
-
-
 		<div class="row extra-cushion">
-			<h2 id="brandNewTitle">Brand New Items for Discount!</h2>
-
-			<?php foreach($newAds as $key => $newAd): ?>
-				<div class="col-md-6">
-					<a href="/ads/info?ad=<?=$newAd['id'];?>"><img class="img-thumbnail indexPicture" src="<?=$newAd['image'];?>" alt="test"></a>
-					
-					<p id="imageTitle"><?=$newAd['title'];?></p>
-				</div>
-				<?php if(($key + 1) % 2 == 0) : ?>
-				</div>
-				<div class="row extra-cushion">
-				<?php endif; ?>
-			<?php endforeach; ?>
-
+				<h2 id="brandNewTitle">Brand New Items for Discount!</h2>
 		</div> <!-- .row extra-cushion -->
+
+		<!-- <div class="row"> -->
+			<!-- <div class="col-md-8 col-md-2 offset"> - -->
+			<div class="row">
+					<?php foreach($newAds as $key => $newAd): ?>
+						<div class="individualPictureHome col-md-4">
+							<a href="/ads/info?ad=<?=$newAd['id'];?>"><img class="img-thumbnail indexPicture" src="<?=$newAd['image'];?>" alt="test"></a>					
+							<p id="imageTitle"><?=$newAd['title'];?></p>
+						</div>
+						<?php if(($key + 1) % 2 == 0): ?>
+							<div class="col-md-offset-4">
+								<p>Hello</p>
+							</div>						
+						<?php endif; ?>
+					<?php endforeach; ?>
+			</div>	
+			
+	
 
 
 

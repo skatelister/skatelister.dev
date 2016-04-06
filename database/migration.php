@@ -31,7 +31,7 @@ $itemsTable = "CREATE TABLE items (
   description TEXT NOT NULL,
   image VARCHAR(255),
   user_id INT(5) UNSIGNED NOT NULL,
-  views INT(5) UNSIGNED DEFAULT 0,
+  views INT(5) UNSIGNED DEFAULT 1,
   PRIMARY KEY(id),
   FOREIGN KEY (user_id) REFERENCES users(id)
 )";

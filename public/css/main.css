@@ -87,6 +87,12 @@ nav {
 	margin-bottom: 50px;
 }
 
+.individualPictureHome {
+	height: auto;
+}
+.individualPictureHome > a > img{
+	width: 50%;
+}
 .newestSingle {
 	height: 300px;
 	width: 300px;
@@ -99,6 +105,14 @@ nav {
 .indexPicture {
 	margin: 0 auto;
 }
+
+/* Ad Create Form */
+
+.adCreateForm {
+	width: 50%;
+	margin: auto auto;
+}
+
 
 /*  Footer  
 		   CSS	*/
