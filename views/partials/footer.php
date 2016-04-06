@@ -17,6 +17,10 @@
 				<a target="_blank" href="https://www.linkedin.com/in/tomas-leffew-431512b7"><img src="/img/site_imgs/linkedinsocial.png" alt="facebook" class="hoverInvert"></a>
 			</div>
 		</div> <!-- .ourInfoDiv -->
+		
+		<div class="middlefooter">
+			
+		</div>
 
 		<div class="address">
 			<span id="sitename">SkateLister Inc.</span>

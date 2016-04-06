@@ -149,6 +149,10 @@ footer {
 	font-family: 'Muli', sans-serif;
 }
 
+.middleFooter {
+	height: 40px;
+	width: auto;
+}
 .address {
 	border-top: 3px solid black;
 	font-size: 1.5em;
@@ -160,7 +164,7 @@ footer {
 	padding-right: 25px;
 }
 #codeupname {
-
+	text-decoration: none;
 }
 #codeupnumber {
 	padding-left: 25px;
