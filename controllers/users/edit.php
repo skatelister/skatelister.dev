@@ -2,6 +2,13 @@
 require_once __DIR__ . '/../../prime.php';
 require_once __DIR__ . '/../../session_redirect.php';
 
+if(Input::has('take_down')){
+    $remove;
+}
+
+
+
+
 $errors = [];
 $data_saved = [];
 $id =  $_SESSION['usersInfo']->id;
