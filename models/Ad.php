@@ -47,7 +47,7 @@ class Ad extends Model {
 		$statement->execute();
 	}
 
-	protected function takeDown($id) {
+	public static function takeDown($id) {
 		$query = "UPDATE items SET availale = :available WHERE id = :id";
 		$statement = self::$dbc->prepare($query);
 		$statement->bindParam(':available', 0, PDO::PARAM_INT);
@@ -55,7 +55,7 @@ class Ad extends Model {
 		$statement->execute();
 	}
 
-	protected function reshow() {
+	public static function reshow() {
 		$query = "UPDATE items SET available = :available WHERE id = :id";
 		$statement = self::$dbc->prepare($query);
 		$statememt->bindParam(':available', 1, PDO::PARAM_INT);
@@ -170,7 +170,7 @@ class Ad extends Model {
 	public static function showNewest() {
 		self::dbConnect();
 		$limit = 12;
-		$statement = self::$dbc->prepare("SELECT * FROM items ORDER BY date_posted DESC LIMIT :limit");
+		$statement = self::$dbc->prepare("SELECT * FROM items WHERE available = 1 ORDER BY date_posted DESC LIMIT :limit");
 		$statement->bindValue(":limit", $limit, PDO::PARAM_INT);
 		$statement->execute();
 
