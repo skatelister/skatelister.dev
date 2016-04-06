@@ -4,6 +4,7 @@ require_once '../prime.php';
 session_start();
 
 $newAds = Ad::showNewest();
+var_dump($newAds);
 ?>
 
 <?php require_once '../views/partials/header.php'; ?>
@@ -32,7 +33,8 @@ $newAds = Ad::showNewest();
 
 			<?php foreach($newAds as $key => $newAd): ?>
 				<div class="col-md-6">
-					<img class="img-thumbnail indexPicture" src="<?=$newAd['image'];?>" alt="test">
+					<a href="/ads/info?ad=<?=$newAd['id'];?>"><img class="img-thumbnail indexPicture" src="<?=$newAd['image'];?>" alt="test"></a>
+					
 					<p id="imageTitle"><?=$newAd['title'];?></p>
 				</div>
 				<?php if(($key + 1) % 2 == 0) : ?>
