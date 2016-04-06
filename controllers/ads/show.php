@@ -60,9 +60,6 @@ if (isset($_SESSION['usersInfo'])) {
                             <h4><?= $item->category; ?> </h4>
                             <p> <?= $item->description;?></p>
                             <a class="btn btn-primary" href="/ads/edit?item_id=<?=$item->item_id ?>">Edit</a>
-                            <form class="" method="post">
-                                <button class="btn btn-primary" name="take_down" type="submin ">Take Down  </span></button>
-                            </form>
                          </div>
                      </div>
                      <!-- /.row -->
