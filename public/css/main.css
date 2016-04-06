@@ -82,7 +82,7 @@ nav {
 	font-size: 3em;	
 	text-align: center;
 	background-color: #f19f4d;
-	opacity: 0.9;
+	/*opacity: 0.9;*/
 	height: 250px;
 	margin-bottom: 50px;
 }
