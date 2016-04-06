@@ -1,11 +1,10 @@
 <?php
 require_once __DIR__ . '/../../prime.php';
-session_start();
+require_once __DIR__ . '/../../session_redirect.php';
+
+
 if (isset($_SESSION['usersInfo'])) {
 	$id = $_SESSION['usersInfo']->id;
-}else if (!isset($_SESSION['usersInfo'])) {
-    header('Location: index.php');
-    die();
 }
 // for testing only. will remove once we have layout setup correctly
 

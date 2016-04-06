@@ -1,6 +1,10 @@
 <?php
+session_start();
  require_once '../prime.php';
  $errors = [];
+ if (isset($_SESSION['usersInfo'])) {
+     header('Location: /');
+ }
 
  if (Input::has('sign_up')) {
    header('Location: /user/create');

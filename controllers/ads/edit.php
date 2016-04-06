@@ -1,6 +1,6 @@
 <?php
-session_start();
 require_once __DIR__ . '/../../prime.php';
+require_once __DIR__ . '/../../session_redirect.php';
 $switch = false;
 
 if(Input::has('item_id')) {
@@ -14,10 +14,6 @@ if(Input::has('item_id')) {
     $ad_description = $current_ad->description;
     $ad_image = $current_ad->image;
     $ad_user = $current_ad->user_id;
-
-}else if(! isset($_SESSION['usersInfo'])){
-    header('Location: /');
-    die();
 }else {
     header('Location: /ads/show');
     die();

@@ -13,7 +13,6 @@
           <li><a href="/">Home</a></li>
           <li><a href="/ads/hot">Hot</a></li>
           <li><a href="/register" class="btn btn-primary">Sign In</a></li>
-          <li><a href="/signout" class="btn btn-danger">Signout</a></li>
         </ul>
 
       </div> <!-- .headerNav -->
@@ -25,7 +24,7 @@
         <ul id="mainNavigation">
           <li><a href="/">Home</a></li>
           <li><a href="/ads/hot">Hot</a></li>
-          <li><a href="/user/profile">Profile</a></li>
+          <li><a href="/ads/show">Profile</a></li>
           <li><a href="/signout" class="btn btn-danger">Signout</a></li>
         </ul>
       </div> <!-- .headerNav -->
