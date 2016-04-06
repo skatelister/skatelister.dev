@@ -2,8 +2,8 @@
 
 // for testing only. will remove once we have layout setup correctly
 require_once __DIR__ . '/../../prime.php';
+require_once __DIR__ . '/../../session_redirect.php';
 
-session_start();
 if (isset($_SESSION['usersInfo'])) {
 
     $id     = $_SESSION['usersInfo']->id;
@@ -25,8 +25,6 @@ if (isset($_SESSION['usersInfo'])) {
     $totalPages = $allUserPosts / $limit;
 
 
-}else {
-    header('Location: /');
 }
 
  ?>

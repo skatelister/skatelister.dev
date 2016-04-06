@@ -1,8 +1,6 @@
 <?php
 require_once __DIR__ . '/../../prime.php';
-session_start();
-var_dump($_SESSION['usersInfo']);
-
+require_once __DIR__ . '/../../session_redirect.php';
 ?>
 <!DOCTYPE html>
 <html>
