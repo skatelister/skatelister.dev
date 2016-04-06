@@ -84,6 +84,9 @@ $switch = true;
                     <div class="col-xs-12 col-sm-6 col-md-6">
                         <div class="row">
                             <div class="col-md-7">
+                                <form class="" method="post">
+                                    <button class="btn btn-primary" name="take_down" type="submin ">Take Down  </span></button>
+                                </form>
                                 <a href="#">
                                     <img class="img-responsive" src="<?= $current_ad->image;?>" alt="<?= $current_ad->image;?>">
                                 </a>
