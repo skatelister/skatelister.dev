@@ -25,6 +25,7 @@ class Ad extends Model {
 					      VALUES (:title, :date_posted, :category, :description, :image, :user_id, :views)";
 		$statement = self::$dbc->prepare($insert);
 		unset($this->attributes['id']);
+		unset($this->attributes['available']);
 		foreach($this->attributes as $key => $value) {
 			$statement->bindValue(":$key", $value, PDO::PARAM_STR);
 		}
@@ -39,6 +40,7 @@ class Ad extends Model {
 									views = :views
 									WHERE id = :id";
 		$statement = self::$dbc->prepare($update);
+		unset($this->attributes['available']);
 		// $statment->bindValue(':id',$id, PDO::PARAM_INT);
 		foreach( $this->attributes as $key => $value) {
 			$statement->bindValue(":$key", $value, PDO::PARAM_STR);
@@ -57,7 +59,8 @@ class Ad extends Model {
 	public static function reshow($id) {
 		$query = "UPDATE items SET available = :available WHERE id = :id";
 		$statement = self::$dbc->prepare($query);
-		$statememt->bindParam(':available', 1, PDO::PARAM_INT);
+		$statement->bindValue(':available', 1, PDO::PARAM_INT);
+		$statement->bindValue(':id', $id, PDO::PARAM_INT);
 		$statement->execute();
 	}
 
@@ -121,6 +124,7 @@ class Ad extends Model {
 			 ORDER BY date_posted DESC
 			 LIMIT :LIMIT OFFSET :OFFSET;");
 
+
 		$statement->bindValue(':id', $id, PDO::PARAM_STR);
 		$statement->bindValue(':LIMIT', $limit, PDO::PARAM_INT);
 		$statement->bindValue(':OFFSET', $offset, PDO::PARAM_INT);
@@ -176,6 +180,24 @@ class Ad extends Model {
 		$statement->execute();
 
 		return $statement->fetchAll();
+	}
+
+	public static function show_hottest() {
+		self::dbConnect();
+		$limit = 12;
+		$statement = self::$dbc->prepare("SELECT * FROM items WHERE available = 1 ORDER BY views DESC LIMIT :limit");
+		$statement->bindValue(":limit", $limit, PDO::PARAM_INT);
+		$statement->execute();
+
+		return $statement->fetchAll();
+	}
+
+	public static function update_views($id, $views) {
+		$query = "UPDATE items SET views = :views WHERE id = :id";
+		$statement = self::$dbc->prepare($query);
+		$statement->bindValue(':id', $id, PDO::PARAM_INT);
+		$statement->bindValue(':views', $views, PDO::PARAM_INT);
+		$statement->execute();
 	}
 
 }

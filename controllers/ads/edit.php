@@ -2,7 +2,8 @@
 require_once __DIR__ . '/../../prime.php';
 require_once __DIR__ . '/../../session_redirect.php';
 $switch = false;
-
+$errors = [];
+$data_saved = [];
 
 if(Input::has('item_id')) {
     $id = Input::get('item_id');
@@ -15,6 +16,7 @@ if(Input::has('item_id')) {
     $ad_description = $current_ad->description;
     $ad_image = $current_ad->image;
     $ad_user = $current_ad->user_id;
+    $ad_views = $current_ad->views;
 }else {
     header('Location: /ads/show');
     die();
@@ -22,65 +24,52 @@ if(Input::has('item_id')) {
 
 if(Input::has('take_down')) {
     Ad::takeDown($id);
-
+    $ad_available = 0;
 }
 
-$errors = [];
-$data_saved = [];
+if(Input::has('reshow')) {
+    Ad::reshow($id);
+    $ad_available = 1;
+}
 
 if (input::get('update_title') != '') {
-  $ad_title = Input::get('update_title');
-  $data_saved['update_title'] = 'First name has been saved.';
-
+    $ad_title = Input::get('update_title');
+    $data_saved['update_title'] = 'Title has been saved.';
 }
 
 if (Input::get('update_category') != '') {
     $ad_category = Input::get('update_category');
-    $data_saved['update_category'] = 'Last name has been saved.';
-
+    $data_saved['update_category'] = 'Category has been saved.';
 }
 
-if (Input::get('update_discription') != '') {
-  $ad_discription = Input::get('update_discription');
-  $data_saved['update_discription'] = 'Last name has been saved.';
+if (Input::get('update_description') != '') {
+  $ad_description = Input::get('update_description');
+  $data_saved['update_description'] = 'Description has been saved.';
 }
-
 
 if (Input::get('update_title') == ''
   && Input::get('update_category') == ''
-  && Input::get('update_discription') == ''
+  && Input::get('update_description') == ''
   && Input::has('submit_form')) {
-$data_saved['not_saved'] = 'No changes where made';
+      $data_saved['not_saved'] = 'No changes where made';
 }
-
 
 if (! empty($_POST)) {
 
-$ad_update = new Ad();
-
-// Ask about the date format and the MySQL format timezone
-// hard coded user_id to get the insert to work
-
-
-
-$ad_update->id = $id;
-$ad_update->title = $ad_title;
-$ad_update->date_posted = $ad_date_posted;
-$ad_update->category = $ad_category;
-$ad_update->description = $ad_description;
-$ad_update->image = $ad_image;
-$ad_update->user_id = $ad_user;
-$ad_update->views = 1;
-$ad_update->save();
-$switch = true;
-
+    $ad_update = new Ad();
+    // Ask about the date format and the MySQL format timezone
+    // hard coded user_id to get the insert to work
+    $ad_update->id = $id;
+    $ad_update->title = $ad_title;
+    $ad_update->date_posted = $ad_date_posted;
+    $ad_update->category = $ad_category;
+    $ad_update->description = $ad_description;
+    $ad_update->image = $ad_image;
+    $ad_update->user_id = $ad_user;
+    $ad_update->views = $ad_views;
+    $ad_update->save();
+    $switch = true;
 }
-
-
-
-
-
-
 ?>
 
 <?php require_once __DIR__ .'/../../views/partials/header.php';  ?>
@@ -129,18 +118,26 @@ $switch = true;
                                       <span> <?= $data_saved['update_title'] ?></span>
                               <?php endif; ?>
                           </div>
+
+
                           <div class="form-group">
-                              <label for="update_category">Category:</label>
-                              <input id="update_category" type="text" class="form-control" name="update_category">
-                              <?php if (isset($data_saved['update_category'])): ?>
-                                      <span> <?= $data_saved['update_category'] ?></span>
-                              <?php endif; ?>
-                          </div>
+              				<label for="category">Category of Item</label>
+              				<select name="update_category" id="category" class="form-control">
+              					<option value="Skateboard">Skateboard</option>
+              					<option value="Wheels">Wheels</option>
+              					<option value="Accessories">Accessories</option>
+              					<option value="other">Other: </option>
+              				</select>
+                            <?php if (isset($data_saved['update_category'])): ?>
+                                    <span> <?= $data_saved['update_category'] ?></span>
+                            <?php endif; ?>
+                        </div>
+
                           <div class="form-group">
-                              <label for="update_discription">Discription:</label>
-                              <input id="update_discription" type="text" class="form-control" name="update_discription">
-                              <?php if (isset($data_saved['update_discription'])): ?>
-                                      <span> <?= $data_saved['update_discription'] ?></span>
+                              <label for="update_description">Discription:</label>
+                              <input id="update_description" type="text" class="form-control" name="update_description">
+                              <?php if (isset($data_saved['update_description'])): ?>
+                                      <span> <?= $data_saved['update_description'] ?></span>
                               <?php endif; ?>
                               <?php if (isset($data_saved['not_saved'])): ?>
                                       <span> <?= $data_saved['not_saved'] ?></span>
@@ -153,7 +150,4 @@ $switch = true;
                 </div>
               </div>
             </main>
-        <script src="/js/jquery-1.12.0.js"></script>
-        <script src="/js/"></script>
-    </body>
-</html>
+<?php require_once __DIR__ .'/../../views/partials/footer.php';  ?>
