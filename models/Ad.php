@@ -15,14 +15,15 @@ class Ad extends Model {
 		'category',
 		'description',
 		'image',
-		'user_id'
+		'user_id',
+		'views'
 	];
 
 
 	protected function insert () {
 
-		$insert = "INSERT INTO items (title, available, date_posted, category, description, image, user_id)
-					      VALUES (:title, :available, :date_posted, :category, :description, :image, :user_id)";
+		$insert = "INSERT INTO items (title, available, date_posted, category, description, image, user_id, views)
+					      VALUES (:title, :available, :date_posted, :category, :description, :image, :user_id, :views)";
 		$statement = self::$dbc->prepare($insert);
 		unset($this->attributes['id']);
 		foreach($this->attributes as $key => $value) {
@@ -35,7 +36,8 @@ class Ad extends Model {
 	protected function update(){
 		$update = "UPDATE items SET title = :title, category = :category,
 									description = :description, image = :image,
-									date_posted = :date_posted, user_id = :user_id, available = :available
+									date_posted = :date_posted, user_id = :user_id,
+									available = :available, views = :views
 									WHERE id = :id";
 		$statement = self::$dbc->prepare($update);
 		// $statment->bindValue(':id',$id, PDO::PARAM_INT);

@@ -33,6 +33,10 @@ switch(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)) {
 		require '../controllers/users/show.php';
 	break;
 
+	case '/ads/info' :
+		require '../controllers/ads/info.php';
+	break;
+
 	case '/ads/create' :
 		require '../controllers/ads/create.php';
 	break;
