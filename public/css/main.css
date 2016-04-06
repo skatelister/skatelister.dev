@@ -3,7 +3,7 @@ html{
 	font-face: Georgia, serif;
 }
 body{
-    background-color: #25aaa0;
+    background-color: #d9d9d9;
 }
 
 /* SkateLister Logo Letters */
@@ -11,6 +11,7 @@ nav {
 	height: auto;
 	box-sizing: border-box;
 }
+
 .logo {
 	font-family: 'Cabin', sans-serif;
 	background-color: white;
@@ -27,7 +28,8 @@ nav {
 }
 
 .nav {
-	background-color: #41d4cf;
+	background-color: #4484ce;
+	opacity: 0.7;
 }
 
 
@@ -49,7 +51,8 @@ nav {
 .sidebar {
 	box-sizing: border-box;
 	margin-top: 25px;
-	background-color: #27b896;
+	background-color: #fbce00;
+	opacity: 0.4;
 	height: 600px;
 	border-radius: 1%;
 	color: white;
@@ -62,7 +65,9 @@ nav {
 	box-sizing: border-box;
 	margin-top: 25px;
 	height: 600px;
-	background-color: #fff568;
+	background-color: #fbce00;
+	opacity: 0.4;
+	border: 1px solid black;
 	border-radius: 1%;
 }
 
@@ -76,7 +81,8 @@ nav {
 	color: white;
 	font-size: 3em;	
 	text-align: center;
-	background-color: #10206b;
+	background-color: #f19f4d;
+	opacity: 0.9;
 	height: 250px;
 	margin-bottom: 50px;
 }
@@ -102,7 +108,7 @@ footer {
 	width: 100%;
 	height: auto;
 	display: block;
-	background-color: #00ccd6;
+	background-color: #e9c87b;
 	bottom: 0;
 	position: relative;
 }
@@ -115,17 +121,19 @@ footer {
 .cjFooter {
 	border-right: 3px solid black;
 	font-family: 'Muli', sans-serif;
-	font-size: 1.5em;
+	font-size: 1em;
 	width: 40%;
 	display: inline-block;
+	margin: 0 auto;
 }
 
 
 .tomasFooter {
 	font-family: 'Muli', sans-serif;
-	font-size: 1.5em;
+	font-size: 1em;
 	display: inline-block;
 	width: 40%;
+	margin: 0 auto;
 }
 
 .cjFooter > a > img {
@@ -136,6 +144,11 @@ footer {
 .tomasFooter > a > img {
 	height: 50px;
 	width: 50px;
+}
+
+#githubsocial {
+	height: 42px;
+	width: 42px;
 }
 
 /* Hover Image Invert States */
@@ -154,17 +167,23 @@ footer {
 	width: auto;
 }
 .address {
+	background-color: #dbc185;
 	border-top: 3px solid black;
 	font-size: 1.5em;
 	padding-top: 45px;
 	padding-bottom: 45px;
 }
 
+
+
 #sitename {
 	padding-right: 25px;
 }
 #codeupname {
 	text-decoration: none;
+}
+#codeupname:link {
+	color: black;
 }
 #codeupnumber {
 	padding-left: 25px;
