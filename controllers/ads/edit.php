@@ -8,7 +8,6 @@ if(Input::has('item_id')) {
     $current_ad = Ad::find_current_ad($id);
 
     $ad_title = $current_ad->title;
-    $ad_available = $current_ad->available;
     $ad_date_posted = $current_ad->date_posted;
     $ad_category = $current_ad->category;
     $ad_description = $current_ad->description;
@@ -50,6 +49,7 @@ $data_saved['not_saved'] = 'No changes where made';
 
 
 if (! empty($_POST)) {
+
 $ad_update = new Ad();
 
 // Ask about the date format and the MySQL format timezone
@@ -59,13 +59,12 @@ $ad_update = new Ad();
 
 $ad_update->id = $id;
 $ad_update->title = $ad_title;
-$ad_update->available = $ad_available;
 $ad_update->date_posted = $ad_date_posted;
 $ad_update->category = $ad_category;
 $ad_update->description = $ad_description;
 $ad_update->image = $ad_image;
 $ad_update->user_id = $ad_user;
-
+$ad_update->views = 1;
 $ad_update->save();
 $switch = true;
 }

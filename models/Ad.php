@@ -10,7 +10,6 @@ class Ad extends Model {
 	protected $columns = [
 		'id',
 		'title',
-		'available',
 		'date_posted',
 		'category',
 		'description',
@@ -22,8 +21,8 @@ class Ad extends Model {
 
 	protected function insert () {
 
-		$insert = "INSERT INTO items (title, available, date_posted, category, description, image, user_id, views)
-					      VALUES (:title, :available, :date_posted, :category, :description, :image, :user_id, :views)";
+		$insert = "INSERT INTO items (title, date_posted, category, description, image, user_id, views)
+					      VALUES (:title, :date_posted, :category, :description, :image, :user_id, :views)";
 		$statement = self::$dbc->prepare($insert);
 		unset($this->attributes['id']);
 		foreach($this->attributes as $key => $value) {
@@ -37,7 +36,7 @@ class Ad extends Model {
 		$update = "UPDATE items SET title = :title, category = :category,
 									description = :description, image = :image,
 									date_posted = :date_posted, user_id = :user_id,
-									available = :available, views = :views
+									views = :views
 									WHERE id = :id";
 		$statement = self::$dbc->prepare($update);
 		// $statment->bindValue(':id',$id, PDO::PARAM_INT);
@@ -55,7 +54,7 @@ class Ad extends Model {
 		$statement->execute();
 	}
 
-	public static function reshow() {
+	public static function reshow($id) {
 		$query = "UPDATE items SET available = :available WHERE id = :id";
 		$statement = self::$dbc->prepare($query);
 		$statememt->bindParam(':available', 1, PDO::PARAM_INT);
