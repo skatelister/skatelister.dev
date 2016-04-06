@@ -58,32 +58,30 @@ if (!empty($_FILES)) {
 // 	$dateAsOfPost = $_POST['date_created'];
 // }
 ?>
+<?php require_once __DIR__ .'/../../views/partials/header.php';  ?>
 
-<form action="" method="post" enctype="multipart/form-data">
+	<form action="" method="post" enctype="multipart/form-data">
+		<div class="">
+			<label for="title">Title: </label>
+			<input type="text" name="title" id="title">
+		</div>
+		<div class="">
+			<label for="category">Category of Item</label>
+			<select name="category" id="category">
+				<option value="skateboard">Skateboard</option>
+				<option value="wheels">Wheels</option>
+				<option value="accessories">Accessories</option>
+				<option value="other">Other: </option>
+			</select>
+		</div>
 	<div class="">
-		<label for="title">Title: </label>
-		<input type="text" name="title" id="title">
+		<label for="description">Description of Item: </label>
+		<textarea name="description" id="description" cols="30" rows="10"></textarea>
 	</div>
-	<div class="">
-		<label for="category">Category of Item</label>
-		<select name="category" id="category">
-			<option value="skateboard">Skateboard</option>
-			<option value="wheels">Wheels</option>
-			<option value="accessories">Accessories</option>
-			<option value="other">Other: </option>
-		</select>
-	</div>
-<div class="">
-	<label for="description">Description of Item: </label>
-	<textarea name="description" id="description" cols="30" rows="10"></textarea>
-</div>
 
-	<label for="image">Upload an Image</label>
-	<input type="file" name="image" id="image">
+		<label for="image">Upload an Image</label>
+		<input type="file" name="image" id="image">
 
-	<input type="hidden" name="available" id="available" value="1">
+		<button type="submit">Submit Item</button>
+	</form>
 
-
-	<button type="submit">Submit Item</button>
-
-</form>
