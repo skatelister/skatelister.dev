@@ -25,7 +25,7 @@ $dbc->exec($userTable);
 $itemsTable = "CREATE TABLE items (
   id INT UNSIGNED NOT NULL AUTO_INCREMENT,
   title VARCHAR(255),
-  available TINYINT,
+  available TINYINT DEFAULT 1,
   date_posted DATETIME NOT NULL,
   category VARCHAR(100) NOT NULL,
   description TEXT NOT NULL,
