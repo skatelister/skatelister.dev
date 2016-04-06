@@ -25,7 +25,9 @@ if (Input::has('first_name')
 
     if (Input::get('email') =='') {
         $errors['email'] = 'Email name needs a value';
-    }else {
+    }else if (filter_var(Input::get('email'), FILTER_VALIDATE_EMAIL) == false) {
+        $errors['email'] = 'Email was not a valid email, example@example.example';
+    } else{
         $email = strip_tags(trim(Input::get('email')));
     }
 

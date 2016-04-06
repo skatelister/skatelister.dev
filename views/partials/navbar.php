@@ -7,7 +7,6 @@
 
 
 <?php if (empty($_SESSION['usersInfo'])): ?>
-    <?php echo 'no loggedin'; ?>
       <div class="headerNav">
         <ul id="mainNavigation">
           <li class="navbar_lists" data-toggle="modal" data-target="#myModal"> Sign In</li>
@@ -17,14 +16,10 @@
           <li><a href="/signout" class="btn btn-danger">Signout</a></li>
         </ul>
 
-      </div> <!-- .headerNav --> 
+      </div> <!-- .headerNav -->
     </nav> <!-- .nav navbar-default -->
 
-  <?php endif; ?>
-
-<?php if(!empty($_SESSION['usersInfo'])): ?>
-    <?php echo 'Yes loggedin'; ?>
-
+    <?php else: ?>
       <!-- Logged in NavBar -->
       <div class="headerNav">
         <ul id="mainNavigation">
@@ -33,7 +28,7 @@
           <li><a href="/user/profile">Profile</a></li>
           <li><a href="/signout" class="btn btn-danger">Signout</a></li>
         </ul>
-      </div> <!-- .headerNav --> 
+      </div> <!-- .headerNav -->
     </nav> <!-- .nav navbar-default -->
 
 <?php endif; ?>
