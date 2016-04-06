@@ -47,10 +47,10 @@ class Ad extends Model {
 	}
 
 	public static function takeDown($id) {
-		$query = "UPDATE items SET availale = :available WHERE id = :id";
+		$query = "UPDATE items SET available = :available WHERE id = :id";
 		$statement = self::$dbc->prepare($query);
-		$statement->bindParam(':available', 0, PDO::PARAM_INT);
-		$statement->bindParam(':id', $id, PDO::PARAM_INT);
+		$statement->bindValue(':available', 0, PDO::PARAM_INT);
+		$statement->bindValue(':id', $id, PDO::PARAM_INT);
 		$statement->execute();
 	}
 
@@ -117,7 +117,9 @@ class Ad extends Model {
 			 FROM items AS i
 			   JOIN users AS u
 			 ON user_id = u.id
-			 WHERE user_id = :id  LIMIT :LIMIT OFFSET :OFFSET;");
+			 WHERE user_id = :id
+			 ORDER BY date_posted DESC
+			 LIMIT :LIMIT OFFSET :OFFSET;");
 
 		$statement->bindValue(':id', $id, PDO::PARAM_STR);
 		$statement->bindValue(':LIMIT', $limit, PDO::PARAM_INT);

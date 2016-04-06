@@ -3,12 +3,14 @@ require_once __DIR__ . '/../../prime.php';
 require_once __DIR__ . '/../../session_redirect.php';
 $switch = false;
 
+
 if(Input::has('item_id')) {
     $id = Input::get('item_id');
     $current_ad = Ad::find_current_ad($id);
 
     $ad_title = $current_ad->title;
     $ad_date_posted = $current_ad->date_posted;
+    $ad_available = $current_ad->available;
     $ad_category = $current_ad->category;
     $ad_description = $current_ad->description;
     $ad_image = $current_ad->image;
@@ -18,6 +20,10 @@ if(Input::has('item_id')) {
     die();
 }
 
+if(Input::has('take_down')) {
+    Ad::takeDown($id);
+
+}
 
 $errors = [];
 $data_saved = [];
@@ -67,6 +73,7 @@ $ad_update->user_id = $ad_user;
 $ad_update->views = 1;
 $ad_update->save();
 $switch = true;
+
 }
 
 
@@ -84,9 +91,15 @@ $switch = true;
                     <div class="col-xs-12 col-sm-6 col-md-6">
                         <div class="row">
                             <div class="col-md-7">
-                                <form class="" method="post">
-                                    <button class="btn btn-primary" name="take_down" type="submin ">Take Down  </span></button>
-                                </form>
+                                <?php if ($ad_available == 0): ?>
+                                    <form class="" method="post">
+                                        <button class="btn btn-primary" name="reshow" type="submin ">Re-Upload </span></button>
+                                    </form>
+                                    <?php else: ?>
+                                        <form class="" method="post">
+                                            <button class="btn btn-primary" name="take_down" type="submin ">Take Down  </span></button>
+                                        </form>
+                                <?php endif; ?>
                                 <a href="#">
                                     <img class="img-responsive" src="<?= $current_ad->image;?>" alt="<?= $current_ad->image;?>">
                                 </a>
