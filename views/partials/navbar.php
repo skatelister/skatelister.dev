@@ -1,21 +1,42 @@
 
 <!-- Landing Page navbar (not logged in) -->
-
 <nav class="nav navbar-default" role="navigation">
   <div class="logo">
     <span id="websiteName">SkateLister</span>
   </div> <!-- .logo -->
 
-  <div class="headerNav">
-    <ul id="mainNavigation">
-        <li class="navbar_lists" data-toggle="modal" data-target="#myModal"> Sign In</li>
-      <li><a href="/">Home</a></li>
-      <li><a href="/ads/hot">Hot</a></li>
-      <li><a href="/signin" class="btn btn-primary">Sign In</a></li>
-    </ul>
-  </div> <!-- .headerNav --> 
-</nav> <!-- .nav navbar-default -->
 
+<?php if (empty($_SESSION['usersInfo'])): ?>
+    <?php echo 'no loggedin'; ?>
+      <div class="headerNav">
+        <ul id="mainNavigation">
+          <li class="navbar_lists" data-toggle="modal" data-target="#myModal"> Sign In</li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/ads/hot">Hot</a></li>
+          <li><a href="/register" class="btn btn-primary">Sign In</a></li>
+          <li><a href="/signout" class="btn btn-danger">Signout</a></li>
+        </ul>
+
+      </div> <!-- .headerNav --> 
+    </nav> <!-- .nav navbar-default -->
+
+  <?php endif; ?>
+
+<?php if(!empty($_SESSION['usersInfo'])): ?>
+    <?php echo 'Yes loggedin'; ?>
+
+      <!-- Logged in NavBar -->
+      <div class="headerNav">
+        <ul id="mainNavigation">
+          <li><a href="/">Home</a></li>
+          <li><a href="/ads/hot">Hot</a></li>
+          <li><a href="/user/profile">Profile</a></li>
+          <li><a href="/signout" class="btn btn-danger">Signout</a></li>
+        </ul>
+      </div> <!-- .headerNav --> 
+    </nav> <!-- .nav navbar-default -->
+
+<?php endif; ?>
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">

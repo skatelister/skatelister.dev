@@ -10,8 +10,5 @@
         <title>Skatelister</title>
     </head>
     <body>
-        <?php if (isset($_SESSION['usersInfo'])): ?>
-            <?php require_once '../views/partials/loggedin/navbar.php';  ?>
-        <?php else: ?>
-            <?php require_once '../views/partials/navbar.php';  ?>
-        <?php endif; ?>
+    <?php require_once '../views/partials/navbar.php';  ?>
+    

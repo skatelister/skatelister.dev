@@ -6,7 +6,11 @@ switch(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)) {
 	break;
 
 	case '/signin' :
-		require '../controllers/signin.php';
+		require '../controllers/register.php';
+	break;
+
+	case '/register' :
+		require '../controllers/register.php';
 	break;
 
 	case '/signout' :
