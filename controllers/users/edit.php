@@ -10,7 +10,7 @@ $last_name = $_SESSION['usersInfo']->last_name;
 $email = $_SESSION['usersInfo']->email;
 $password = $_SESSION['usersInfo']->password;
 
-if (input::get('first_name') != '') {
+if (input::get_string('first_name') != '') {
   $first_name = Input::get('first_name');
   $data_saved['first_name'] = 'First name has been saved.';
 }
@@ -20,13 +20,15 @@ if (Input::get('last_name') != '') {
   $data_saved['last_name'] = 'Last name has been saved.';
 }
 
-if (Input::get('password') != '' || Input::get('ver_password') != '') {
-  if (Input::get('password') == Input::get('ver_password')) {
-    $password = password_hash(Input::get('password'),PASSWORD_DEFAULT);
-    $data_saved['password'] = 'Password name has been saved.';
-  }else {
-    $errors['wrongpass'] = 'Passwords did not match.';
-  }
+if (Input::get('password') != ''
+ || Input::get('ver_password') != '') {
+        if (Input::get_string('password') == Input::get_string('ver_password')) {
+            $password_stripped = Input::escape(Input::get('password'));
+            $password = password_hash($password_stripped,PASSWORD_DEFAULT);
+            $data_saved['password'] = 'Password name has been saved.';
+        }else {
+            $errors['wrongpass'] = 'Passwords did not match.';
+        }
 }
 
 if (Input::get('first_name') == ''
@@ -40,13 +42,13 @@ $errors['not_saved'] = 'No changes where made';
 
 
 $newUserInfo = new User();
-$newUserInfo->id =$id;
-$newUserInfo->first_name = $first_name;
-$newUserInfo->last_name = $last_name;
-$newUserInfo->email = $email;
-$newUserInfo->password = $password;
+$newUserInfo->id         = $id;
+$newUserInfo->first_name = Input::escape($first_name);
+$newUserInfo->last_name  = Input::escape($last_name);
+$newUserInfo->email      = Input::escape($email);
+$newUserInfo->password   = $password;
 $newUserInfo->save();
-$_SESSION['usersInfo'] = $newUserInfo;
+$_SESSION['usersInfo']   = $newUserInfo;
 
 ?>
 

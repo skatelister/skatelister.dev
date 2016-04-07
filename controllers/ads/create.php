@@ -2,33 +2,25 @@
 require_once __DIR__ . '/../../prime.php';
 require_once __DIR__ . '/../../session_redirect.php';
 
+$id = $_SESSION['usersInfo']->id;
 
-if (isset($_SESSION['usersInfo'])) {
-	$id = $_SESSION['usersInfo']->id;
-	echo 'hello';
-}
-
-
-// var_dump($_SESSION);
-// var_dump($_POST);
-// var_dump($_FILES);
 if (!empty($_FILES)) {
 	$fileName = '/img/user_images/' . $_FILES['image']['name'] ? ('/img/user_images/' . $_FILES['image']['name']) : null;
 }
 
 if (!empty($_FILES)
-  && Input::has('title')
-  && Input::has('description')
-  && Input::has('category')) {
+  && Input::get_string('title')
+  && Input::get_string('description')
+  && Input::get_string('category')) {
 		// create a new Ad instance to prepare inserting data
 	var_dump($_FILES);
 	var_dump('test');
 	$testAd = new Ad();
-	$title = Input::get('title');
-	$description = Input::get('description');
+	$title = Input::escape('title');
+	$description = Input::escape('description');
 	$date_posted = (new DateTime('now'))->format("Y-m-d H:i:s");
 	$user_id = $id;
-	$category = Input::get('category');
+	$category = Input::escape('category');
 	$image = $fileName;
 
 

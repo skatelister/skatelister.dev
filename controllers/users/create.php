@@ -11,47 +11,42 @@ if (Input::has('first_name')
     && Input::has('ver_password')) {
 
 
-    if (Input::get('first_name') == '') {
+    if (Input::get_string('first_name') == '') {
         $errors['first_name'] = 'First name needs a value';
     }else {
-        $first_name = strip_tags(trim(Input::get('first_name')));
+        $first_name_unstripped = Input::get('first_name');
     }
 
-    if (Input::get('last_name') == '') {
+    if (Input::get_string('last_name') == '') {
         $errors['last_name'] = 'Last name needs a value';
     }else {
-        $last_name = strip_tags(trim(Input::get('last_name')));
+        $last_name_unstripped = Input::get('last_name');
     }
 
-    if (Input::get('email') =='') {
+    if (Input::get_string('email') == '') {
         $errors['email'] = 'Email name needs a value';
     }else if (filter_var(Input::get('email'), FILTER_VALIDATE_EMAIL) == false) {
         $errors['email'] = 'Email was not a valid email, example@example.example';
     } else{
-        $email = strip_tags(trim(Input::get('email')));
+        $email_unstripped = Input::get('email');
     }
 
-    if (Input::get('password') =='') {
+    if (Input::get_string('password') == '') {
         $errors['password'] = 'Password needs a value';
     }else {
-        $email = strip_tags(trim(Input::get('email')));
+        $password_unstripped = Input::get('password');
     }
 
-    if (Input::get('ver_password') =='') {
+    if (Input::get_string('ver_password') == '') {
       $errors['ver_password'] = 'Password needs a value';
     }else {
-        $email = strip_tags(trim(Input::get('email')));
+        $ver_password = Input::get('ver_password');
     }
 
-    try {
-        if (Input::get('password') == Input::get('ver_password')) {
-            $password = strip_tags(trim(Input::get('password')));
-        }else{
-            throw new Exception("Password's did not match.");
-
-        }
-    } catch (Exception $e) {
-        $errors['wrongpass'] = $e->getMessage();
+    if (isset($password_unstripped) == isset($ver_password)) {
+        $password = Input::escape($password_unstripped);
+    }else{
+        $errors['wrongpass'] = "Password's did not match.";
     }
 
     if (isset($password)) {
@@ -60,25 +55,22 @@ if (Input::has('first_name')
 
     if (Input::input_not_empty($require) && empty($errors)) {
       $newUserProfile = new User();
-      $newUserProfile->first_name = $first_name;
-      $newUserProfile->last_name = $last_name;
-      $newUserProfile->email = $email;
+      $newUserProfile->first_name = Input::escape($first_name_unstripped);
+      $newUserProfile->last_name = Input::escape($last_name_unstripped);
+      $newUserProfile->email = Input::escape($email_unstripped);
       $newUserProfile->password = $password;
       try {
           $newUserProfile->save();
       } catch (PDOException $e) {
-        $errors['emailUsed'] = "The email was already used.";
+          $errors['emailUsed'] = "The email was already used.";
       }
-
     }
 
     if (Input::has('submit_form')
      && empty($errors)) {
-      header('Location: /signin');
-      die();
-
+        header('Location: /signin');
+        die();
     }
-
 }
 ?>
 
