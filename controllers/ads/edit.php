@@ -37,6 +37,8 @@ if (input::get_string('update_title') != '') {
     $ad_title = Input::get('update_title');
     $ad_title = Input::escape($ad_title);
     $data_saved['update_title'] = 'Title has been saved.';
+}else {
+    $errors['title'] = 'Title needs to be a word.';
 }
 
 if (Input::get_string('update_category') != '') {
@@ -49,6 +51,8 @@ if (Input::get_string('update_description') != '') {
     $ad_description = Input::get('update_description');
     $ad_description = Input::escape($ad_description);
     $data_saved['update_description'] = 'Description has been saved.';
+}else {
+    $errors['title'] = 'Title needs to be a word.';
 }
 
 if (Input::get_string('update_title') == ''

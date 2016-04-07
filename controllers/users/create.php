@@ -1,13 +1,11 @@
 <?php
 require_once __DIR__ . '/../../prime.php';
 
-$errors = UserValidation::errors();
+if (Input::has('submit_form')) {
+    $errors = UserValidation::errors();
+}
 
-var_dump(Input::get('first_name'));
-// if( isset($_POST['submit_form'])){
-// }
-
-if (empty($errors))
+if (empty($errors) && Input::has('submit_form'))
 {
   $newUserProfile = new User();
   $newUserProfile->first_name = Input::get('first_name');
@@ -20,7 +18,7 @@ if (empty($errors))
         $errors['emailDuplicate'] = "Email is already taken";
   }
   if(empty($errors)) {
-    header('Location: /');
+    header('Location: /signin');
   }
 }
 
@@ -42,11 +40,11 @@ if (empty($errors))
 
         <div class="">
             <label for="last_name">Last Name:</label>
-            <input id="last_name" type="text" name="last_name" 
+            <input id="last_name" type="text" name="last_name"
             value="<?=empty($errors) ? '' : Input::get('last_name', '');?>">
             <span class="red"><?=isset($errors['last_name']) ? $errors['last_name'] : '' ; ?></span>
         </div>
-        
+
         <div class="">
             <label for="email">Email:</label>
             <input id="email" type="text" name="email"
