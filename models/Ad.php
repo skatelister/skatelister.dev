@@ -5,7 +5,7 @@
 
 class Ad extends Model {
 
-	protected static $table = 'items';
+	protected static $table = 'ads';
 
 	protected $columns = [
 		'id',
@@ -21,7 +21,7 @@ class Ad extends Model {
 
 	protected function insert () {
 
-		$insert = "INSERT INTO items (title, date_posted, category, description, image, user_id, views)
+		$insert = "INSERT INTO ads (title, date_posted, category, description, image, user_id, views)
 					      VALUES (:title, :date_posted, :category, :description, :image, :user_id, :views)";
 		$statement = self::$dbc->prepare($insert);
 		unset($this->attributes['id']);
@@ -34,7 +34,7 @@ class Ad extends Model {
 	}
 
 	protected function update(){
-		$update = "UPDATE items SET title = :title, category = :category,
+		$update = "UPDATE ads SET title = :title, category = :category,
 									description = :description, image = :image,
 									date_posted = :date_posted, user_id = :user_id,
 									views = :views
@@ -49,7 +49,7 @@ class Ad extends Model {
 	}
 
 	public static function takeDown($id) {
-		$query = "UPDATE items SET available = :available WHERE id = :id";
+		$query = "UPDATE ads SET available = :available WHERE id = :id";
 		$statement = self::$dbc->prepare($query);
 		$statement->bindValue(':available', 0, PDO::PARAM_INT);
 		$statement->bindValue(':id', $id, PDO::PARAM_INT);
@@ -57,7 +57,7 @@ class Ad extends Model {
 	}
 
 	public static function reshow($id) {
-		$query = "UPDATE items SET available = :available WHERE id = :id";
+		$query = "UPDATE ads SET available = :available WHERE id = :id";
 		$statement = self::$dbc->prepare($query);
 		$statement->bindValue(':available', 1, PDO::PARAM_INT);
 		$statement->bindValue(':id', $id, PDO::PARAM_INT);
@@ -69,7 +69,7 @@ class Ad extends Model {
 		self::dbConnect();
 		$statement = self::$dbc->prepare(
 			"SELECT title, date_posted, category, description, image, available
-			 FROM items AS i
+			 FROM ads AS i
 			   JOIN users AS u
 			 ON user_id = u.id
 			 WHERE user_id = :id;");
@@ -95,7 +95,7 @@ class Ad extends Model {
 		self::dbConnect();
 		$statement = self::$dbc->prepare(
 			"SELECT count(*)
-			 FROM items AS i
+			 FROM ads AS i
 			   JOIN users AS u
 			 ON user_id = u.id
 			 WHERE user_id = :id;");
@@ -117,7 +117,7 @@ class Ad extends Model {
 		self::dbConnect();
 		$statement = self::$dbc->prepare(
 			"SELECT i.id as item_id, title, date_posted, category, description, image, available
-			 FROM items AS i
+			 FROM ads AS i
 			   JOIN users AS u
 			 ON user_id = u.id
 			 WHERE user_id = :id
@@ -146,9 +146,9 @@ class Ad extends Model {
 
 	public static function find_current_ad($id)
     {
-    	//
+    	// items
         self::dbConnect();
-        $statement = self::$dbc->prepare('SELECT * FROM items WHERE id = :id');
+        $statement = self::$dbc->prepare('SELECT * FROM ads WHERE id = :id');
         $statement->bindValue(':id', $id, PDO::PARAM_STR);
         $statement->execute();
         $result = $statement->fetch();
@@ -162,7 +162,7 @@ class Ad extends Model {
 
 	public static function all() {
 		self::dbConnect();
-		$statement = self::$dbc->prepare('SELECT * FROM items');
+		$statement = self::$dbc->prepare('SELECT * FROM ads');
 		$statement->execute();
 		$results  = $statement->fetchAll();
 		$ads = [];
@@ -175,7 +175,7 @@ class Ad extends Model {
 	public static function showNewest() {
 		self::dbConnect();
 		$limit = 12;
-		$statement = self::$dbc->prepare("SELECT * FROM items WHERE available = 1 ORDER BY date_posted DESC LIMIT :limit");
+		$statement = self::$dbc->prepare("SELECT * FROM ads WHERE available = 1 ORDER BY date_posted DESC LIMIT :limit");
 		$statement->bindValue(":limit", $limit, PDO::PARAM_INT);
 		$statement->execute();
 
@@ -185,7 +185,7 @@ class Ad extends Model {
 	public static function show_hottest() {
 		self::dbConnect();
 		$limit = 12;
-		$statement = self::$dbc->prepare("SELECT * FROM items WHERE available = 1 ORDER BY views DESC LIMIT :limit");
+		$statement = self::$dbc->prepare("SELECT * FROM ads WHERE available = 1 ORDER BY views DESC LIMIT :limit");
 		$statement->bindValue(":limit", $limit, PDO::PARAM_INT);
 		$statement->execute();
 
@@ -193,7 +193,7 @@ class Ad extends Model {
 	}
 
 	public static function update_views($id, $views) {
-		$query = "UPDATE items SET views = :views WHERE id = :id";
+		$query = "UPDATE ads SET views = :views WHERE id = :id";
 		$statement = self::$dbc->prepare($query);
 		$statement->bindValue(':id', $id, PDO::PARAM_INT);
 		$statement->bindValue(':views', $views, PDO::PARAM_INT);

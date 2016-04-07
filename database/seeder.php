@@ -36,7 +36,7 @@ foreach ($users as $user) {
 
 
 
-$statement = $dbc->prepare("INSERT INTO items(title, available, date_posted, category, description, image, user_id)
+$statement = $dbc->prepare("INSERT INTO ads(title, available, date_posted, category, description, image, user_id)
 							VALUES( :title, :available, :date_posted, :category, :description, :image, :user_id)");
 
 $items = [
