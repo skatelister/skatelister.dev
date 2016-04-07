@@ -1,7 +1,4 @@
-.modal_navbar{
-    float: right;
-    color: yellow;
-}
+
 .modal_navbar:hover{
     text-decoration: underline;
 }

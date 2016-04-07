@@ -19,7 +19,7 @@ class Input
             return $default;
         }
     }
-
+    // filter function (strip_tags)
     public static function escape($key) {
         return trim(htmlspecialchars(strip_tags($key)));
     }

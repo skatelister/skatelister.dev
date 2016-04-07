@@ -15,7 +15,6 @@
           <li><a href="/register" class="btn btn-primary">Sign In</a></li>
           <li class="navbar_lists modal_navbar" data-toggle="modal" data-target="#myModal"> Sign In</li>
         </ul>
-
       </div> <!-- .headerNav -->
     </nav> <!-- .nav navbar-default -->
 
