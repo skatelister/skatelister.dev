@@ -21,7 +21,7 @@ class Input
     }
 
     public static function escape($key) {
-        return htmlspecialchars(strip_tags($key));
+        return trim(htmlspecialchars(strip_tags($key)));
     }
 
     public static function input_not_empty($require)
@@ -88,6 +88,7 @@ class Input
             throw new Exception("Error Processing Request");
         }
     }
+
 
     ///////////////////////////////////////////////////////////////////////////
     //                      DO NOT EDIT ANYTHING BELOW!!                     //

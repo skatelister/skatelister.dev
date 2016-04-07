@@ -3,30 +3,23 @@
 // for testing only. will remove once we have layout setup correctly
 require_once __DIR__ . '/../../prime.php';
 require_once __DIR__ . '/../../session_redirect.php';
-var_dump($_POST);
 
-if (isset($_SESSION['usersInfo'])) {
-
-    $id     = $_SESSION['usersInfo']->id;
-    $page   = 1;
-    $limit  = 3;
-    $offset = 0;
-
-    if(Input::has('page')){
-        $page = Input::get_number('page');
-        $offset = $page * $limit - $limit;
-    }
-
-    $user_items = Ad::paginate($id, $limit, $offset);
-
-
-    $allUserPosts = Ad::find_total_posts($id);
-
-
-    $totalPages = $allUserPosts / $limit;
-
-
+if(Input::has('page')){
+    $page   = Input::get_number('page');
+    $offset = $page * $limit - $limit;
 }
+
+$id     = $_SESSION['usersInfo']->id;
+$page   = 1;
+$limit  = 3;
+$offset = 0;
+
+
+$user_items   = Ad::paginate($id, $limit, $offset);
+$allUserPosts = Ad::find_total_posts($id);
+$totalPages   = $allUserPosts / $limit;
+
+
 
  ?>
  <?php require_once __DIR__ .'/../../views/partials/header.php';  ?>

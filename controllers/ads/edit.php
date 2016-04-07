@@ -6,17 +6,18 @@ $errors = [];
 $data_saved = [];
 
 if(Input::has('item_id')) {
+
     $id = Input::get('item_id');
     $current_ad = Ad::find_current_ad($id);
 
-    $ad_title = $current_ad->title;
-    $ad_date_posted = $current_ad->date_posted;
-    $ad_available = $current_ad->available;
-    $ad_category = $current_ad->category;
-    $ad_description = $current_ad->description;
-    $ad_image = $current_ad->image;
-    $ad_user = $current_ad->user_id;
-    $ad_views = $current_ad->views;
+    $ad_title = Input::escape($current_ad->title);
+    $ad_date_posted = Input::escape($current_ad->date_posted);
+    $ad_available = Input::escape($current_ad->available);
+    $ad_category = Input::escape($current_ad->category);
+    $ad_description = Input::escape($current_ad->description);
+    $ad_image = Input::escape($current_ad->image);
+    $ad_user = Input::escape($current_ad->user_id);
+    $ad_views = Input::escape($current_ad->views);
 }else {
     header('Location: /ads/show');
     die();
@@ -32,40 +33,38 @@ if(Input::has('reshow')) {
     $ad_available = 1;
 }
 
-if (input::get('update_title') != '') {
+if (input::get_string('update_title') != '') {
     $ad_title = Input::get('update_title');
     $data_saved['update_title'] = 'Title has been saved.';
 }
 
-if (Input::get('update_category') != '') {
+if (Input::get_string('update_category') != '') {
     $ad_category = Input::get('update_category');
     $data_saved['update_category'] = 'Category has been saved.';
 }
 
-if (Input::get('update_description') != '') {
-  $ad_description = Input::get('update_description');
-  $data_saved['update_description'] = 'Description has been saved.';
+if (Input::get_string('update_description') != '') {
+    $ad_description = Input::get('update_description');
+    $data_saved['update_description'] = 'Description has been saved.';
 }
 
-if (Input::get('update_title') == ''
-  && Input::get('update_category') == ''
-  && Input::get('update_description') == ''
+if (Input::get_string('update_title') == ''
+  && Input::get_string('update_category') == ''
+  && Input::get_string('update_description') == ''
   && Input::has('submit_form')) {
-      $data_saved['not_saved'] = 'No changes where made';
+    $data_saved['not_saved'] = 'No changes where made';
 }
 
 if (! empty($_POST)) {
-
     $ad_update = new Ad();
-    // Ask about the date format and the MySQL format timezone
-    // hard coded user_id to get the insert to work
+
     $ad_update->id = $id;
-    $ad_update->title = $ad_title;
+    $ad_update->title = Input::escape($ad_title);
     $ad_update->date_posted = $ad_date_posted;
-    $ad_update->category = $ad_category;
-    $ad_update->description = $ad_description;
-    $ad_update->image = $ad_image;
-    $ad_update->user_id = $ad_user;
+    $ad_update->category = Input::escape($ad_category);
+    $ad_update->description = Input::escape($ad_description);
+    $ad_update->image = Input::escape($ad_image);
+    $ad_update->user_id = Input::escape($ad_user);
     $ad_update->views = $ad_views;
     $ad_update->save();
     $switch = true;
@@ -80,15 +79,18 @@ if (! empty($_POST)) {
                     <div class="col-xs-12 col-sm-6 col-md-6">
                         <div class="row">
                             <div class="col-md-7">
+
                                 <?php if ($ad_available == 0): ?>
                                     <form class="" method="post">
                                         <button class="btn btn-primary" name="reshow" type="submin ">Re-Upload </span></button>
                                     </form>
-                                    <?php else: ?>
-                                        <form class="" method="post">
-                                            <button class="btn btn-primary" name="take_down" type="submin ">Take Down  </span></button>
-                                        </form>
+
+                                <?php else: ?>
+                                    <form class="" method="post">
+                                        <button class="btn btn-primary" name="take_down" type="submin ">Take Down  </span></button>
+                                    </form>
                                 <?php endif; ?>
+
                                 <a href="#">
                                     <img class="img-responsive" src="<?= $current_ad->image;?>" alt="<?= $current_ad->image;?>">
                                 </a>
@@ -107,18 +109,15 @@ if (! empty($_POST)) {
                             </div>
                         </div>
 
-
-
-
                         <form method="post">
                           <div class="form-group">
                               <label for="update_title">Title:</label>
                               <input id="update_title" type="text" class="form-control" name="update_title">
+
                               <?php if (isset($data_saved['update_title'])): ?>
-                                      <span> <?= $data_saved['update_title'] ?></span>
+                                    <span> <?= $data_saved['update_title'] ?></span>
                               <?php endif; ?>
                           </div>
-
 
                           <div class="form-group">
               				<label for="category">Category of Item</label>
@@ -128,6 +127,7 @@ if (! empty($_POST)) {
               					<option value="Accessories">Accessories</option>
               					<option value="other">Other: </option>
               				</select>
+
                             <?php if (isset($data_saved['update_category'])): ?>
                                     <span> <?= $data_saved['update_category'] ?></span>
                             <?php endif; ?>
@@ -136,15 +136,15 @@ if (! empty($_POST)) {
                           <div class="form-group">
                               <label for="update_description">Discription:</label>
                               <input id="update_description" type="text" class="form-control" name="update_description">
+
                               <?php if (isset($data_saved['update_description'])): ?>
                                       <span> <?= $data_saved['update_description'] ?></span>
                               <?php endif; ?>
+
                               <?php if (isset($data_saved['not_saved'])): ?>
                                       <span> <?= $data_saved['not_saved'] ?></span>
                               <?php endif; ?>
                           </div>
-
-
                           <button type="submit" name="submit_form" class="btn btn-primary">Submit Changes</button>
                       </form>
                 </div>
