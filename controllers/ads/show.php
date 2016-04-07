@@ -56,6 +56,9 @@ if (isset($_SESSION['usersInfo'])) {
                              </a>
                          </div>
                          <div class="col-md-5">
+                             <?php if ($item->available == 0): ?>
+                                 <h2>Taken down</h2>
+                             <?php endif; ?>
                             <h3> <?= $item->title;?> </h3>
                             <h4><?= $item->category; ?> </h4>
                             <p> <?= $item->description;?></p>

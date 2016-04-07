@@ -9,10 +9,11 @@
 <?php if (empty($_SESSION['usersInfo'])): ?>
       <div class="headerNav">
         <ul id="mainNavigation">
-          <li class="navbar_lists" data-toggle="modal" data-target="#myModal"> Sign In</li>
           <li><a href="/">Home</a></li>
+          <li><a href="/ads/all">All</a></li>
           <li><a href="/ads/hot">Hot</a></li>
           <li><a href="/register" class="btn btn-primary">Sign In</a></li>
+          <li class="navbar_lists modal_navbar" data-toggle="modal" data-target="#myModal"> Sign In</li>
         </ul>
 
       </div> <!-- .headerNav -->
@@ -23,6 +24,7 @@
       <div class="headerNav">
         <ul id="mainNavigation">
           <li><a href="/">Home</a></li>
+           <li><a href="/ads/all">All</a></li>
           <li><a href="/ads/hot">Hot</a></li>
           <li><a href="/ads/show">Profile</a></li>
           <li><a href="/signout" class="btn btn-danger">Signout</a></li>
