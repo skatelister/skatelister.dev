@@ -1,9 +1,9 @@
 <?php
-abstract class Validation
+class Validation
 {
 	static $errors = [];
 
-	abstract static function errors();
+	// public function errors();
 
 	public static function has($key)
     {
@@ -61,42 +61,50 @@ abstract class Validation
     {
     	return ctype_alnum($value);
     }
+
+    public static function areLetters($value)
+    {
+    	return ctype_alpha($value);
+    }
 }
 
 class UserValidation extends Validation
 {
 
-	public function __construct()
-	{
-		echo 'hello';
-	}
 	public static function errors()
 	{
 		if (!self::isString(Input::get('first_name'))) {
 			self::$errors['first_name'] = 'Please enter a value';
 		} 
-		elseif (!self::isAlphaNum(Input::get('first_name'))) {
+		elseif (!self::areLetters(Input::get('first_name'))) {
 			self::$errors['first_name'] = 'Only letters for firstname';
 		}
 		
-		if (empty(Input::get_string('last_name'))) {
+		if (!self::isString(Input::get('last_name'))) {
 			self::$errors['last_name'] = 'Please enter a value';
-		} elseif (!self::isAlnum(Input::get('last_name'))) {
+		} elseif (!self::areLetters(Input::get('last_name'))) {
 			self::$errors['last_name'] = 'Only letters for lastname';
 		}
 
-		if (! self::isString(Input::get('email'))) {
+		if (!self::isString(Input::get('email'))) {
 			self::$errors['email'] = 'Please enter a value';
 		}
 		elseif (!self::isEmail(Input::get('email'))) {
 			self::$errors['email'] = 'Email was not a valid email, example@example.example';
 		}
 		
-		if (empty(Input::get_string('password'))) {
+		if (!self::isString(Input::get('password'))) {
 			self::$errors['password'] = 'Please enter a value';
 		}
-		elseif (self::isAlphaNum(Input::get_string('password'))) {
-			self::$errors['password'] = 'Please enter valid';
+		elseif (!self::areLetters(Input::get('password'))) {
+			self::$errors['password'] = 'Please enter an alpha-numeric password';
+		}
+
+		if(!self::isString(Input::get('ver_password'))) {
+			self::$errors['ver_password'] = 'Please enter a valid confirmation password';
+		}
+		elseif(Input::get('ver_password') !== Input::get('password')) {
+			self::$errors['ver_password'] = 'Passwords do not match';
 		}
 
 		return self::$errors;
