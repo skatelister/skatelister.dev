@@ -2,7 +2,7 @@
 require_once __DIR__ . '/../../prime.php';
 require_once __DIR__ . '/../../session_redirect.php';
 
-$id = $_SESSION['usersInfo']->id;
+$id = $_SESSION['user_info']->id;
 
 if (!empty($_FILES)) {
 	$fileName = '/img/user_images/' . $_FILES['image']['name'] ? ('/img/user_images/' . $_FILES['image']['name']) : null;

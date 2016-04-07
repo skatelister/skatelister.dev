@@ -2,7 +2,7 @@
 session_start();
  require_once '../prime.php';
  $errors = [];
- if (isset($_SESSION['usersInfo'])) {
+ if (isset($_SESSION['user_info'])) {
      header('Location: /');
  }
 
@@ -13,36 +13,40 @@ session_start();
 
  if (Input::has('email')
  &&  Input::has('password')) {
-   $email = Input::get('email');
-   $password = Input::get('password');
+   $email = Input::get_string('email');
+   $password = Input::get_string('password');
    if ($email == '') {
      $errors['email'] = 'Email can not be empty.';
    }
    if ($password == '') {
      $errors['password'] = 'Password can not be empty.';
+     echo'test';
    }
    try {
-       $findUsersInfo =  User::find($email);
+       $find_user_info =  User::find($email);
 
-       if (! is_null($findUsersInfo)) {
-           if (password_verify($password,$findUsersInfo->password)) {
+       if (! is_null($find_user_info)) {
+           if (password_verify($password,$find_user_info->password)
+             && $find_user_info->email == $email) {
                session_start();
-               $_SESSION['usersInfo'] = $findUsersInfo;
+               $_SESSION['user_info'] = $find_user_info;
 
 
               header("Location: /");
               die();
+         //this else if is to catch if they put the right email but the wrong pass;
            }else if ($email != '' && $password != '') {
              $errors['wrong_info'] = "Email or Password was incorrect.";
            }
-
-       }
+         //this else if is to catch if they put the wrong email or the wrong pass;
+        }else if ($email != '' && $password != '') {
+         $errors['wrong_info'] = "Email or Password was incorrect.";
+        }
 
 
    } catch (PDOException $e) {
 
    }
-
  }
  ?>
 

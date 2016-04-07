@@ -1,7 +1,6 @@
 <?php
 require_once __DIR__ . '/../../prime.php';
-require_once __DIR__ . '/../../session_redirect.php';
-
+session_start();
 $all_ads = Ad::all();
 
 

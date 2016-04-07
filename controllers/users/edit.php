@@ -4,11 +4,11 @@ require_once __DIR__ . '/../../session_redirect.php';
 
 $errors = [];
 $data_saved = [];
-$id =  $_SESSION['usersInfo']->id;
-$first_name = $_SESSION['usersInfo']->first_name;
-$last_name = $_SESSION['usersInfo']->last_name;
-$email = $_SESSION['usersInfo']->email;
-$password = $_SESSION['usersInfo']->password;
+$id =  $_SESSION['user_info']->id;
+$first_name = $_SESSION['user_info']->first_name;
+$last_name = $_SESSION['user_info']->last_name;
+$email = $_SESSION['user_info']->email;
+$password = $_SESSION['user_info']->password;
 
 if (input::get_string('first_name') != '') {
   $first_name = Input::get('first_name');
@@ -41,14 +41,14 @@ $errors['not_saved'] = 'No changes where made';
 
 
 
-$newUserInfo = new User();
-$newUserInfo->id         = $id;
-$newUserInfo->first_name = Input::escape($first_name);
-$newUserInfo->last_name  = Input::escape($last_name);
-$newUserInfo->email      = Input::escape($email);
-$newUserInfo->password   = $password;
-$newUserInfo->save();
-$_SESSION['usersInfo']   = $newUserInfo;
+$new_user_info = new User();
+$new_user_info->id         = $id;
+$new_user_info->first_name = Input::escape($first_name);
+$new_user_info->last_name  = Input::escape($last_name);
+$new_user_info->email      = Input::escape($email);
+$new_user_info->password   = $password;
+$new_user_info->save();
+$_SESSION['users_info']   = $new_user_info;
 
 ?>
 
