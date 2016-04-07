@@ -4,7 +4,7 @@ require_once 'db_connect.php';
 
 
 
-$itemsDropTable = "DROP TABLE IF EXISTS items";
+$itemsDropTable = "DROP TABLE IF EXISTS ads";
 $dbc->exec($itemsDropTable);
 
 $userDropTable = "DROP TABLE IF EXISTS users";
@@ -22,7 +22,7 @@ $userTable = "CREATE TABLE users(
 )";
 $dbc->exec($userTable);
 
-$itemsTable = "CREATE TABLE items (
+$adsTable = "CREATE TABLE ads (
   id INT UNSIGNED NOT NULL AUTO_INCREMENT,
   title VARCHAR(255),
   available TINYINT DEFAULT 1,
@@ -35,6 +35,6 @@ $itemsTable = "CREATE TABLE items (
   PRIMARY KEY(id),
   FOREIGN KEY (user_id) REFERENCES users(id)
 )";
- $dbc->exec($itemsTable);
+ $dbc->exec($adsTable);
 
 ?>
