@@ -35,16 +35,19 @@ if(Input::has('reshow')) {
 
 if (input::get_string('update_title') != '') {
     $ad_title = Input::get('update_title');
+    $ad_title = Input::escape($ad_title);
     $data_saved['update_title'] = 'Title has been saved.';
 }
 
 if (Input::get_string('update_category') != '') {
     $ad_category = Input::get('update_category');
+    $ad_category = Input::escape($ad_category);
     $data_saved['update_category'] = 'Category has been saved.';
 }
 
 if (Input::get_string('update_description') != '') {
     $ad_description = Input::get('update_description');
+    $ad_description = Input::escape($ad_description);
     $data_saved['update_description'] = 'Description has been saved.';
 }
 
@@ -59,12 +62,12 @@ if (! empty($_POST)) {
     $ad_update = new Ad();
 
     $ad_update->id = $id;
-    $ad_update->title = Input::escape($ad_title);
+    $ad_update->title = $ad_title;
     $ad_update->date_posted = $ad_date_posted;
-    $ad_update->category = Input::escape($ad_category);
-    $ad_update->description = Input::escape($ad_description);
-    $ad_update->image = Input::escape($ad_image);
-    $ad_update->user_id = Input::escape($ad_user);
+    $ad_update->category = $ad_category;
+    $ad_update->description = $ad_description;
+    $ad_update->image = $ad_image;
+    $ad_update->user_id = $ad_user;
     $ad_update->views = $ad_views;
     $ad_update->save();
     $switch = true;
