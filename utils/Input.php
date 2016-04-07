@@ -13,23 +13,14 @@ class Input
 
     public static function get($key, $default = '')
     {
-        if (self::has($key)) {
-            return $_REQUEST[$key];
-        }else {
-            return $default;
-        }
+        return (self::has($key)) ? $_REQUEST[$key] : $default;
     }
-    // filter function (strip_tags)
-    public static function escape($key) {
-        return trim(htmlspecialchars(strip_tags($key)));
-    }
+
 
     public static function input_not_empty($require)
     {
-        foreach ($require as  $key) {
-            if (!isset($_POST[$key])) {
-                return false;
-            } else if ($_POST[$key] == '') {
+        foreach ($required as $key) {
+            if (!isset($_REQUEST[$key]) || $_REQUEST[$key] == '') {
                 return false;
             }
         }
