@@ -4,27 +4,16 @@ require_once __DIR__ . '/../../session_redirect.php';
 
 $id = $_SESSION['user_info']->id;
 
-if (!empty($_FILES)) {
-	$fileName = '/img/user_images/' . $_FILES['image']['name'] ? ('/img/user_images/' . $_FILES['image']['name']) : null;
-}
-
 if (!empty($_FILES)
 {
 	$testAd = new Ad();
-	$title = 
-	$description = 
-	$date_posted = 
-	$user_id = $id;
-	$category = Input::escape('category');
-	$image = $fileName;
-
-
 	$testAd->title = Input::escape('title');
 	$testAd->description = Input::get('description');
 	$testAd->date_posted = new DateTime('now'))->format("Y-m-d H:i:s");
-	$testAd->category = $category;
-	$testAd->image = $image;
-	$testAd->user_id = $user_id;
+	$testAd->category = Input::escape('category');
+	$testAd->image = $fileName = '/img/user_images/' . $_FILES['image']['name'] ? 
+								('/img/user_images/' . $_FILES['image']['name']) : null;
+	$testAd->user_id = $id;
 	$testAd->views = 0;
 	$testAd->save();
 
