@@ -4,21 +4,29 @@
 require_once __DIR__ . '/../../prime.php';
 require_once __DIR__ . '/../../session_redirect.php';
 
-if(Input::has('page')){
-    $page   = Input::get_number('page');
-    $offset = $page * $limit - $limit;
+if (Input::get('page') <=0) {
+    header('Location: /user/show');
 }
+
 
 $id     = $_SESSION['user_info']->id;
 $page   = 1;
 $limit  = 3;
 $offset = 0;
 
+if(Input::has('page')){
+    $page   = Input::get_number('page');
+    $offset = $page * $limit - $limit;
+}
+
 
 $user_items   = Ad::paginate($id, $limit, $offset);
 $allUserPosts = Ad::find_total_posts($id);
 $totalPages   = $allUserPosts / $limit;
 
+if (Input::get('page') > $totalPages + 1) {
+    header('Location: /user/show');
+}
 
 
  ?>
@@ -84,7 +92,7 @@ $totalPages   = $allUserPosts / $limit;
                         </li>
                     <?php }?>
 
-                    <?php if ($page<= $totalPages) { ?>
+                    <?php if ($page<= $totalPages - 1) { ?>
                         <li>
                              <a href="/ads/show?page=<?=$page + 1 ?>">&raquo;</a>
                         </li>

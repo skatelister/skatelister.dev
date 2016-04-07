@@ -25,7 +25,7 @@
           <li><a href="/">Home</a></li>
            <li><a href="/ads/all">All</a></li>
           <li><a href="/ads/hot">Hot</a></li>
-          <li><a href="/ads/show">Profile</a></li>
+          <li><a href="/user/show">Profile</a></li>
           <li><a href="/signout" class="btn btn-danger">Signout</a></li>
         </ul>
       </div> <!-- .headerNav -->

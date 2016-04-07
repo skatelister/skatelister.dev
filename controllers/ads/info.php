@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__ . '/../../prime.php';
+session_start();
 
 $this_ad = Input::get('ad');
 $single_ad = Ad::find_current_ad($this_ad);
