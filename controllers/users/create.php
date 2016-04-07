@@ -1,8 +1,11 @@
 <?php
 require_once __DIR__ . '/../../prime.php';
+
+Validation 
+
+$errors = UserValidation::errorMessages(); //extend Validation
+
 $errors = [];
-
-
 $require = ['first_name','last_name','email','password','ver_password'];
 if (Input::has('first_name')
     && Input::has('last_name')

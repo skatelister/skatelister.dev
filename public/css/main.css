@@ -41,6 +41,10 @@ nav {
 	padding-top: 15px;
 }
 
+li.navbar_lists.modal_navbar {
+	clear: right;
+	float: right;
+}
 
 /* Front Page Content CSS */
 

@@ -32,17 +32,15 @@ $newAds = Ad::showNewest();
 		<!-- <div class="row"> -->
 			<!-- <div class="col-md-8 col-md-2 offset"> - -->
 			<div class="row">
+				<div class="col-md-4"></div>
+				<div class="col-md-8">
 					<?php foreach($newAds as $key => $newAd): ?>
-						<div class="individualPictureHome col-md-4">
+						<div class="individualPictureHome col-md-6">
 							<a href="/ads/info?ad=<?=$newAd['id'];?>"><img class="img-thumbnail indexPicture" src="<?=$newAd['image'];?>" alt="test"></a>
 							<p id="imageTitle"><?=$newAd['title'];?></p>
 						</div>
-						<?php if(($key + 1) % 2 == 0): ?>
-							<div class="col-md-offset-4">
-								<p>Hello</p>
-							</div>
-						<?php endif; ?>
 					<?php endforeach; ?>
+				</div> <!-- .col-md-8 -->
 			</div>
 
 
