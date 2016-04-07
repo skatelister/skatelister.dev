@@ -9,24 +9,19 @@ if (!empty($_FILES)) {
 }
 
 if (!empty($_FILES)
-  && Input::get_string('title')
-  && Input::get_string('description')
-  && Input::get_string('category')) {
-		// create a new Ad instance to prepare inserting data
-	var_dump($_FILES);
-	var_dump('test');
+{
 	$testAd = new Ad();
-	$title = Input::escape('title');
-	$description = Input::escape('description');
-	$date_posted = (new DateTime('now'))->format("Y-m-d H:i:s");
+	$title = 
+	$description = 
+	$date_posted = 
 	$user_id = $id;
 	$category = Input::escape('category');
 	$image = $fileName;
 
 
-	$testAd->title = $title;
-	$testAd->description = $description;
-	$testAd->date_posted = $date_posted;
+	$testAd->title = Input::escape('title');
+	$testAd->description = Input::get('description');
+	$testAd->date_posted = new DateTime('now'))->format("Y-m-d H:i:s");
 	$testAd->category = $category;
 	$testAd->image = $image;
 	$testAd->user_id = $user_id;

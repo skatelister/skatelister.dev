@@ -4,7 +4,6 @@ require_once __DIR__ . '/../../prime.php';
 
 $errors = UserValidation::errors();
     
-
 if (empty($errors)) 
 {
   $newUserProfile = new User();

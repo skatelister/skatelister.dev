@@ -110,4 +110,13 @@ class UserValidation extends Validation
 		return self::$errors;
 	}
 	
+class AdsValidation extends Validation
+{
+	public static function errors()
+	{
+		
+	}
+}
+
+
 }
