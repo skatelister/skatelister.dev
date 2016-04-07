@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (! isset($_SESSION['usersInfo'])) {
+if (! isset($_SESSION['users_info'])) {
     header('Location: /');
 }
 

@@ -16,14 +16,14 @@ function validateInput() {
 $user = new User();
 $errors = validateInput();
 if (empty($errors)) {
-    $email = Input::get('email');
-    $password = Input::get('password');
+    $email = Input::get_string('email');
+    $password = Input::get_string('password');
 
     $user =  User::find($email);
     if (! is_null($user)) {
         if (password_verify($password,$user->password)) {
             session_start();
-            $_SESSION['usersInfo'] = $user;
+            $_SESSION['user_info'] = $user;
         } else {
           $errors['errors_wronginfo'] = "Email or Password was incorrect.";
         }

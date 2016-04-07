@@ -43,11 +43,15 @@ if (Input::has('first_name')
         $ver_password = Input::get('ver_password');
     }
 
-    if (isset($password_unstripped) == isset($ver_password)) {
-        $password = Input::escape($password_unstripped);
-    }else{
+    if (isset($password_unstripped) != false &&
+    isset($ver_password) != false) {
+        if ($password_unstripped == $ver_password) {
+            $password = Input::escape($password_unstripped);
+        }else{
         $errors['wrongpass'] = "Password's did not match.";
+        }
     }
+
 
     if (isset($password)) {
         $password = password_hash($password,PASSWORD_DEFAULT);

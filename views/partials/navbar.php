@@ -6,7 +6,7 @@
   </div> <!-- .logo -->
 
 
-<?php if (empty($_SESSION['usersInfo'])): ?>
+<?php if (empty($_SESSION['user_info'])): ?>
       <div class="headerNav">
         <ul id="mainNavigation">
           <li><a href="/">Home</a></li>

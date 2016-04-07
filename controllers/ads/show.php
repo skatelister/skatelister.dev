@@ -9,7 +9,7 @@ if(Input::has('page')){
     $offset = $page * $limit - $limit;
 }
 
-$id     = $_SESSION['usersInfo']->id;
+$id     = $_SESSION['user_info']->id;
 $page   = 1;
 $limit  = 3;
 $offset = 0;
@@ -31,7 +31,7 @@ $totalPages   = $allUserPosts / $limit;
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">Welcome
-                    <?= $_SESSION['usersInfo']->first_name; ?>
+                    <?= $_SESSION['user_info']->first_name; ?>
                     <a href="/user/edit" class="btn btn-primary align-right">Edit Profile</a>
                     <a href="/ads/create" class="btn btn-primary align-right">Create Ad</a>
                 </h1>
