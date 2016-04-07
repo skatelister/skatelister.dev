@@ -18,7 +18,6 @@ $hottest_ads = Ad::show_hottest();
                 </div>
                 <?php if(($key + 1) % 2 == 0): ?>
                     <div class="col-md-offset-4">
-                        <p>Hello</p>
                     </div>
                 <?php endif; ?>
             <?php endforeach; ?>

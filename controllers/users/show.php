@@ -3,30 +3,33 @@
 // for testing only. will remove once we have layout setup correctly
 require_once __DIR__ . '/../../prime.php';
 require_once __DIR__ . '/../../session_redirect.php';
-var_dump($_POST);
 
-if (isset($_SESSION['user_info'])) {
-
-    $id     = $_SESSION['user_info']->id;
-    $page   = 1;
-    $limit  = 3;
-    $offset = 0;
-
-    if(Input::has('page')){
-        $page = Input::get_number('page');
-        $offset = $page * $limit - $limit;
-    }
-
-    $user_items = Ad::paginate($id, $limit, $offset);
-
-
-    $allUserPosts = Ad::find_total_posts($id);
-
-
-    $totalPages = $allUserPosts / $limit;
-
-
+if (! Input::has('page')) {
+    
+}else if (Input::get('page') <= 0) {
+    header('Location: /user/show');
 }
+
+
+$id     = $_SESSION['user_info']->id;
+$page   = 1;
+$limit  = 3;
+$offset = 0;
+
+if(Input::has('page')){
+    $page   = Input::get_number('page');
+    $offset = $page * $limit - $limit;
+}
+
+
+$user_items   = Ad::paginate($id, $limit, $offset);
+$allUserPosts = Ad::find_total_posts($id);
+$totalPages   = $allUserPosts / $limit;
+
+if (Input::get('page') > $totalPages + 1) {
+    header('Location: /user/show');
+}
+
 
  ?>
  <?php require_once __DIR__ .'/../../views/partials/header.php';  ?>
@@ -81,19 +84,19 @@ if (isset($_SESSION['user_info'])) {
                 <ul class="pagination">
                     <?php if ($page > 1) { ?>
                         <li>
-                            <a href="/ads/show?page=<?=$page - 1 ?>">&laquo;</a>
+                            <a href="/user/show?page=<?=$page - 1 ?>">&laquo;</a>
                         </li>
                    <?php } ?>
 
                     <?php for ($i=1; $i <= ceil($totalPages)  ; $i++) { ?>
                         <li>
-                            <a href="/ads/show?page=<?=$i ?> "> <?= $i ?> </a>
+                            <a href="/user/show?page=<?=$i ?> "> <?= $i ?> </a>
                         </li>
                     <?php }?>
 
-                    <?php if ($page<= $totalPages) { ?>
+                    <?php if ($page<= $totalPages - 1) { ?>
                         <li>
-                             <a href="/ads/show?page=<?=$page + 1 ?>">&raquo;</a>
+                             <a href="/user/show?page=<?=$page + 1 ?>">&raquo;</a>
                         </li>
                     <?php } ?>
 
