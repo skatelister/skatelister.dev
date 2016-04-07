@@ -4,15 +4,15 @@ require_once 'db_connect.php';
 
 
 
-$itemsDropTable = "DROP TABLE IF EXISTS ads";
-$dbc->exec($itemsDropTable);
+$adsDropTable = "DROP TABLE IF EXISTS ads";
+$dbc->exec($adsDropTable);
 
-$userDropTable = "DROP TABLE IF EXISTS users";
-$dbc->exec($userDropTable);
+$usersDropTable = "DROP TABLE IF EXISTS users";
+$dbc->exec($usersDropTable);
 
 
 
-$userTable = "CREATE TABLE users(
+$usersTable = "CREATE TABLE users(
   id INT UNSIGNED NOT NULL AUTO_INCREMENT,
   first_name  VARCHAR(40) NOT NULL ,
   last_name VARCHAR(40) NOT NULL,
@@ -20,7 +20,7 @@ $userTable = "CREATE TABLE users(
   password VARCHAR(120) NOT NULL,
   PRIMARY KEY(id)
 )";
-$dbc->exec($userTable);
+$dbc->exec($usersTable);
 
 $adsTable = "CREATE TABLE ads (
   id INT UNSIGNED NOT NULL AUTO_INCREMENT,

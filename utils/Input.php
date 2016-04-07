@@ -13,7 +13,7 @@ class Input
 
     public static function get($key, $default = '')
     {
-        return (self::has($key)) ? $_REQUEST[$key] : $default;
+        return (self::has($key)) ? htmlspecialchars(strip_tags($_REQUEST[$key])) : $default;
     }
 
 

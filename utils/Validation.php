@@ -8,7 +8,7 @@ class Validation
 	public static function has($key)
     {
         if (isset($_REQUEST[$key])){
-        return true;
+        	return true;
         }
     }
 
@@ -66,6 +66,11 @@ class Validation
     {
     	return ctype_alpha($value);
     }
+
+    public static function hashPassword($key) 
+    {
+    	return password_hash($key, PASSWORD_DEFAULT);
+    }
 }
 
 class UserValidation extends Validation
@@ -92,6 +97,7 @@ class UserValidation extends Validation
 		elseif (!self::isEmail(Input::get('email'))) {
 			self::$errors['email'] = 'Email was not a valid email, example@example.example';
 		}
+
 		
 		if (!self::isString(Input::get('password'))) {
 			self::$errors['password'] = 'Please enter a value';
@@ -109,14 +115,30 @@ class UserValidation extends Validation
 
 		return self::$errors;
 	}
+}
 	
 class AdsValidation extends Validation
 {
 	public static function errors()
 	{
-		
+		if( !self::isString(Input::get('title'))) {
+			self::$errors['title'] = 'Please enter a title';
+		}
+		elseif (!self::areLetters(Input::get('title'))) {
+			self::$errors['title'] = 'Title needs to proper characters';
+		}
+
+		// if ( !self::isString(Input::get('category'))) {
+		// 	self::$errors['category'] = ''
+		// }
+
+		if ( !self::isString(Input::get('description'))) {
+			self::$errors['description'] = 'Please enter a description';
+		}
+		elseif (!self::areLetters(Input::get('description'))) {
+			self::$errors['description'] = 'Please enter appropriate description.';
+		}
+
+		return self::$errors;
 	}
-}
-
-
 }
