@@ -3,17 +3,17 @@ require_once __DIR__ . '/../../prime.php';
 require_once __DIR__ . '/../../session_redirect.php';
 
 $id = $_SESSION['user_info']->id;
-// $errors = AdsValidation::errors();
+$errors = AdsValidation::errors();
 
 
-if (!empty($_FILES))
+if (!empty($_FILES) && empty($errors))
 {
 	$testAd = new Ad();
-	$testAd->title = Input::escape('title');
+	$testAd->title = 'title';
 	$testAd->description = Input::get('description');
 	$testAd->date_posted = (new DateTime('now'))->format("Y-m-d H:i:s");
-	$testAd->category = Input::escape('category');
-	$testAd->image = $fileName = '/img/user_images/' . $_FILES['image']['name'] ? 
+	$testAd->category = 'category';
+	$testAd->image = $fileName = '/img/user_images/' . $_FILES['image']['name'] ?
 								('/img/user_images/' . $_FILES['image']['name']) : null;
 	$testAd->user_id = $id;
 	$testAd->views = 0;
@@ -58,3 +58,4 @@ if (!empty($_FILES))
 			<button name="adCreate" type="submit btn btn-primary">Submit Item</button>
 		</form>
 	</div>
+<?php require_once __DIR__ .'/../../views/partials/footer.php';  ?>

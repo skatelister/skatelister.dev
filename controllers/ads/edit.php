@@ -32,30 +32,22 @@ if(Input::has('reshow')) {
     $ad_available = 1;
 }
 
-if (input::get_string('update_title') != '') {
-    $ad_title = Input::get('update_title');
-    $data_saved['update_title'] = 'Title has been saved.';
-}else {
-    $errors['title'] = 'Title needs to be a word.';
-}
+if (Input::has('submit_form')) {
+    $data_saved = AdsValidation::savedData();
+    if (isset($data_saved['update_title'])) {
+        $ad_title = Input::get('update_title');
+    }
 
-if (Input::get_string('update_category') != '') {
-    $ad_category = Input::get('update_category');
-    $data_saved['update_category'] = 'Category has been saved.';
-}
-
-if (Input::get_string('update_description') != '') {
-    $ad_description = Input::get('update_description');
-    $data_saved['update_description'] = 'Description has been saved.';
-}else {
-    $errors['title'] = 'Title needs to be a word.';
-}
-
-if (Input::get_string('update_title') == ''
-  && Input::get_string('update_category') == ''
-  && Input::get_string('update_description') == ''
-  && Input::has('submit_form')) {
-    $data_saved['not_saved'] = 'No changes where made';
+    if (isset($data_saved['update_category'])) {
+        if ($ad_category != Input::get('update_category')) {
+            $ad_category = Input::get('update_category');
+        }else {
+            $data_saved['update_category'] = '';
+        }
+    }
+    if (isset($data_saved['update_description'])) {
+        $ad_description = Input::get('update_description');
+    }
 }
 
 if (! empty($_POST)) {
