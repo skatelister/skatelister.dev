@@ -26,7 +26,7 @@ $newAds = Ad::showNewest();
 
 
 		<div class="row extra-cushion">
-				<h2 id="brandNewTitle">Brand New Items for Discount!</h2>
+				<h2 id="brandNewTitle">Two Guys Selling Skateboard STUFF!</h2>
 		</div> <!-- .row extra-cushion -->
 
 		<!-- <div class="row"> -->
@@ -44,8 +44,11 @@ $newAds = Ad::showNewest();
  						  			<p id="imageTitle"><?=$newAd['title'];?></p>
 									<p class="btn btn-primary"><a href="/ads/info?ad=<?=$newAd['id'];?>">See More</a>
  					  			</div>
-				  		</div>
-			  		</div>
+				  			</div>
+			  			</div>
+			  			<?php if(($key + 1) % 2 == 0): ?>
+			  				<hr>
+			  			<?php endif; ?>
  				  <?php endforeach; ?>
 		   </div>
 

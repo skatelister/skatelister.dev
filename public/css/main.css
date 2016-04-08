@@ -1,9 +1,19 @@
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+
 html{
+	height: 100%;
 	background-color: white;
+	box-sizing: border-box;
 	font-face: Georgia, serif;
 }
 body{
     background-color: #d9d9d9;
+	background-image: url('skatelister.jpg');
 }
 
 .red{
@@ -32,10 +42,8 @@ nav {
 }
 
 .nav {
-	background-color: #4484ce;
-	opacity: 0.7;
+	background-color: #984b45;
 }
-
 
 #mainNavigation > li {
 	font-size: 2em;
@@ -60,7 +68,7 @@ li.navbar_lists.modal_navbar {
 	box-sizing: border-box;
 	margin-top: 25px;
 	background-color: #fbce00;
-	opacity: 0.4;
+	opacity: 0.65;
 	height: 350px;
 	border-radius: 1%;
 	color: white;
@@ -74,8 +82,7 @@ li.navbar_lists.modal_navbar {
 	margin-top: 25px;
 	height: 350px;
 	background-color: #fbce00;
-	opacity: 0.4;
-	border: 1px solid black;
+	opacity: 0.7;
 	border-radius: 1%;
 }
 
@@ -86,7 +93,7 @@ li.navbar_lists.modal_navbar {
 
 
 #brandNewTitle {
-	color: white;
+	color: black;
 	font-size: 3em;
 	text-align: center;
 	background-color: #f19f4d;
@@ -130,8 +137,10 @@ footer {
 	width: 100%;
 	height: auto;
 	display: block;
-	background-color: #e9c87b;
+	background-color: #e0e4cc;
 	bottom: 0;
+	right: 0;
+	left: 0;
 	position: relative;
 }
 
@@ -189,7 +198,7 @@ footer {
 	width: auto;
 }
 .address {
-	background-color: #dbc185;
+	background-color: #e0e4cc;
 	border-top: 3px solid black;
 	font-size: 1.5em;
 	padding-top: 45px;
