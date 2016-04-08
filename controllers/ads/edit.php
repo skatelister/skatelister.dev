@@ -9,15 +9,14 @@ if(Input::has('item_id')) {
 
     $id = Input::get('item_id');
     $current_ad = Ad::find_current_ad($id);
-
-    $ad_title = Input::escape($current_ad->title);
-    $ad_date_posted = Input::escape($current_ad->date_posted);
-    $ad_available = Input::escape($current_ad->available);
-    $ad_category = Input::escape($current_ad->category);
-    $ad_description = Input::escape($current_ad->description);
-    $ad_image = Input::escape($current_ad->image);
-    $ad_user = Input::escape($current_ad->user_id);
-    $ad_views = Input::escape($current_ad->views);
+    $ad_title = $current_ad->title;
+    $ad_date_posted = $current_ad->date_posted;
+    $ad_available = $current_ad->available;
+    $ad_category = $current_ad->category;
+    $ad_description = $current_ad->description;
+    $ad_image = $current_ad->image;
+    $ad_user = $current_ad->user_id;
+    $ad_views = $current_ad->views;
 }else {
     header('Location: /ads/show');
     die();
@@ -35,7 +34,6 @@ if(Input::has('reshow')) {
 
 if (input::get_string('update_title') != '') {
     $ad_title = Input::get('update_title');
-    $ad_title = Input::escape($ad_title);
     $data_saved['update_title'] = 'Title has been saved.';
 }else {
     $errors['title'] = 'Title needs to be a word.';
@@ -43,13 +41,11 @@ if (input::get_string('update_title') != '') {
 
 if (Input::get_string('update_category') != '') {
     $ad_category = Input::get('update_category');
-    $ad_category = Input::escape($ad_category);
     $data_saved['update_category'] = 'Category has been saved.';
 }
 
 if (Input::get_string('update_description') != '') {
     $ad_description = Input::get('update_description');
-    $ad_description = Input::escape($ad_description);
     $data_saved['update_description'] = 'Description has been saved.';
 }else {
     $errors['title'] = 'Title needs to be a word.';

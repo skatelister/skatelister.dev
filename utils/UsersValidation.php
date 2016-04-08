@@ -1,65 +1,75 @@
 <?php
 
-class UsersValidation extends Validation
+class UserValidation extends Validation
 {
 
-	$require = ['first_name', 'last_name', 'email', 'password', 'ver_password'];
+	public static function errors()
+	{
+		if (!self::isString(Input::get('first_name'))) {
+			self::$errors['first_name'] = 'Please enter a value';
+		}
+		elseif (!self::areLetters(Input::get('first_name'))) {
+			self::$errors['first_name'] = 'Only letters for firstname';
+		}
 
-	//extend Validation
-	$errors = [];
-	UserValidation::errorMessages(); 
-	
-	public function __construct() {
-		if($_POST['submit_form'])
+		if (!self::isString(Input::get('last_name'))) {
+			self::$errors['last_name'] = 'Please enter a value';
+		} elseif (!self::areLetters(Input::get('last_name'))) {
+			self::$errors['last_name'] = 'Only letters for lastname';
+		}
+
+		if (!self::isString(Input::get('email'))) {
+			self::$errors['email'] = 'Please enter a value';
+		}
+		elseif (!self::isEmail(Input::get('email'))) {
+			self::$errors['email'] = 'Email was not a valid email, example@example.example';
+		}
+
+
+		if (!self::isString(Input::get('password'))) {
+			self::$errors['password'] = 'Please enter a value';
+		}
+		elseif (!self::areLetters(Input::get('password'))) {
+			self::$errors['password'] = 'Please enter an alpha-numeric password';
+		}
+
+		if(!self::isString(Input::get('ver_password'))) {
+			self::$errors['ver_password'] = 'Please enter a valid confirmation password';
+		}
+		elseif(Input::get('ver_password') !== Input::get('password')) {
+			self::$errors['ver_password'] = 'Passwords do not match';
+		}
+		return self::$errors;
 	}
 
-	public static function errorMessages() {
+	public static function updateUser()
+	{
+		if (input::get('first_name') != '') {
+		  self::$data_saved['first_name'] = 'First name has been saved.';
+	  }
 
+		if (Input::get('last_name') != '') {
+		  self::$data_saved['last_name'] = 'Last name has been saved.';
+		}
+
+		if (Input::get('password') != ''
+		 || Input::get('ver_password') != '') {
+		        if (Input::get('password') === Input::get('ver_password')) {
+		            self::$data_saved['password'] = 'Password name has been saved.';
+		        }
+		}
+		return self::$data_saved;
 	}
 
-	if (Input::get_string('first_name') == '') {
-        $errors['first_name'] = 'First name needs a value';
-    }else {
-        $first_name_unstripped = Input::get('first_name');
-    }
-
-    if (Input::get_string('last_name') == '') {
-        $errors['last_name'] = 'Last name needs a value';
-    }else {
-        $last_name_unstripped = Input::get('last_name');
-    }
-
-    if (Input::get_string('email') == '') {
-        $errors['email'] = 'Email name needs a value';
-    }else if (filter_var(Input::get('email'), FILTER_VALIDATE_EMAIL) == false) {
-        $errors['email'] = 'Email was not a valid email, example@example.example';
-    } else{
-        $email_unstripped = Input::get('email');
-    }
-
-    if (Input::get_string('password') == '') {
-        $errors['password'] = 'Password needs a value';
-    }else {
-        $password_unstripped = Input::get('password');
-    }
-
-    if (Input::get_string('ver_password') == '') {
-      $errors['ver_password'] = 'Password needs a value';
-    }else {
-        $ver_password = Input::get('ver_password');
-    }
-
-    if (isset($password_unstripped) != false &&
-    isset($ver_password) != false) {
-        if ($password_unstripped == $ver_password) {
-            $password = Input::escape($password_unstripped);
-        }else{
-        $errors['wrongpass'] = "Password's did not match.";
-        }
-    }
-
-
-    if (isset($password)) {
-        $password = password_hash($password,PASSWORD_DEFAULT);
-    }
+	public static function checkForChanges()
+	{
+		if (Input::get('first_name') == ''
+		  && Input::get('last_name') == ''
+		  && Input::get('password') == ''
+		  && Input::get('ver_password') == ''
+		  && Input::has('submit_form')) {
+		self::$errors['not_saved'] = 'No changes where made';
+		}
+		return self::$errors;
+	}
 }
