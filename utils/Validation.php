@@ -1,9 +1,7 @@
 <?php
 class Validation
 {
-	static $errors = [];
-
-	// public function errors();
+	protected static $errors = [];
 
 	public static function has($key)
     {
@@ -71,6 +69,11 @@ class Validation
     {
     	return password_hash($key, PASSWORD_DEFAULT);
     }
+
+    public static function isCorrectCategory($key)
+    {
+    	
+    }
 }
 
 class UserValidation extends Validation
@@ -124,13 +127,14 @@ class AdsValidation extends Validation
 		if( !self::isString(Input::get('title'))) {
 			self::$errors['title'] = 'Please enter a title';
 		}
-		elseif (!self::areLetters(Input::get('title'))) {
+		elseif ( !self::areLetters(Input::get('title'))) {
 			self::$errors['title'] = 'Title needs to proper characters';
 		}
 
-		// if ( !self::isString(Input::get('category'))) {
-		// 	self::$errors['category'] = ''
-		// }
+		if ( !self::isString(Input::get('category'))) {
+			self::$errors['category'] = 'Please enter select a category';
+		}
+		elseif ( !self::isString(Input::get('category')))
 
 		if ( !self::isString(Input::get('description'))) {
 			self::$errors['description'] = 'Please enter a description';
