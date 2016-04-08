@@ -2,6 +2,9 @@
 class Validation
 {
 	protected static $errors = [];
+	protected static $data_saved = [];
+
+	// public function errors();
 
 	public static function has($key)
     {
@@ -30,7 +33,7 @@ class Validation
     {
         $value = self::get($key);
         if(is_array($value)  || is_numeric($value)  || is_bool($value) ||
-           is_object($value) || is_resource($value) || is_null($value)) { 
+           is_object($value) || is_resource($value) || is_null($value)) {
            return false;
      	}
         return true;
@@ -65,7 +68,7 @@ class Validation
     	return ctype_alpha($value);
     }
 
-    public static function hashPassword($key) 
+    public static function hashPassword($key)
     {
     	return password_hash($key, PASSWORD_DEFAULT);
     }
@@ -75,6 +78,7 @@ class Validation
     	
     }
 }
+<<<<<<< HEAD
 
 class UserValidation extends Validation
 {
@@ -146,3 +150,5 @@ class AdsValidation extends Validation
 		return self::$errors;
 	}
 }
+=======
+>>>>>>> e842f64fa5f7aa0fefdf1cda036fcae234aa16c5
