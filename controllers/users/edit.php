@@ -9,35 +9,6 @@ $email = $_SESSION['user_info']->email;
 $password = $_SESSION['user_info']->password;
 $switch = false;
 
-// if (input::get_string('first_name') != '') {
-//   $first_name = Input::get('first_name');
-//   $data_saved['first_name'] = 'First name has been saved.';
-// }
-//
-// if (Input::get('last_name') != '') {
-//   $last_name = Input::get('last_name');
-//   $data_saved['last_name'] = 'Last name has been saved.';
-// }
-//
-// if (Input::get('password') != ''
-//  || Input::get('ver_password') != '') {
-//         if (Input::get_string('password') == Input::get_string('ver_password')) {
-//             $password_stripped = Input::escape(Input::get('password'));
-//             $password = password_hash($password_stripped,PASSWORD_DEFAULT);
-//             $data_saved['password'] = 'Password name has been saved.';
-//         }else {
-//             $errors['wrongpass'] = 'Passwords did not match.';
-//         }
-// }
-//
-// if (Input::get('first_name') == ''
-//   && Input::get('last_name') == ''
-//   && Input::get('password') == ''
-//   && Input::get('ver_password') == ''
-//   && Input::has('submit_form')) {
-// $errors['not_saved'] = 'No changes where made';
-// }
-
 if (Input::has('submit_form')) {
     $data_saved = UserValidation::updateUser();
     $errors = UserValidation::checkForChanges();
@@ -50,7 +21,8 @@ if (Input::has('submit_form')) {
         $switch = true;
     }
     if (isset($data_saved['password'])) {
-        $first_name = Input::get('first_name');
+        $password = Validation::hashPassword(Input::get('password'));
+        var_dump('test');
         $switch = true;
     }
 
