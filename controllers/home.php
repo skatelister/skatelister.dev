@@ -42,7 +42,7 @@ $newAds = Ad::showNewest();
  						  		<img class="img-thumbnail indexPicture" src="<?=$newAd['image'];?>" alt="test">
  						  		<div class="caption">
  						  			<p id="imageTitle"><?=$newAd['title'];?></p>
-									<p class="btn btn-primary"><a href="/ads/info?ad=<?=$newAd['id'];?>">See More</a>
+									<p class="btn btn-primary" id="stuff"><a href="/ads/info?ad=<?=$newAd['id'];?>">See More</a>
  					  			</div>
 				  			</div>
 			  			</div>
