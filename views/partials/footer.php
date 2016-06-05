@@ -17,9 +17,9 @@
 				<a target="_blank" href="https://github.com/Penthious"><img src="/img/site_imgs/githubsocial.png" alt="facebook" class="hoverInvert" id="githubsocial"></a>
 			</div>
 		</div> <!-- .ourInfoDiv -->
-		
+
 		<div class="middlefooter">
-			
+
 		</div>
 
 		<div class="address">

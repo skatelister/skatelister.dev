@@ -1,9 +1,9 @@
 <?php
 if (Input::has('sign_up')) {
-   header('Location: /user/create');
-   die();
- }
- ?>
+  header('Location: /user/create');
+  die();
+}
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -11,7 +11,7 @@ if (Input::has('sign_up')) {
         <link rel="stylesheet" href="/css/main.css">
         <link rel="stylesheet" href="/css/modal.css">
         <link rel="stylesheet" href="/css/signin.css">
-            <link rel="stylesheet" href="/css/navbar.css">
+             <link rel="stylesheet" href="/css/navbar.css">
         <link href='https://fonts.googleapis.com/css?family=Cabin:400,700' rel='stylesheet' type='text/css'>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="utf-8">

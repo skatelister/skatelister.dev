@@ -43,6 +43,7 @@ nav {
 
 .nav {
 	background-color: #984b45;
+    
 }
 
 #mainNavigation > li {
@@ -222,4 +223,8 @@ footer {
 
 .extra-cushion {
 	margin-bottom: 20px;
+}
+
+.tomasSize{
+    font-size: 2.5rem;
 }

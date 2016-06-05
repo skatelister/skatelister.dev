@@ -4,21 +4,18 @@
 require_once __DIR__ . '/../../prime.php';
 require_once __DIR__ . '/../../session_redirect.php';
 
-if (! Input::has('page')) {
-    
-}else if (Input::get('page') <= 0) {
-    header('Location: /user/show');
-}
-
-
 $id     = $_SESSION['user_info']->id;
 $page   = 1;
 $limit  = 3;
 $offset = 0;
 
 if(Input::has('page')){
-    $page   = Input::get_number('page');
-    $offset = $page * $limit - $limit;
+    if (Input::get('page') <= 0) {
+        $page = 1;
+    }else{
+        $page   = Input::get_number('page');
+        $offset = $page * $limit - $limit;
+    }
 }
 
 

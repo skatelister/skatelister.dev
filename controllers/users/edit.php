@@ -1,44 +1,30 @@
 <?php
 require_once __DIR__ . '/../../prime.php';
 require_once __DIR__ . '/../../session_redirect.php';
+var_dump($_SESSION['user_info']);
 
-$id =  $_SESSION['user_info']->id;
-$first_name = $_SESSION['user_info']->first_name;
-$last_name = $_SESSION['user_info']->last_name;
-$email = $_SESSION['user_info']->email;
-$password = $_SESSION['user_info']->password;
-$switch = false;
+$user = User::find($_SESSION['user_info']->email);
 
 if (Input::has('submit_form')) {
     $data_saved = UserValidation::updateUser();
     $errors = UserValidation::checkForChanges();
     if (isset($data_saved['first_name'])) {
-        $first_name = Input::get('first_name');
-        $switch = true;
+        $user->first_name = Input::get('first_name');
+
     }
     if (isset($data_saved['last_name'])) {
-        $last_name = Input::get('last_name');
-        $switch = true;
+        $user->last_name = Input::get('last_name');
+
     }
     if (isset($data_saved['password'])) {
-        $password = Validation::hashPassword(Input::get('password'));
-        var_dump('test');
-        $switch = true;
+        $user->password = Validation::hashPassword(Input::get('password'));
+
     }
-
+    $user->save();
+    $user = User::find($_SESSION['user_info']->email);
+    
 }
 
-if ($switch) {
-    $new_user_info = new User();
-    $new_user_info->id         = $id;
-    $new_user_info->first_name = $first_name;
-    $new_user_info->last_name  = $last_name;
-    $new_user_info->email      = $email;
-    $new_user_info->password   = $password;
-    $new_user_info->save();
-    $_SESSION['user_info']   = $new_user_info;
-    $switch = false;
-}
 
 ?>
 

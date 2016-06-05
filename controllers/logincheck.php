@@ -5,7 +5,7 @@ function validateInput() {
     $errors = [];
     if (Input::get('email', '') == '') {
         $errors['errors_email'] = 'Email can not be empty.';
-    }
+}
     if (Input::get('password', '') == '') {
         $errors['errors_password'] = 'Password can not be empty.';
     }

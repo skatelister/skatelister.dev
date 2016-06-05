@@ -13,6 +13,7 @@ $valid = true;
 			$extension = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
 
 			// Validate Size and Extension
+			// validateFileSize
 			if( $_FILES['image']['size'] > (1024000000))
 			{
 				$valid = false;
